@@ -5,13 +5,11 @@ VisualStudioVersion = 16.0.31829.152
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devinno.Skia", "Devinno.Skia.csproj", "{35758DC2-5AB0-49CB-8A0E-6EE3782C8DFB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devinno.Skia.WinForm", "..\Devinno.Skia.WinForm\Devinno.Skia.WinForm.csproj", "{E4982AEF-7FD2-4CDE-B9E0-1739670045CE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SampleRPi", "..\SampleRPi\SampleRPi.csproj", "{75227475-57EE-47B7-816D-61274A4FC357}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devinno.Skia.OpenTK", "..\Devinno.Skia.OpenTK\Devinno.Skia.OpenTK.csproj", "{E2B1F965-3B07-47C9-8724-E35EBB422598}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Devinno.Skia.Movie", "..\Devinno.Skia.Movie\Devinno.Skia.Movie.csproj", "{06DDD429-7B6F-4038-AE0E-FBE4D9FD650F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Devinno.Skia.Movie", "..\Devinno.Skia.Movie\Devinno.Skia.Movie.csproj", "{06DDD429-7B6F-4038-AE0E-FBE4D9FD650F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +21,6 @@ Global
 		{35758DC2-5AB0-49CB-8A0E-6EE3782C8DFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35758DC2-5AB0-49CB-8A0E-6EE3782C8DFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35758DC2-5AB0-49CB-8A0E-6EE3782C8DFB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4982AEF-7FD2-4CDE-B9E0-1739670045CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4982AEF-7FD2-4CDE-B9E0-1739670045CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4982AEF-7FD2-4CDE-B9E0-1739670045CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4982AEF-7FD2-4CDE-B9E0-1739670045CE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{75227475-57EE-47B7-816D-61274A4FC357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{75227475-57EE-47B7-816D-61274A4FC357}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75227475-57EE-47B7-816D-61274A4FC357}.Release|Any CPU.ActiveCfg = Release|Any CPU
