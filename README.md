@@ -1,1 +1,1 @@
-Devinno 라이브러리
+Devinno SKIA Graphics 라이브러리
