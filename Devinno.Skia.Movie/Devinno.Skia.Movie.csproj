@@ -17,6 +17,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="..\ico.png" Link="ico.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\Devinno.Skia\Devinno.Skia.csproj" />
   </ItemGroup>
 
@@ -45,7 +49,7 @@
     <None Update="FFMpegDLL\swscale-5.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="..\..\..\ico.png">
+    <None Include="..\ico.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

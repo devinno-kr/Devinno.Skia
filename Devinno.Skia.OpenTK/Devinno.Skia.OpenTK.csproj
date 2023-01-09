@@ -17,6 +17,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="..\ico.png" Link="ico.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="OpenTK" Version="4.7.5" />
   </ItemGroup>
 
@@ -25,7 +29,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="..\..\..\ico.png">
+    <None Include="..\ico.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>

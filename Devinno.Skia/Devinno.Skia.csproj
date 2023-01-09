@@ -17,7 +17,8 @@
     <None Remove="Images\Saturation.png" />
     <None Remove="Images\tmi.png" />
     <None Remove="Images\tmi2.png" />
-    <None Include="..\..\..\ico.png">
+    <Content Include="..\ico.png" Link="ico.png" />
+    <None Include="..\ico.png">
       <Pack>True</Pack>
       <PackagePath></PackagePath>
     </None>
