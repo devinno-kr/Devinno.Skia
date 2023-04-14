@@ -78,7 +78,7 @@ namespace SampleRPi
 
             Design.SetPage(pageControl);
 
-            foreach (var vk in Design.Pages.Keys) Design.Pages[vk].IconString = null;
+            //foreach (var vk in Design.Pages.Keys) Design.Pages[vk].IconString = null;
             #endregion
 
             #region MasterPage
@@ -132,6 +132,9 @@ namespace SampleRPi
 
             Design.Animation = true;
             Debug = true;
+
+            navBar.IconGap = 0;
+            navBar.IconAlignment = DvTextIconAlignment.LeftRight;
         }
         #endregion
     }
