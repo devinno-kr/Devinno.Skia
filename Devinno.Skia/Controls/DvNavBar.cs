@@ -147,7 +147,7 @@ namespace Devinno.Skia.Controls
                                     if (sold == page.Name) c = ani.Value(AnimationAccel.DCL, ForeColor, ForeColorA);
                                     if (snew == page.Name) c = ani.Value(AnimationAccel.DCL, ForeColorA, ForeColor);
                                 }
-                                Util.DrawTextIcon(Canvas, text, FontName, FontSize, DvFontStyle.Normal, 3, iconstring, IconSize, c, rtv, IconAlignment);
+                                Util.DrawTextIcon(Canvas, text, FontName, FontSize, DvFontStyle.Normal, IconGap, iconstring, IconSize, c, rtv, IconAlignment);
                             }
 
                             Canvas.RestoreToCount(sp);
