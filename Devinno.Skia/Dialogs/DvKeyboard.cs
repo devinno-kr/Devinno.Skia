@@ -577,7 +577,7 @@ namespace Devinno.Skia.Dialogs
             for (int i = 0; i < 3; i++) Ss[i].Text = KeyMap[PState][Ss[i].Name];
 
             Ent.Text = "";
-            Back.IconString = "fa-backspace";
+            Back.IconString = "fa-delete-left";
             Han.Text = "한/영";
             Num.Text = IsNumber ? (IsHangul ? "가" : "ABC") : "!#1";
             Shift.IconString = "fa-chevron-up";
