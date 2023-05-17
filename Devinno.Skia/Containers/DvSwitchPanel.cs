@@ -1,6 +1,5 @@
 ﻿using Devinno.Skia.Collections;
 using Devinno.Skia.Design;
-using Devinno.Skia.Design;
 using Devinno.Skia.Utils;
 using Newtonsoft.Json;
 using SkiaSharp;
@@ -81,7 +80,7 @@ namespace Devinno.Skia.Containers
         #endregion
 
         #region Event
-        public EventHandler SelectedPageChanged;
+        public event EventHandler SelectedPageChanged;
         #endregion
 
         #region Constructor

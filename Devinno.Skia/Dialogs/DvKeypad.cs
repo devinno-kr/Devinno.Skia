@@ -106,7 +106,7 @@ namespace Devinno.Skia.Dialogs
             btn8 = new DvButton() { Name = nameof(btn8), Text = "8", Gradient = gr };
             btn9 = new DvButton() { Name = nameof(btn9), Text = "9", Gradient = gr };
             btnDot = new DvButton { Name = nameof(btnDot), Text = ".", Gradient = gr };
-            btnBack = new DvButton { Name = nameof(btnBack), IconString = "fa-backspace", Text = "", IconSize = 18, Gradient = gr };
+            btnBack = new DvButton { Name = nameof(btnBack), IconString = "fa-delete-left", Text = "", IconSize = 18, Gradient = gr };
             btnClear = new DvButton { Name = nameof(btnClear), IconString = "fa-eraser", Text = "", IconSize = 18, Gradient = gr };
             btnSign = new DvButton { Name = nameof(btnSign), Text = "", IconSize = 12, Gradient = gr };
             btnEnter = new DvButton { Name = nameof(btnEnter), Text = "", IconSize = 12, Gradient = gr };

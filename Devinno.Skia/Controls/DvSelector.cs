@@ -280,7 +280,7 @@ namespace Devinno.Skia.Controls
     public class TextIconItem
     {
         public string IconString { get; set; }
-        public string Text { get; set; }
+        public virtual string Text { get; set; }
         public object Value { get; set; }
         public object Tag { get; set; }
 
