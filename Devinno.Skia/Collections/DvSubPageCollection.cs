@@ -69,7 +69,8 @@ namespace Devinno.Skia.Collections
                 {
                     this.Remove(value.Name);
                     Changed?.Invoke(this, null);
-                }            }
+                }
+            }
         }
         #endregion
         #region Rename

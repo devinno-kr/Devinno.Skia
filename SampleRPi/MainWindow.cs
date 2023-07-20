@@ -78,7 +78,7 @@ namespace SampleRPi
 
             Design.SetPage(pageControl);
 
-            //foreach (var vk in Design.Pages.Keys) Design.Pages[vk].IconString = null;
+            foreach (var vk in Design.Pages.Keys) Design.Pages[vk].IconString = null;
             #endregion
 
             #region MasterPage

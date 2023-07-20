@@ -95,16 +95,18 @@ namespace Devinno.Skia.Controls
                         var gny = Convert.ToInt32(rtContent.Height / 4);
                         var cy = Convert.ToInt32(rtContent.MidY);
 
-                        p.StrokeWidth = 1;
-                        p.Color = c1;
-                        p.IsStroke = true;
-                        Canvas.DrawLine(rtL.Right, cy - gny, rtL.Right, cy + gny, p);
-                        Canvas.DrawLine(rtR.Left, cy - gny, rtR.Left, cy + gny, p);
+                        if (BackgroundDraw)
+                        {
+                            p.StrokeWidth = 1;
+                            p.Color = c1;
+                            p.IsStroke = true;
+                            Canvas.DrawLine(rtL.Right, cy - gny, rtL.Right, cy + gny, p);
+                            Canvas.DrawLine(rtR.Left, cy - gny, rtR.Left, cy + gny, p);
 
-                        p.Color = c2;
-                        Canvas.DrawLine(rtL.Right + 0.5F, cy - gny, rtL.Right + 0.5F, cy + gny, p);
-                        Canvas.DrawLine(rtR.Left + 0.5F, cy - gny, rtR.Left + 0.5F, cy + gny, p);
-
+                            p.Color = c2;
+                            Canvas.DrawLine(rtL.Right + 0.5F, cy - gny, rtL.Right + 0.5F, cy + gny, p);
+                            Canvas.DrawLine(rtR.Left + 0.5F, cy - gny, rtR.Left + 0.5F, cy + gny, p);
+                        }
 
                         #endregion
                         #region Text
@@ -161,6 +163,7 @@ namespace Devinno.Skia.Controls
                                                      itm.IconString, IconSize, c, rt,
                                                      DvTextIconAlignment.LeftRight, DvContentAlignment.MiddleCenter, true);
                                 }
+
                                 Util.DrawTextIcon(Canvas, itmP.Text, FontName, FontSize, DvFontStyle.Normal, 8,
                                                  itmP.IconString, IconSize, cP, rtP,
                                                  DvTextIconAlignment.LeftRight, DvContentAlignment.MiddleCenter, true);
