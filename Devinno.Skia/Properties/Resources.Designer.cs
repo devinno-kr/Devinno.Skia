@@ -113,6 +113,26 @@ namespace Devinno.Skia.Properties {
         /// <summary>
         ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
+        internal static byte[] MaterialIcons_Regular {
+            get {
+                object obj = ResourceManager.GetObject("MaterialIcons_Regular", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
+        internal static byte[] MaterialIcons_Regular_Code {
+            get {
+                object obj = ResourceManager.GetObject("MaterialIcons_Regular_Code", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
+        /// </summary>
         internal static byte[] NanumGothic {
             get {
                 object obj = ResourceManager.GetObject("NanumGothic", resourceCulture);

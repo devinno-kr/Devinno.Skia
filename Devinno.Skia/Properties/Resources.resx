@@ -133,6 +133,12 @@
   <data name="gb2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\gb2;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="MaterialIcons_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MaterialIcons-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="MaterialIcons_Regular_Code" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MaterialIcons-Regular.codepoints;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="NanumGothic" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NanumGothic.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>

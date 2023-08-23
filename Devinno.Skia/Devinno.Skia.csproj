@@ -57,17 +57,4 @@
     </EmbeddedResource>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Collections\" />
-    <Folder Include="Containers\" />
-    <Folder Include="Controls\" />
-    <Folder Include="Design\" />
-    <Folder Include="Dialogs\" />
-    <Folder Include="Extensions\" />
-    <Folder Include="Icon\" />
-    <Folder Include="Theme\" />
-    <Folder Include="Tools\" />
-    <Folder Include="Utils\" />
-  </ItemGroup>
-
 </Project>
