@@ -265,7 +265,8 @@ namespace Devinno.Skia.Controls
                             ddwnd.ShowDropDown(rts, rte, FoldingMenus, DropDownItemHeight, DropDownViewCount,
                                 BoxColor, ForeColor ?? Design.Theme.ForeColor, (result) =>
                             {
-                                FoldingMenuClicked?.Invoke(this, new FoldingMenuClickedEventArgs(result));
+                                if (result != null)
+                                    FoldingMenuClicked?.Invoke(this, new FoldingMenuClickedEventArgs(result));
                             });
                         }
                     }
@@ -471,7 +472,7 @@ namespace Devinno.Skia.Controls
 
             list.SelectionMode = ItemSelectionMode.NONE;
             list.Items.Clear();
-            list.Items.AddRange(menus.Select(x => new ListBoxItem { Text = x.Text, IconString = x.IconString }));
+            list.Items.AddRange(menus.Select(x => new ListBoxItem { Text = x.Text, IconString = x.IconString, Tag = x }));
             list.Round = DvRoundType.All;
             list.BoxColor = boxColor;
             list.ItemHeight = itemHeight;

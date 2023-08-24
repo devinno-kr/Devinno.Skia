@@ -55,6 +55,14 @@ namespace SampleRPi
             for (int i = 1; i <= 3; i++) nav.FoldingMenus.Add(new DvTextIcon() { Text = "테스트" + i });
             nav.FoldingMenus.Add(new DvTextIcon() { Text = "종료" });
             Design.MasterPage.Controls.Add(nav);
+
+            nav.FoldingMenuClicked += (o, s) => {
+
+                if (s.Item.Text == "종료")
+                {
+                    Close();
+                }
+            };
             #endregion
 
             #region Page

@@ -1,4 +1,6 @@
-﻿using Devinno.Skia.Design;
+﻿using Devinno.Skia.Controls;
+using Devinno.Skia.Design;
+using Devinno.Skia.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.IO;

@@ -2108,11 +2108,22 @@ namespace Devinno.Skia.Icon
                     {
                         if (dic["fas"].ContainsKey(_icon)) ret = true;
                     }
+                    else if (ls.FirstOrDefault() == "mt")
+                    {
+                        if (dic["mt"].ContainsKey(_icon)) ret = true;
+                    }
                 }
                 else if (ls.Count == 1)
                 {
                     var _icon = ls.LastOrDefault();
-                    if (dic["fas"].ContainsKey(_icon)) ret = true;
+                    if (_icon.StartsWith("fa-"))
+                    {
+                        if (dic["fas"].ContainsKey(_icon)) ret = true;
+                    }
+                    else
+                    {
+                        if (dic["mt"].ContainsKey(_icon)) ret = true;
+                    }
                 }
             }
             return ret;
