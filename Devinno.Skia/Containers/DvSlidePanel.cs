@@ -62,7 +62,7 @@ namespace Devinno.Skia.Containers
         #endregion
 
         #region Event
-        public EventHandler SelectedPageChanged;
+        public event EventHandler SelectedPageChanged;
         #endregion
 
         #region Constructor
