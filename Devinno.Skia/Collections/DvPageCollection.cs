@@ -31,8 +31,9 @@ namespace Devinno.Skia.Collections
             if (value != null)
             {
                 value.Design = Design;
+
                 base.Add(key, value);
-                Changed?.Invoke(this, null);
+                InvokeChanged();
             }
             else throw new Exception("페이지가 null 일 수 없습니다.");
         }
@@ -42,12 +43,10 @@ namespace Devinno.Skia.Collections
             if (value != null)
             {
                 value.Design = Design;
+
                 if (value.Name != null)
                 {
-                    if (!this.ContainsKey(value.Name))
-                    {
-                        this.Add(value.Name, value);
-                    }
+                    if (!ContainsKey(value.Name)) Add(value.Name, value);
                     else throw new Exception("동일한 이름의 페이지가 존재합니다.");
                 }
                 else throw new Exception("페이지 이름은 null 일 수 없습니다.");
@@ -60,10 +59,10 @@ namespace Devinno.Skia.Collections
         {
             if (value != null)
             {
-                if (this.ContainsKey(value.Name))
+                if (ContainsKey(value.Name))
                 {
-                    this.Remove(value.Name);
-                    Changed?.Invoke(this, null);
+                    Remove(value.Name);
+                    InvokeChanged();
                 }
             }
         }
@@ -75,13 +74,24 @@ namespace Devinno.Skia.Collections
             if (!ContainsKey(NewName))
             {
                 target.Name = NewName;
-                var ls = this.Values.ToList();
+                var ls = Values.ToList();
 
-                this.Clear();
+                Clear();
                 foreach (var v in ls) Add(target);
             }
             return ret;
         }
+        #endregion
+        #region Reset
+        public void Reset()
+        {
+            foreach (var vk in Keys)
+                this[vk].Design = Design;
+        }
+        #endregion
+
+        #region InvokeChanged
+        protected void InvokeChanged() => Changed?.Invoke(this, null);
         #endregion
         #endregion
     }

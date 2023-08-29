@@ -31,17 +31,8 @@ namespace Devinno.Skia.Collections
         {
             if (value != null)
             {
-                /*
-                if (value.Name == null)
-                {
-                    var name = value.GetType().Name;
-                    name = char.ToLower(name[0]) + name.Substring(1);
-                    var ls = Values.Where(x => x.Name.StartsWith(name)).Select(x => Convert.ToInt32(name.Substring(name.Length))).ToList();
-                    int n = ls.Count > 0 ? ls.Max() + 1 : 1;
-                    value.Name = name + n;
-                }
-               */
                 value.ParentContainer = Parent;
+
                 base.Add(key, value);
                 InvokeChanged();
             }
@@ -52,20 +43,11 @@ namespace Devinno.Skia.Collections
         {
             if (value != null)
             {
-                /*
-                if (value.Name == null)
-                {
-                    var name = value.GetType().Name;
-                    name = char.ToLower(name[0]) + name.Substring(1);
-                    var ls = Values.Where(x => x.Name.StartsWith(name)).Select(x => Convert.ToInt32(name.Substring(name.Length))).ToList();
-                    int n = ls.Count > 0 ? ls.Max() + 1 : 1;
-                    value.Name = name + n;
-                }
-                */
                 value.ParentContainer = Parent;
+
                 if (value.Name != null)
                 {
-                    if (!this.ContainsKey(value.Name)) { this.Add(value.Name, value); Changed?.Invoke(this, null); }
+                    if (!this.ContainsKey(value.Name)) Add(value.Name, value);
                     else throw new Exception("동일한 이름의 컨트롤이 존재합니다.");
                 }
                 else throw new Exception("컨트롤 이름은 null 일 수 없습니다.");
@@ -78,9 +60,9 @@ namespace Devinno.Skia.Collections
         {
             if (value != null)
             {
-                if (this.ContainsKey(value.Name))
+                if (ContainsKey(value.Name))
                 {
-                    this.Remove(value.Name);
+                    Remove(value.Name);
                     InvokeChanged();
                 }
             }
@@ -93,16 +75,25 @@ namespace Devinno.Skia.Collections
             if (!ContainsKey(NewName))
             {
                 target.Name = NewName;
-                var ls = this.Values.ToList();
+                var ls = Values.ToList();
 
-                this.Clear();
+                Clear();
                 foreach (var v in ls) Add(target);
             }
             return ret;
         }
         #endregion
+        #region Reset
+        public void Reset()
+        {
+            foreach (var vk in Keys)
+                this[vk].ParentContainer = Parent;
+        }
+        #endregion
 
+        #region InvokeChanged
         protected void InvokeChanged() => Changed?.Invoke(this, null);
+        #endregion
         #endregion
     }
 
@@ -118,6 +109,7 @@ namespace Devinno.Skia.Collections
         #region Add
         internal new void Add(string key, DvControl value) => base.Add(key, value);
         internal new void Add(DvControl c) => base.Add(c);
+
         public void Add(DvControl control, int column, int row, int colspan=1, int rowspan=1)
         {
             if (column < -1) throw new ArgumentException("column");
@@ -145,6 +137,7 @@ namespace Devinno.Skia.Collections
         #region Add
         internal new void Add(string key, DvControl value) => base.Add(key, value);
         internal new void Add(DvControl c) => base.Add(c);
+
         public void Add(DvControl control, int column, int row)
         {
             if (column < -1) throw new ArgumentException("column");
