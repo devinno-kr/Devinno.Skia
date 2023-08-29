@@ -1,5 +1,4 @@
 ﻿using Devinno.Skia.Design;
-using Devinno.Skia.Design;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,16 +30,6 @@ namespace Devinno.Skia.Collections
         {
             if (value != null)
             {
-                /*
-                if (value.Name == null)
-                {
-                    var name = value.GetType().Name;
-                    name = char.ToLower(name[0]) + name.Substring(1);
-                    var ls = Values.Where(x => x.Name.StartsWith(name)).Select(x => Convert.ToInt32(name.Substring(name.Length))).ToList();
-                    int n = ls.Count > 0 ? ls.Max() + 1 : 1;
-                    value.Name = name + n;
-                }
-                */
                 value.Design = Design;
                 base.Add(key, value);
                 Changed?.Invoke(this, null);
@@ -58,7 +47,6 @@ namespace Devinno.Skia.Collections
                     if (!this.ContainsKey(value.Name))
                     {
                         this.Add(value.Name, value);
-                        Changed?.Invoke(this, null);
                     }
                     else throw new Exception("동일한 이름의 페이지가 존재합니다.");
                 }
