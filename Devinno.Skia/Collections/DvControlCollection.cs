@@ -78,7 +78,7 @@ namespace Devinno.Skia.Collections
                 var ls = Values.ToList();
 
                 Clear();
-                foreach (var v in ls) Add(target);
+                foreach (var v in ls) Add(v);
             }
             return ret;
         }
