@@ -123,7 +123,7 @@ namespace Devinno.Skia.Design
             MasterPage = new DvPage() { Design = this, BackgroundDraw = true, UseMasterPage = false };
             Theme = new BlackTheme();
 
-            var v1 = ResourceTool.circlegrad;
+            var v1 = ResourceTool.saturation;
             var v2 = ColorTool.GetName(SKColors.White, ColorCodeType.ARGB);
             FA.GetFAI("fa-box");
             FontTool.Load();

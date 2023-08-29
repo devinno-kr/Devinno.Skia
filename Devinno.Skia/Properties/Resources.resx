@@ -127,12 +127,6 @@
   <data name="Font_Awesome_6_Free_Solid_900" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Font Awesome 6 Free-Solid-900.otf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="gb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gb;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="gb2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\gb2;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="MaterialIcons_Regular" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MaterialIcons-Regular.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -144,11 +138,5 @@
   </data>
   <data name="Saturation" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Saturation;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tmi" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tmi;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="tmi2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tmi2;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
 </root>

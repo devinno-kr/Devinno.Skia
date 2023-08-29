@@ -93,26 +93,6 @@ namespace Devinno.Skia.Properties {
         /// <summary>
         ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
         /// </summary>
-        internal static byte[] gb {
-            get {
-                object obj = ResourceManager.GetObject("gb", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static byte[] gb2 {
-            get {
-                object obj = ResourceManager.GetObject("gb2", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
         internal static byte[] MaterialIcons_Regular {
             get {
                 object obj = ResourceManager.GetObject("MaterialIcons_Regular", resourceCulture);
@@ -146,26 +126,6 @@ namespace Devinno.Skia.Properties {
         internal static byte[] Saturation {
             get {
                 object obj = ResourceManager.GetObject("Saturation", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static byte[] tmi {
-            get {
-                object obj = ResourceManager.GetObject("tmi", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   System.Byte[] 형식의 지역화된 리소스를 찾습니다.
-        /// </summary>
-        internal static byte[] tmi2 {
-            get {
-                object obj = ResourceManager.GetObject("tmi2", resourceCulture);
                 return ((byte[])(obj));
             }
         }
