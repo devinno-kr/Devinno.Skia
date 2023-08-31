@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Devinno.Skia.Icon
 {
-    class FA
+    public class FA
     {
         private static Dictionary<string, Dictionary<string, int>> dic;
 
