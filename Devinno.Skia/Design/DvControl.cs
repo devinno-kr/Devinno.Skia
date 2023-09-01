@@ -28,6 +28,19 @@ namespace Devinno.Skia.Design
         private SKRect bounds = Util.FromRect(0, 0, 70, 30);
 
         public SKRect Bounds { get => bounds; set => bounds = value; }
+        public SKRect ScreenBounds
+        {
+            get
+            {
+                if (ParentContainer != null && ParentContainer is DvControl)
+                {
+                    var x = ((DvControl)ParentContainer).ScreenX + X;
+                    var y = ((DvControl)ParentContainer).ScreenY + Y;
+                    return Util.FromRect(x, y, Width, Height);
+                }
+                else return bounds;
+            }
+        }
 
         public float Left { get => bounds.Left; set => bounds.Left = value; }
         public float Top { get => bounds.Top; set => bounds.Top = value; }

@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using OpenTK.Graphics.OpenGL;
 using OpenTK.Windowing.GraphicsLibraryFramework;
 using System.Runtime.InteropServices;
+using Devinno.Skia.Tools;
 
 namespace SampleRPi
 {
@@ -41,6 +42,10 @@ namespace SampleRPi
 				ShowWindow(handle, SW_HIDE);
 			}
 			*/
+
+			for (decimal v = -2M; v <= 2M; v += 0.5M)
+				Console.WriteLine($"{v} : {(v < 0M ? MathTool.Map((double)v, -2, 0, 0.5, 1) : MathTool.Map((double)v, 0, 2, 1, 2))}");
+
 
             using (var view = new MainWindow())
             {
