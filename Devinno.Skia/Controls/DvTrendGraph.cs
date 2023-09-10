@@ -50,7 +50,7 @@ namespace Devinno.Skia.Controls
         public DvFontStyle FontStyle { get; set; } = DvFontStyle.Normal;
         #endregion
         #region Interval
-        public int Interval = 1000;
+        public int Interval { get; set; } = 1000;
         #endregion
         #region IsStart
         public bool IsStart { get; private set; } = false;
