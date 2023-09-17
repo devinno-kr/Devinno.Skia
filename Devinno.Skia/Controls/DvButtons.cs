@@ -86,35 +86,52 @@ namespace Devinno.Skia.Controls
                     var rnds = Util.Rounds(Direction, round, Buttons.Count);
                     var cBorder = thm.GetBorderColor(cButton, ParentContainer.GetBackColor());
                     #endregion
-                    
-                    for (int i = 0; i < Buttons.Count; i++)
+
+                    if (Buttons.Count > 0)
                     {
-                        #region var
-                        var rt = rtButtons[i]; 
-                        var btn = Buttons[i];
-                        var rnd = rnds[i];
-                        var cBTN = btn.Checked ? cCheckedButton : cButton;
-                        var cBOR = thm.GetBorderColor(cBTN, ParentContainer.GetBackColor());
-                        #endregion
-                        #region Animation Color
-                        if (Animation && ani.IsPlaying)
+                        for (int i = 0; i < Buttons.Count; i++)
                         {
-                            if (!btn.ButtonDownState)
+                            #region var
+                            var rt = rtButtons[i];
+                            var btn = Buttons[i];
+                            var rnd = rnds[i];
+                            var cBTN = btn.Checked ? cCheckedButton : cButton;
+                            var cBOR = thm.GetBorderColor(cBTN, ParentContainer.GetBackColor());
+                            #endregion
+                            #region Animation Color
+                            if (Animation && ani.IsPlaying)
                             {
-                                if (btn == nowBtn) cBTN = ani.Value(AnimationAccel.Linear, cButton.BrightnessTransmit(thm.DownBrightness), cCheckedButton);
-                                else if (btn == prevBtn) cBTN = ani.Value(AnimationAccel.Linear, cCheckedButton, cButton);
+                                if (!btn.ButtonDownState)
+                                {
+                                    if (btn == nowBtn) cBTN = ani.Value(AnimationAccel.Linear, cButton.BrightnessTransmit(thm.DownBrightness), cCheckedButton);
+                                    else if (btn == prevBtn) cBTN = ani.Value(AnimationAccel.Linear, cCheckedButton, cButton);
+                                }
                             }
+                            #endregion
+
+                            thm.DrawButton(Canvas,
+                                rt,
+                                cBTN, cBOR, cFore, cBack,
+                                btn,
+                                rnd, Gradient, true,
+                                DvContentAlignment.MiddleCenter,
+                                btn.ButtonDownState);
                         }
-                        #endregion
+                    }
+                    else
+                    {
+                        var cBTN = cButton;
+                        var cBOR = thm.GetBorderColor(cBTN, ParentContainer.GetBackColor());
 
                         thm.DrawButton(Canvas,
-                            rt,
+                            rtContent,
                             cBTN, cBOR, cFore, cBack,
-                            btn,
-                            rnd, Gradient, true,
+                            new DvTextIcon(),
+                            DvRoundType.All, Gradient, true,
                             DvContentAlignment.MiddleCenter,
-                            btn.ButtonDownState);
+                            false);
                     }
+
                 });
             }
             base.OnDraw(Canvas);

@@ -884,7 +884,7 @@ namespace Devinno.Skia.Controls
                 MakeColumnTree(lsg, lsc, v, v.ColumnTree);
             }
 
-            colrc = mcols.Max(x => x.ColumnTree.Count);
+            colrc = mcols.Count > 0 ? mcols.Max(x => x.ColumnTree.Count) : 0;
 
             foreach (var v in mcols.OrderByDescending(x=>x.ColumnTree.Count))
             {

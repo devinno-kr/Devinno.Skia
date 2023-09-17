@@ -1,6 +1,7 @@
 ﻿using Devinno.Skia.Controls;
 using Devinno.Skia.Design;
 using Devinno.Skia.Dialogs;
+using Devinno.Skia.Utils;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -16,6 +17,10 @@ namespace SampleRPi.Pages
         public PageControl()
         {
             UseMasterPage = true;
+
+            Controls.Add(new DvDataGrid { Name = "dg", Bounds = Util.FromRect(20, 100, 400, 300), });
+
+            Controls.Add(new DvButtons { Name = "btns", Bounds = Util.FromRect(420, 100, 150, 30) });
         }
 
         /*
