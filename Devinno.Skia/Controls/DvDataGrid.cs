@@ -179,6 +179,15 @@ namespace Devinno.Skia.Controls
                                                             x.Bounds.Left + (!x.Column.Fixed ? hspos : 0), x.Bounds.Right + (!x.Column.Fixed ? hspos : 0))).ToList();
                                 #endregion
 
+                                #region Box
+                                {
+                                    p.IsStroke = false;
+                                    p.Color = BoxColor;
+
+                                    Canvas.DrawRoundRect(rt, p);
+                                }
+                                #endregion
+
                                 #region Column
                                 #region Column
                                 {
