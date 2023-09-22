@@ -545,6 +545,17 @@ namespace Devinno.Skia.Controls
             {
                 v.SetTree(TreeView);
                 v.Parent = Parent;
+                Reset(v);
+            }
+        }
+
+        void Reset(TreeViewNode nd)
+        {
+            foreach(var v in nd.Nodes)
+            {
+                v.SetTree(TreeView);
+                v.Parent = nd;
+                Reset(v);
             }
         }
         #endregion

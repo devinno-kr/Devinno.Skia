@@ -18,9 +18,31 @@ namespace SampleRPi.Pages
         {
             UseMasterPage = true;
 
-            Controls.Add(new DvDataGrid { Name = "dg", Bounds = Util.FromRect(20, 100, 400, 300), });
+            var tv = new DvTreeView { Name = "tree", Bounds = Util.FromRect(20, 100, 400, 300), };
+            Controls.Add(tv);
 
-            Controls.Add(new DvButtons { Name = "btns", Bounds = Util.FromRect(420, 100, 150, 30) });
+            var nd1 = new TreeViewNode { Text = "T1" };
+            var nd2 = new TreeViewNode { Text = "T2" };
+            var nd3 = new TreeViewNode { Text = "T3" };
+
+            nd1.Nodes.Add(new TreeViewNode { Text = "T1.1" });
+            nd1.Nodes.Add(new TreeViewNode { Text = "T1.2" });
+            nd1.Nodes.Add(new TreeViewNode { Text = "T1.3" });
+
+            nd2.Nodes.Add(new TreeViewNode { Text = "T2.1" });
+            nd2.Nodes.Add(new TreeViewNode { Text = "T2.2" });
+
+            nd3.Nodes.Add(new TreeViewNode { Text = "T3.1" });
+
+            nd1.Nodes[0].Nodes.Add(new TreeViewNode { Text = "T1.1.1" });
+            nd1.Nodes[0].Nodes.Add(new TreeViewNode { Text = "T1.1.2" });
+
+            tv.Nodes.Add(nd1);
+            tv.Nodes.Add(nd2);
+            tv.Nodes.Add(nd3);
+
+            tv.Nodes.Reset();
+
         }
 
         /*
