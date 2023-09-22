@@ -445,7 +445,11 @@ namespace Devinno.Skia.Controls
         #endregion
 
         #region SetTree
-        internal void SetTree(DvTreeView tree) => this.tree = tree;
+        internal void SetTree(DvTreeView tree)
+        {
+            this.tree = tree;
+            foreach (var v in Nodes) v.SetTree(tree);
+        }
         #endregion
         #region loop
         private void loop(SKRect rtRow, Action<SKRect, SKRect, TreeViewNode> act)
@@ -533,7 +537,18 @@ namespace Devinno.Skia.Controls
             }
             base.OnAppeded(items);
         }
+
+        #region Reset
+        public void Reset()
+        {
+            foreach (var v in this)
+            {
+                v.SetTree(TreeView);
+                v.Parent = Parent;
+            }
+        }
+        #endregion
     }
     #endregion
-  
+
 }
