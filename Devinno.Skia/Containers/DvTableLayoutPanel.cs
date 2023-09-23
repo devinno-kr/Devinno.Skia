@@ -89,6 +89,22 @@ namespace Devinno.Skia.Containers
             else return null;
         }
         #endregion
+        #region Areas
+        public void Areas(Action<int, int, SKRect> act)
+        {
+            var rt = new SKRect(0, 0, Width, Height);
+            var rtvs = Util.DevideSizeVH(rt, Rows, Columns);
+
+            for (int i = 0; i < Rows.Count; i++)
+            {
+                for (int j = 0; j < Columns.Count; j++)
+                {
+                    var rtv = rtvs[i, j];
+                    act(i, j, rtv);
+                }
+            }
+        }
+        #endregion
         #endregion
     }
 
