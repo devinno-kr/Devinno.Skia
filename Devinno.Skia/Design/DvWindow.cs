@@ -181,7 +181,7 @@ namespace Devinno.Skia.Design
                 if (v.Visible)
                 {
                     var sp2 = cv.Save();
-                    cv.Translate(v.X, v.Y + (BackgroundDraw ? TitleHeight : 0));
+                    cv.Translate(v.X, v.Y );
                     cv.ClipRect(Util.FromRect(0, 0, v.Width + 3, v.Height + 3));
 
                     v._Draw(cv);
@@ -287,7 +287,7 @@ namespace Devinno.Skia.Design
                             if (v.Visible)
                             {
                                 var sp2 = cv.Save();
-                                cv.Translate(v.X, v.Y + (BackgroundDraw ? TitleHeight : 0));
+                                cv.Translate(v.X, v.Y);
                                 cv.ClipRect(Util.FromRect(0, 0, v.Width + 3, v.Height + 3));
 
                                 v._Draw(cv);
