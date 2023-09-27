@@ -31,13 +31,14 @@ namespace SampleRPi
         internal PageTable pageTable;
         internal PageAnimation pageAni;
         internal PageInformation pageInformation;
-
+        internal TestWindow testwnd;
         private DvNavBar nav;
         #endregion
 
         #region Constructor
         public MainWindow() : base(W, H)
         {
+            testwnd = new TestWindow() { Width = 400, Height = 300 };
             #region MasterPage
             Design.MasterPage.BackgroundDraw = true;
             Design.MasterPage.BackColor = Design.Theme.BackColor;
@@ -61,6 +62,10 @@ namespace SampleRPi
                 if (s.Item.Text == "종료")
                 {
                     Close();
+                }
+                else if(s.Item.Text == "테스트1")
+                {
+                    testwnd.Show();
                 }
             };
             #endregion
