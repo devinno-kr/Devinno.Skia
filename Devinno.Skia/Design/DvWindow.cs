@@ -134,7 +134,7 @@ namespace Devinno.Skia.Design
                         var WindowStateButtonColor = this.ForeColor ?? thm.ForeColor;
                         var IconBoxColor = this.IconBoxColor ?? thm.PointColor;
 
-                        using (var p = new SKPaint())
+                        using (var p = new SKPaint { IsAntialias = DvDesign.AA, })
                         {
 
                             if (BackgroundDraw)
@@ -214,7 +214,7 @@ namespace Devinno.Skia.Design
                 #region Block
                 if (UseBlock)
                 {
-                    using (var paint = new SKPaint())
+                    using (var paint = new SKPaint { IsAntialias = DvDesign.AA, })
                     {
                         var fadeAni = 0;
                         if (ani.Variable == "Show") fadeAni = Convert.ToByte(ani.Value(AnimationAccel.Linear, 0F, 255F));
@@ -246,7 +246,7 @@ namespace Devinno.Skia.Design
                             var WindowStateButtonColor = this.ForeColor ?? thm.ForeColor;
                             var IconBoxColor = this.IconBoxColor ?? thm.PointColor;
 
-                            using (var p = new SKPaint())
+                            using (var p = new SKPaint { IsAntialias = DvDesign.AA, })
                             {
 
                                 if (BackgroundDraw)
@@ -315,7 +315,7 @@ namespace Devinno.Skia.Design
                     {
                         if (ani.IsPlaying)
                         {
-                            using (var p = new SKPaint())
+                            using (var p = new SKPaint { IsAntialias = DvDesign.AA, })
                             {
                                 if (ani.Variable == "Show")
                                 {
