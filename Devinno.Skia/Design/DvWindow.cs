@@ -112,6 +112,98 @@ namespace Devinno.Skia.Design
         }
         #endregion
 
+        #region SampleDraw
+        public void SampleDraw(SKCanvas Canvas, Theme.DvTheme thm)
+        {
+            OnLayout();
+
+            using (var bm = new SKBitmap(Width, Height, SKColorType.Rgba8888, SKAlphaType.Premul))
+            {
+                using (var cv = new SKCanvas(bm))
+                {
+                    var sp = cv.Save();
+
+                    cv.ClipRect(Util.FromRect(0, 0, Width, Height));
+
+                    #region Window
+                    bounds((rtExit, rtTitle, rtTitleBar, rtContent, rtIcon) =>
+                    {
+                        var ForeColor = this.ForeColor ?? thm.ForeColor;
+                        var BackColor = this.BackColor ?? thm.BackColor;
+                        var TitleBarColor = this.TitleBarColor ?? thm.WindowTitleColor;
+                        var WindowStateButtonColor = this.ForeColor ?? thm.ForeColor;
+                        var IconBoxColor = this.IconBoxColor ?? thm.PointColor;
+
+                        using (var p = new SKPaint())
+                        {
+
+                            if (BackgroundDraw)
+                            {
+                                if (BackgroundImage != null)
+                                {
+                                    cv.DrawBitmap(BackgroundImage, Util.FromRect(0, 0, Width, Height));
+                                }
+                                else
+                                {
+                                    cv.Clear(BackColor);
+                                }
+                            }
+
+                            if (UseTitleBar)
+                            {
+                                p.Color = TitleBarColor;
+                                cv.DrawRect(rtTitleBar, p);
+
+                                p.Color = IconBoxColor;
+                                cv.DrawRect(rtIcon, p);
+
+                                p.Color = ForeColor;
+                                Util.DrawText(cv, Title, FontName, FontSize, DvFontStyle.Normal, ForeColor, rtTitle, DvContentAlignment.MiddleLeft);
+                                Util.DrawIcon(cv, IconString, IconSize, ForeColor, rtIcon, DvContentAlignment.MiddleCenter);
+
+                                if (ExitBox)
+                                {
+                                    var cn = 4;
+                                    var rt = Util.MakeRectangle(rtExit, new SKSize(TitleHeight / cn, TitleHeight / cn));
+                                    p.Color = bExitDown ? Util.FromArgb(255, 0, 0) : WindowStateButtonColor;
+                                    p.StrokeWidth = 1;
+
+                                    cv.DrawLine(rt.Left, rt.Top, rt.Right, rt.Bottom, p);
+                                    cv.DrawLine(rt.Right, rt.Top, rt.Left, rt.Bottom, p);
+                                }
+
+                                OnDraw(cv);
+                            }
+                        }
+                    });
+                    #endregion
+
+                    #region Controls
+                    foreach (var v in Controls.Values)
+                    {
+                        if (v.Visible)
+                        {
+                            var sp2 = cv.Save();
+                            cv.Translate(v.X, v.Y + (BackgroundDraw ? TitleHeight : 0));
+                            cv.ClipRect(Util.FromRect(0, 0, v.Width + 3, v.Height + 3));
+
+                            v._Draw(cv);
+
+                            cv.RestoreToCount(sp2);
+                        }
+                    }
+                    #endregion
+
+                    cv.RestoreToCount(sp);
+                }
+
+                var rt = Util.FromRect(X, Y, Width, Height);
+                var cp = MathTool.CenterPoint(rt);
+                Canvas.DrawBitmap(bm, rt);
+            }
+        }
+        #endregion
+
         #region Internal
         internal void _Draw(SKCanvas Canvas)
         {
