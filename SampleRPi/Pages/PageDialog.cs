@@ -2,9 +2,9 @@ using Devinno.Skia.Design;
 
 namespace SampleRPi.Pages
 {
-    public partial class PageInput : DvPage
+    public partial class PageDialog : DvPage
     {
-        public PageInput()
+        public PageDialog()
         {
             InitializeComponent();
         }

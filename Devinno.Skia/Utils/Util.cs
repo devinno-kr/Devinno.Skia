@@ -37,6 +37,19 @@ namespace Devinno.Skia.Utils
             return ret;
         }
         #endregion
+        #region FromBitmap64
+        public static SKBitmap FromBitmap64(string base64)
+        {
+            SKBitmap ret = null;
+            try
+            {
+                var ba = Convert.FromBase64String(base64);
+                using (var ms = new MemoryStream(ba)) ret = SKBitmap.Decode(ba);
+            }
+            catch { }
+            return ret;
+        }
+        #endregion
         #region FromAssemblyBitmap
         public static SKBitmap FromAssemblyBitmap(Assembly asm, string name)
         {

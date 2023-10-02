@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace SampleRPi.Pages
 {
-    public class PageContainer : DvPage
+    public partial class PageContainer : DvPage
     {
+        public PageContainer()
+        {
+            InitializeComponent();
+           
+        }
     }
 }
