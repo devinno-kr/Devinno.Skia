@@ -371,7 +371,8 @@ namespace Devinno.Skia.Controls
                     var sz = Util.MeasureTextIcon(ti);
                     var rt = Util.FromRect(x, rtMenus.Top, sz.Width, rtMenus.Height);
                     x += sz.Width + 15F;
-                    var sx = Design.Pages.Values.LastOrDefault()?.Name != pn ? x : (float?)null;
+                    var last = PageNames.LastOrDefault();
+                    var sx = last != pn ? x : (float?)null;
                     ls.Add(new NavItem(page, rt, ti, sx));
                     x += 15;
                 }

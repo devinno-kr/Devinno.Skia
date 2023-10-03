@@ -1,10 +1,11 @@
+using System;
 using Devinno.Skia.Design;
 
 namespace SampleRPi.Pages
 {
-    public partial class PageDialog : DvPage
+    public partial class PageGauge : DvPage
     {
-        public PageDialog()
+        public PageGauge()
         {
             InitializeComponent();
         }
