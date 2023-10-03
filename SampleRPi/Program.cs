@@ -1,4 +1,5 @@
 using OpenTK.Windowing.Common;
+using System.Linq;
 
 namespace SampleRPi
 {
@@ -8,6 +9,9 @@ namespace SampleRPi
 
         static void Main(string[] args)
         {
+            bool[] bs = new bool[] { true, false, true, false, false };
+            var ls = bs.OrderBy(x => x).ToList();
+
             using (var view = new MainWindow())
             {
                 MainWindow = view;

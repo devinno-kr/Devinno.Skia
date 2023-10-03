@@ -35,6 +35,10 @@ namespace SampleRPi
 
             nav = new DvNavBar { Name = nameof(nav) };
 
+            nav.BoxColor = null;
+            nav.ForeColor = null;
+            nav.BorderColor = null;
+            nav.LogoImage = Devinno.Skia.Utils.Util.FromBitmap64("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");
             nav.Title = "SAMPLE";
             nav.TitleFontName = "NanumGothic";
             nav.TitleFontSize = 18;
@@ -44,9 +48,19 @@ namespace SampleRPi
             nav.IconSize = 12;
             nav.IconGap = 5;
             nav.IconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
+            nav.PageNames.Add("PageControl");
+            nav.PageNames.Add("PageContainer");
+            nav.PageNames.Add("PageInput");
+            nav.PageNames.Add("PageGraph");
+            nav.PageNames.Add("PageDialog");
+            nav.PageNames.Add("PageTable");
+            nav.FoldingMenus.Add(new Devinno.Skia.Design.DvTextIcon { IconString = "", IconSize = 12, IconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight, IconGap = 0, Text = "Test1", FontName = "NanumGothic", FontSize = 12, FontStyle = Devinno.Skia.Design.DvFontStyle.Normal, TextPadding = new Devinno.Skia.Design.Padding(0, 0, 0, 0) });
+            nav.FoldingMenus.Add(new Devinno.Skia.Design.DvTextIcon { IconString = "", IconSize = 12, IconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight, IconGap = 0, Text = "Test2", FontName = "NanumGothic", FontSize = 12, FontStyle = Devinno.Skia.Design.DvFontStyle.Normal, TextPadding = new Devinno.Skia.Design.Padding(0, 0, 0, 0) });
+            nav.FoldingMenus.Add(new Devinno.Skia.Design.DvTextIcon { IconString = "", IconSize = 12, IconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight, IconGap = 0, Text = "Test3", FontName = "NanumGothic", FontSize = 12, FontStyle = Devinno.Skia.Design.DvFontStyle.Normal, TextPadding = new Devinno.Skia.Design.Padding(0, 0, 0, 0) });
+            nav.FoldingMenus.Add(new Devinno.Skia.Design.DvTextIcon { IconString = "", IconSize = 12, IconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight, IconGap = 0, Text = "Exit", FontName = "NanumGothic", FontSize = 12, FontStyle = Devinno.Skia.Design.DvFontStyle.Normal, TextPadding = new Devinno.Skia.Design.Padding(0, 0, 0, 0) });
             nav.DropDownViewCount = 8;
             nav.DropDownItemHeight = 30;
-            nav.DropDownWidth = null;
+            nav.DropDownWidth = 120;
             nav.BarHeight = 50;
             nav.Name = "nav";
             nav.X = 0;

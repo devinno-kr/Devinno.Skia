@@ -120,7 +120,7 @@ namespace Devinno.Skia.Design
         public DvDesign()
         {
             Pages = new DvPageCollection(this);
-            MasterPage = new DvPage() { Design = this, BackgroundDraw = true, UseMasterPage = false };
+            MasterPage = new DvPage() { Name = "_MASTER_", Design = this, BackgroundDraw = true, UseMasterPage = false };
             Theme = new BlackTheme();
 
             var v1 = ResourceTool.saturation;

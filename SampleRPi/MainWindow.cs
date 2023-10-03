@@ -9,6 +9,11 @@ namespace SampleRPi
             InitializeComponent();
 
             Design.SetPage(PageControl);
+
+            nav.FoldingMenuClicked += (o, s) =>
+            {
+                if (s.Item.Text == "Exit") Close();
+            };
         }
     }
 }
