@@ -4,9 +4,9 @@ using Devinno.Skia.Controls;
 using Devinno.Skia.Containers;
 using Devinno.Skia.Design;
 
-namespace SampleRPi.Pages
+namespace SampleUI.Pages
 {
-    partial class PageDialogs
+    partial class PageMonitor
     {
         #region declare
         #endregion
@@ -19,7 +19,7 @@ namespace SampleRPi.Pages
             BackColor = null;
             BackgroundImage = null;
             AnimationType = null;
-            Text = "Dialogs";
+            Text = "Monitoring";
             IconString = "";
             #endregion
 

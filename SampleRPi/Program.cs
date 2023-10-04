@@ -1,7 +1,7 @@
 using System;
 using OpenTK.Windowing.Common;
 
-namespace SampleRPi
+namespace SampleUI
 {
     public class Program
     {

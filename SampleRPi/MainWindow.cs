@@ -1,6 +1,11 @@
+using System;
+using Devinno.Skia.Utils;
+using Devinno.Skia.Controls;
+using Devinno.Skia.Containers;
+using Devinno.Skia.Design;
 using Devinno.Skia.OpenTK;
 
-namespace SampleRPi
+namespace SampleUI
 {
     public partial class MainWindow : DvViewWindow
     {
@@ -8,14 +13,7 @@ namespace SampleRPi
         {
             InitializeComponent();
 
-            Design.SetPage(PageControl);
-
-            nav.FoldingMenuClicked += (o, s) =>
-            {
-                if (s.Item.Text == "Exit") Close();
-            };
-
-            Design.Animation = true;
+            Design.SetPage(PageMonitor);
         }
     }
 }

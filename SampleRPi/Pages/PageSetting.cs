@@ -3,9 +3,9 @@ using Devinno.Skia.Design;
 
 namespace SampleUI.Pages
 {
-    public partial class PageControl : DvPage
+    public partial class PageSetting : DvPage
     {
-        public PageControl()
+        public PageSetting()
         {
             InitializeComponent();
         }
