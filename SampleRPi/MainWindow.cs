@@ -14,6 +14,8 @@ namespace SampleRPi
             {
                 if (s.Item.Text == "Exit") Close();
             };
+
+            Design.Animation = true;
         }
     }
 }

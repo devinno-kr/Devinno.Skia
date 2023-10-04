@@ -186,6 +186,7 @@ namespace SampleRPi.Pages
             prgsV.FontSize = 10F;
             prgsV.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             prgsV.BarPadding = 5F;
+            prgsV.BarSize = 30;
             prgsV.Name = "prgsV";
             prgsV.X = 3F;
             prgsV.Y = 3F;
@@ -268,6 +269,7 @@ namespace SampleRPi.Pages
             prgsH.FontSize = 10F;
             prgsH.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             prgsH.BarPadding = 5F;
+            prgsH.BarSize = 30;
             prgsH.Name = "prgsH";
             prgsH.X = 260.40002F;
             prgsH.Y = 3F;

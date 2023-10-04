@@ -805,7 +805,8 @@ namespace SampleRPi.Pages
             vlblInt.TitleFontSize = 12F;
             vlblInt.TitleFontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             vlblInt.TitleAreaSize = 100F;
-            vlblInt.ButtonAreaSize = null;
+            vlblInt.Buttons.Add(new ButtonInfo("") { Size = new SizeInfo(DvSizeMode.Percent, 100F), IconString = "fa-eraser", IconSize = 18, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
+            vlblInt.ButtonAreaSize = 45F;
             vlblInt.Direction = Devinno.Skia.Design.DvDirectionHV.Horizon;
             vlblInt.BackgroundDraw = true;
             vlblInt.TitleColor = null;

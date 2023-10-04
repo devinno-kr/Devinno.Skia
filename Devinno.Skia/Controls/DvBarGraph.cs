@@ -246,7 +246,7 @@ namespace Devinno.Skia.Controls
                 if (Direction == DvDirectionHV.Horizon)
                 {
                     #region var
-                    var rmkW = GP + szRemarks.Max(x => 10 + 7 + x.Width) + GP;
+                    var rmkW = szRemarks.Count == 0 ? 0 : GP + szRemarks.Max(x => 10 + 7 + x.Width) + GP;
                     var rmkH = GP + szRemarks.Sum(x => x.Height + GP) + GP;
                     #endregion
                     #region bounds

@@ -8,10 +8,7 @@ namespace SampleRPi.Pages
         public PageGauge()
         {
             InitializeComponent();
-
-            prgsH.BarSize = prgsV.BarSize = 30;
-            sldH.Tick = sldV.Tick = 10;
-
+ 
             knob.ValueChanged += (o, s) =>
             {
                 prgsH.Value = prgsV.Value = gauge.Value = meter.Value = knob.Value;
