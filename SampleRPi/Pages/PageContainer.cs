@@ -1,11 +1,11 @@
 using System;
 using Devinno.Skia.Design;
 
-namespace SampleUI.Pages
+namespace SampleRPi.Pages
 {
-    public partial class PageMonitor : DvPage
+    public partial class PageContainer : DvPage
     {
-        public PageMonitor()
+        public PageContainer()
         {
             InitializeComponent();
         }

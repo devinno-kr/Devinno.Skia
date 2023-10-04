@@ -5,7 +5,7 @@ using Devinno.Skia.Containers;
 using Devinno.Skia.Design;
 using Devinno.Skia.OpenTK;
 
-namespace SampleUI
+namespace SampleRPi
 {
     public partial class MainWindow : DvViewWindow
     {
@@ -13,7 +13,7 @@ namespace SampleUI
         {
             InitializeComponent();
 
-            Design.SetPage(PageMonitor);
+            Design.SetPage(PageControl);
         }
     }
 }

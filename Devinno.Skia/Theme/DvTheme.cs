@@ -141,7 +141,7 @@ namespace Devinno.Skia.Theme
         #region DrawSwitch
         public abstract void DrawSwitch(SKCanvas canvas,
            SKRect rtContent, SKRect rtSwitch, SKRect rtOn, SKRect rtOff, SKRect rtOnText, SKRect rtOffText,
-           SKColor SwitchColor, SKColor OnBoxColor, SKColor OffBoxColor, SKColor ForeColor,
+           SKColor switchColor, SKColor onBoxColor, SKColor offBoxColor, SKColor foreColor,
            DvTextIcon OnTextIcon, DvTextIcon OffTextIcon,
            float Corner, bool OnOff, bool useAnimation, Animation ani);
         #endregion
@@ -521,7 +521,7 @@ namespace Devinno.Skia.Theme
             }
             if (backgroundDraw) DrawBox(canvas, rect, cBox, cBorder, round, style, Corner);
 
-            if (texticon != null) DrawText(canvas, rect, texticon, ForeColor, align, down);
+            if (texticon != null) DrawText(canvas, rect, texticon, foreColor, align, down);
         }
         #endregion
         #region DrawLabel
@@ -1037,7 +1037,7 @@ namespace Devinno.Skia.Theme
         #region DrawSwitch
         public override void DrawSwitch(SKCanvas canvas,
             SKRect rtContent, SKRect rtSwitch, SKRect rtOn, SKRect rtOff, SKRect rtOnText, SKRect rtOffText,
-            SKColor SwitchColor, SKColor OnBoxColor, SKColor OffBoxColor, SKColor ForeColor,
+            SKColor switchColor, SKColor onBoxColor, SKColor offBoxColor, SKColor foreColor,
             DvTextIcon OnTextIcon, DvTextIcon OffTextIcon,
             float Corner, bool OnOff, bool useAnimation, Animation ani)
         {
@@ -1046,11 +1046,11 @@ namespace Devinno.Skia.Theme
 
             #region Color
             #region var BoxColor;
-            var BoxColor = OnOff ? OnBoxColor : OffBoxColor;
+            var BoxColor = OnOff ? onBoxColor : offBoxColor;
             if (useAnimation && ani.IsPlaying)
             {
-                if (ani.Variable == "ON") BoxColor = ani.Value(AnimationAccel.Linear, OffBoxColor, OnBoxColor);
-                else if (ani.Variable == "OFF") BoxColor = ani.Value(AnimationAccel.Linear, OnBoxColor, OffBoxColor);
+                if (ani.Variable == "ON") BoxColor = ani.Value(AnimationAccel.Linear, offBoxColor, onBoxColor);
+                else if (ani.Variable == "OFF") BoxColor = ani.Value(AnimationAccel.Linear, onBoxColor, offBoxColor);
             }
             #endregion
             var BoxBorderColor = GetBorderColor(BoxColor, BackColor);
@@ -1064,7 +1064,7 @@ namespace Devinno.Skia.Theme
                 #region Fill
                 #region Color
                 SKColor c1, c2, c3, c4;
-                GetSwitchColors(SwitchColor, out c1, out c2, out c3, out c4);
+                GetSwitchColors(switchColor, out c1, out c2, out c3, out c4);
 
                 var ca1 = !OnOff ? c2 : c4;
                 var ca2 = !OnOff ? c3 : c1;
@@ -1227,8 +1227,8 @@ namespace Devinno.Skia.Theme
                 canvas.DrawRoundRect(rtvBorder, p);
                 #endregion
                 #region Text
-                var cTL = ForeColor;
-                var cTD = ForeColor.BrightnessTransmit(-0.4F);
+                var cTL = foreColor;
+                var cTD = foreColor.BrightnessTransmit(-0.4F);
                 var cOn = OnOff ? cTL : cTD;
                 var cOff = OnOff ? cTD : cTL;
 
@@ -1327,7 +1327,7 @@ namespace Devinno.Skia.Theme
                             var sp = canvas.Save();
                             canvas.ClipRect(rtFill);
                             var rtv = Util.FromRect(rtFill); rtv.Inflate(0, -10);
-                            Util.DrawText(canvas, text, fontName, fontSize, fontStyle, ForeColor, rtv, reverse ? DvContentAlignment.BottomCenter : DvContentAlignment.TopCenter);
+                            Util.DrawText(canvas, text, fontName, fontSize, fontStyle, foreColor, rtv, reverse ? DvContentAlignment.BottomCenter : DvContentAlignment.TopCenter);
                             canvas.RestoreToCount(sp);
                         }
                     }
@@ -1341,7 +1341,7 @@ namespace Devinno.Skia.Theme
                             var sp = canvas.Save();
                             canvas.ClipRect(rtFill);
                             var rtv = Util.FromRect(rtFill); rtv.Inflate(-10, 0);
-                            Util.DrawText(canvas, text, fontName, fontSize, fontStyle, ForeColor, rtv, reverse ? DvContentAlignment.MiddleLeft : DvContentAlignment.MiddleRight);
+                            Util.DrawText(canvas, text, fontName, fontSize, fontStyle, foreColor, rtv, reverse ? DvContentAlignment.MiddleLeft : DvContentAlignment.MiddleRight);
                             canvas.RestoreToCount(sp);
                         }
                     }
@@ -1741,7 +1741,7 @@ namespace Devinno.Skia.Theme
 
                 #region Remark
                 p.IsStroke = true;
-                p.Color = ForeColor;
+                p.Color = foreColor;
                 p.StrokeWidth = 2;
 
                 canvas.DrawArc(rtCircleIn, startAngle, sweepAngle, false, p);
@@ -1758,7 +1758,7 @@ namespace Devinno.Skia.Theme
                     canvas.RotateDegrees(gsang + 90);
 
                     var rt = MathTool.MakeRectangle(new SKPoint(0, 0), 60);
-                    Util.DrawText(canvas, i.ToString(), remarkFontName, remarkFontSize, remarkFontStyle, ForeColor, rt);
+                    Util.DrawText(canvas, i.ToString(), remarkFontName, remarkFontSize, remarkFontStyle, foreColor, rt);
 
                     canvas.RestoreToCount(sp);
                 }
@@ -2128,7 +2128,7 @@ namespace Devinno.Skia.Theme
             {
                 var rt = dicWeeks["rtWeek_" + ix];
                 string s = "";
-                var c = ForeColor;
+                var c = foreColor;
                 switch ((DayOfWeek)ix)
                 {
                     case DayOfWeek.Sunday: s = "SUN"; c = SKColors.Red; break;
@@ -2155,12 +2155,12 @@ namespace Devinno.Skia.Theme
                         var tm = d[idx];
                         if (!selectedDays.Contains(tm))
                         {
-                            var ctext = ForeColor;
+                            var ctext = foreColor;
                             var s = tm.Day.ToString();
 
                             if (idx >= startidx && idx < endidx)
                             {
-                                ctext = (ix == 0 ? SKColors.Red : (ix == 6 ? SKColors.DeepSkyBlue : ForeColor));
+                                ctext = (ix == 0 ? SKColors.Red : (ix == 6 ? SKColors.DeepSkyBlue : foreColor));
                                 DrawText(canvas, rt, fontName, fontSize, fontStyle, s, ctext);
                             }
                             else
@@ -2190,7 +2190,7 @@ namespace Devinno.Skia.Theme
                     #endregion
 
                     var c = selectColor;
-                    var ctext = ForeColor;
+                    var ctext = foreColor;
 
                     var rtv = rt;
                     DrawBox(canvas, rtv, c, c, DvRoundType.Rect, BoxStyle.Fill, Corner);
@@ -2396,7 +2396,7 @@ namespace Devinno.Skia.Theme
                                                 {
                                                     var txt = string.IsNullOrWhiteSpace(formatString) ? n.ToString() : n.ToString(formatString);
                                                     rtv2.Inflate(-TGP, 0);
-                                                    Util.DrawText(canvas, txt, fontName, fontSize, fontStyle, ForeColor, rtv2, DvContentAlignment.MiddleRight);
+                                                    Util.DrawText(canvas, txt, fontName, fontSize, fontStyle, foreColor, rtv2, DvContentAlignment.MiddleRight);
                                                 }
                                             }
                                         }
@@ -2436,7 +2436,7 @@ namespace Devinno.Skia.Theme
                                                 {
                                                     var txt = string.IsNullOrWhiteSpace(formatString) ? n.ToString() : n.ToString(formatString);
                                                     rtv2.Inflate(-TGP, 0);
-                                                    Util.DrawText(canvas, txt, fontName, fontSize, fontStyle, ForeColor, rtv2, DvContentAlignment.MiddleRight);
+                                                    Util.DrawText(canvas, txt, fontName, fontSize, fontStyle, foreColor, rtv2, DvContentAlignment.MiddleRight);
                                                 }
                                             }
                                             ix = rtv.Right;
@@ -2579,7 +2579,7 @@ namespace Devinno.Skia.Theme
                                                 p.IsStroke = false;
                                                 var txt = string.IsNullOrWhiteSpace(formatString) ? n.ToString() : n.ToString(formatString);
                                                 rtv2.Inflate(0, -TGP);
-                                                Util.DrawText(canvas, txt, fontName, fontSize, fontStyle, ForeColor, rtv2, DvContentAlignment.TopCenter);
+                                                Util.DrawText(canvas, txt, fontName, fontSize, fontStyle, foreColor, rtv2, DvContentAlignment.TopCenter);
                                             }
                                         }
                                         ic++;
@@ -2619,7 +2619,7 @@ namespace Devinno.Skia.Theme
                                                     p.IsStroke = false;
                                                     var txt = string.IsNullOrWhiteSpace(formatString) ? n.ToString() : n.ToString(formatString);
                                                     rtv2.Inflate(0, -TGP);
-                                                    Util.DrawText(canvas, txt, fontName, fontSize, fontStyle, ForeColor, rtv2, DvContentAlignment.TopCenter);
+                                                    Util.DrawText(canvas, txt, fontName, fontSize, fontStyle, foreColor, rtv2, DvContentAlignment.TopCenter);
                                                 }
                                             }
                                             iy = rtv.Top;
@@ -3856,12 +3856,12 @@ namespace Devinno.Skia.Theme
                 var v = items[selectedIndex];
                 Util.DrawTextIcon(canvas, v.IconString, iconSize, iconAlignment, iconGap,
                     v.Text, fontName, fontSize, fontStyle, Padding.Zero,
-                    ForeColor, ForeColor, rtText);
+                    foreColor, foreColor, rtText);
             }
             #endregion
             #region Icon
             var nisz = Convert.ToInt32(rtIco.Height / 3);
-            Util.DrawIcon(canvas, bOpen ? "fa-chevron-up" : "fa-chevron-down", nisz, ForeColor, rtIco);
+            Util.DrawIcon(canvas, bOpen ? "fa-chevron-up" : "fa-chevron-down", nisz, foreColor, rtIco);
             #endregion
             #region Unit Sep
             using (var p = new SKPaint() { IsAntialias = DvDesign.AA, FilterQuality = DvDesign.FQ, IsDither = DvDesign.DI })

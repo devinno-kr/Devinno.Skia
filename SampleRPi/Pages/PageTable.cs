@@ -3,9 +3,9 @@ using Devinno.Skia.Design;
 
 namespace SampleRPi.Pages
 {
-    public partial class PageControl : DvPage
+    public partial class PageTable : DvPage
     {
-        public PageControl()
+        public PageTable()
         {
             InitializeComponent();
         }
