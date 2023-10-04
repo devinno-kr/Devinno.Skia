@@ -21,7 +21,6 @@ namespace SampleRPi
         internal PageDialogs PageDialogs { get; set; }
 
         private DvNavBar nav;
-
         private void InitializeComponent()
         {
             PageControl = new PageControl { Name = nameof(PageControl) };
@@ -40,8 +39,11 @@ namespace SampleRPi
             Design.Pages.Add(PageContainer);
             Design.Pages.Add(PageDialogs);
 
+            #region new
             nav = new DvNavBar { Name = nameof(nav) };
+            #endregion
 
+            #region controls
             #region nav
             nav.BoxColor = null;
             nav.ForeColor = null;
@@ -81,9 +83,11 @@ namespace SampleRPi
             nav.Fill = true;
             nav.Margin = new Padding(0, 0, 0, 430);
             #endregion
+            #endregion
 
+            #region add
             Design.MasterPage.Controls.Add(nav);
-
+            #endregion
         }
     }
 }

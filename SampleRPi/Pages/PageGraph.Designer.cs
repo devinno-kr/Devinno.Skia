@@ -8,6 +8,9 @@ namespace SampleRPi.Pages
 {
     partial class PageGraph
     {
+        #region declare
+        #endregion
+
         public void InitializeComponent()
         {
             #region base
@@ -19,7 +22,6 @@ namespace SampleRPi.Pages
             Text = "Graph";
             IconString = "";
             #endregion
-
 
         }
     }

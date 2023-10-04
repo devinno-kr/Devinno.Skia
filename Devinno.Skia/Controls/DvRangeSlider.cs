@@ -361,10 +361,11 @@ namespace Devinno.Skia.Controls
 
             if (Direction == DvDirectionHV.Horizon)
             {
-                var rtEmpty = Util.MakeRectangleAlign(rtContent, new SKSize(rtContent.Width - (CursorSize * 2), BarSize), DvContentAlignment.BottomCenter);
+                var rtc = Util.INT(MathTool.MakeRectangle(rtContent, new SKSize(rtContent.Width, CursorSize + 7 + BarSize)));
+                var rtEmpty = Util.MakeRectangleAlign(rtc, new SKSize(rtc.Width - (CursorSize * 2), BarSize), DvContentAlignment.BottomCenter);
                 var rtFill = Util.FromRect(rtEmpty);
-                var rtCurStart = Util.FromRect(0, 0, CursorSize, rtContent.Height - BarSize - 1);
-                var rtCurEnd = Util.FromRect(0, 0, CursorSize, rtContent.Height - BarSize - 1);
+                var rtCurStart = Util.FromRect(0, 0, CursorSize, rtc.Height - BarSize - 1);
+                var rtCurEnd = Util.FromRect(0, 0, CursorSize, rtc.Height - BarSize - 1);
 
                 if (Reverse)
                 {
@@ -393,10 +394,11 @@ namespace Devinno.Skia.Controls
             }
             else if (Direction == DvDirectionHV.Vertical)
             {
-                var rtEmpty = Util.MakeRectangleAlign(rtContent, new SKSize(BarSize, rtContent.Height - (CursorSize * 2)), DvContentAlignment.MiddleRight);
+                var rtc = Util.INT(MathTool.MakeRectangle(rtContent, new SKSize(CursorSize + 7 + BarSize, rtContent.Height)));
+                var rtEmpty = Util.MakeRectangleAlign(rtc, new SKSize(BarSize, rtc.Height - (CursorSize * 2)), DvContentAlignment.MiddleRight);
                 var rtFill = Util.FromRect(rtEmpty);
-                var rtCurStart = Util.FromRect(0, 0, rtContent.Width - BarSize - 1, CursorSize);
-                var rtCurEnd = Util.FromRect(0, 0, rtContent.Width - BarSize - 1, CursorSize);
+                var rtCurStart = Util.FromRect(0, 0, rtc.Width - BarSize - 1, CursorSize);
+                var rtCurEnd = Util.FromRect(0, 0, rtc.Width - BarSize - 1, CursorSize);
               
                 if (Reverse)
                 {

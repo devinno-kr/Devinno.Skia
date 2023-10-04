@@ -8,6 +8,7 @@ namespace SampleRPi.Pages
 {
     partial class PageGauge
     {
+        #region declare
         private DvTableLayoutPanel tbl;
         private DvMeter meter;
         private DvGauge gauge;
@@ -19,6 +20,7 @@ namespace SampleRPi.Pages
         private DvSlider sldH;
         private DvRangeSlider rsldH;
         private DvStepGauge step;
+        #endregion
 
         public void InitializeComponent()
         {
@@ -32,6 +34,7 @@ namespace SampleRPi.Pages
             IconString = "";
             #endregion
 
+            #region new
             tbl = new DvTableLayoutPanel { Name = nameof(tbl) };
             meter = new DvMeter { Name = nameof(meter) };
             gauge = new DvGauge { Name = nameof(gauge) };
@@ -43,7 +46,9 @@ namespace SampleRPi.Pages
             sldH = new DvSlider { Name = nameof(sldH) };
             rsldH = new DvRangeSlider { Name = nameof(rsldH) };
             step = new DvStepGauge { Name = nameof(step) };
+            #endregion
 
+            #region controls
             #region tbl
             tbl.Columns.Add(new SizeInfo(DvSizeMode.Percent, 11F));
             tbl.Columns.Add(new SizeInfo(DvSizeMode.Percent, 11F));
@@ -75,7 +80,6 @@ namespace SampleRPi.Pages
             tbl.Fill = true;
             tbl.Margin = new Padding(10, 60, 10, 10);
             #endregion
-
             #region meter
             meter.NeedleColor = null;
             meter.NeedlePointColor = null;
@@ -112,7 +116,6 @@ namespace SampleRPi.Pages
             meter.Fill = false;
             meter.Margin = new Padding(3, 3, 3, 3);
             #endregion
-
             #region gauge
             gauge.FillColor = null;
             gauge.EmptyColor = null;
@@ -143,7 +146,6 @@ namespace SampleRPi.Pages
             gauge.Fill = false;
             gauge.Margin = new Padding(3, 3, 3, 3);
             #endregion
-
             #region knob
             knob.KnobColor = null;
             knob.KnobBackColor = null;
@@ -169,7 +171,6 @@ namespace SampleRPi.Pages
             knob.Fill = false;
             knob.Margin = new Padding(3, 3, 3, 3);
             #endregion
-
             #region prgsV
             prgsV.BoxColor = null;
             prgsV.BarColor = null;
@@ -186,16 +187,15 @@ namespace SampleRPi.Pages
             prgsV.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             prgsV.BarPadding = 5F;
             prgsV.Name = "prgsV";
-            prgsV.X = 30F;
-            prgsV.Y = 10F;
-            prgsV.Width = 25.800003F;
-            prgsV.Height = 220F;
+            prgsV.X = 3F;
+            prgsV.Y = 3F;
+            prgsV.Width = 79.8F;
+            prgsV.Height = 234F;
             prgsV.Visible = true;
             prgsV.Enabled = true;
             prgsV.Fill = true;
-            prgsV.Margin = new Padding(30, 10, 30, 10);
+            prgsV.Margin = new Padding(3, 3, 3, 3);
             #endregion
-
             #region sldV
             sldV.BoxColor = null;
             sldV.BarColor = null;
@@ -213,18 +213,17 @@ namespace SampleRPi.Pages
             sldV.FontSize = 10F;
             sldV.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             sldV.CursorSize = 30F;
-            sldV.BarSize = 25F;
+            sldV.BarSize = 30F;
             sldV.Name = "sldV";
-            sldV.X = 95.8F;
-            sldV.Y = 10F;
-            sldV.Width = 65.8F;
-            sldV.Height = 220F;
+            sldV.X = 88.8F;
+            sldV.Y = 3F;
+            sldV.Width = 79.8F;
+            sldV.Height = 234F;
             sldV.Visible = true;
             sldV.Enabled = true;
             sldV.Fill = true;
-            sldV.Margin = new Padding(10, 10, 10, 10);
+            sldV.Margin = new Padding(3, 3, 3, 3);
             #endregion
-
             #region rsldV
             rsldV.BoxColor = null;
             rsldV.BarColor = null;
@@ -235,7 +234,7 @@ namespace SampleRPi.Pages
             rsldV.Maximum = 100;
             rsldV.RangeStart = 0;
             rsldV.RangeEnd = 0;
-            rsldV.Tick = null;
+            rsldV.Tick = 10;
             rsldV.Direction = Devinno.Skia.Design.DvDirectionHV.Vertical;
             rsldV.Reverse = false;
             rsldV.FormatString = "0";
@@ -243,18 +242,17 @@ namespace SampleRPi.Pages
             rsldV.FontSize = 10F;
             rsldV.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             rsldV.CursorSize = 30F;
-            rsldV.BarSize = 25F;
+            rsldV.BarSize = 30F;
             rsldV.Name = "rsldV";
-            rsldV.X = 181.6F;
-            rsldV.Y = 10F;
-            rsldV.Width = 65.80002F;
-            rsldV.Height = 220F;
+            rsldV.X = 174.6F;
+            rsldV.Y = 3F;
+            rsldV.Width = 79.80002F;
+            rsldV.Height = 234F;
             rsldV.Visible = true;
             rsldV.Enabled = true;
             rsldV.Fill = false;
-            rsldV.Margin = new Padding(10, 10, 10, 10);
+            rsldV.Margin = new Padding(3, 3, 3, 3);
             #endregion
-
             #region prgsH
             prgsH.BoxColor = null;
             prgsH.BarColor = null;
@@ -271,16 +269,15 @@ namespace SampleRPi.Pages
             prgsH.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             prgsH.BarPadding = 5F;
             prgsH.Name = "prgsH";
-            prgsH.X = 267.40002F;
-            prgsH.Y = 7F;
-            prgsH.Width = 494.79993F;
-            prgsH.Height = 26F;
+            prgsH.X = 260.40002F;
+            prgsH.Y = 3F;
+            prgsH.Width = 508.79993F;
+            prgsH.Height = 34F;
             prgsH.Visible = true;
             prgsH.Enabled = true;
             prgsH.Fill = true;
-            prgsH.Margin = new Padding(10, 7, 10, 7);
+            prgsH.Margin = new Padding(3, 3, 3, 3);
             #endregion
-
             #region sldH
             sldH.BoxColor = null;
             sldH.BarColor = null;
@@ -298,18 +295,17 @@ namespace SampleRPi.Pages
             sldH.FontSize = 10F;
             sldH.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             sldH.CursorSize = 30F;
-            sldH.BarSize = 25F;
+            sldH.BarSize = 30F;
             sldH.Name = "sldH";
-            sldH.X = 267.40002F;
-            sldH.Y = 50F;
-            sldH.Width = 494.79993F;
-            sldH.Height = 60F;
+            sldH.X = 260.40002F;
+            sldH.Y = 43F;
+            sldH.Width = 508.79993F;
+            sldH.Height = 74F;
             sldH.Visible = true;
             sldH.Enabled = true;
             sldH.Fill = false;
-            sldH.Margin = new Padding(10, 10, 10, 10);
+            sldH.Margin = new Padding(3, 3, 3, 3);
             #endregion
-
             #region rsldH
             rsldH.BoxColor = null;
             rsldH.BarColor = null;
@@ -320,7 +316,7 @@ namespace SampleRPi.Pages
             rsldH.Maximum = 100;
             rsldH.RangeStart = 0;
             rsldH.RangeEnd = 0;
-            rsldH.Tick = null;
+            rsldH.Tick = 10;
             rsldH.Direction = Devinno.Skia.Design.DvDirectionHV.Horizon;
             rsldH.Reverse = false;
             rsldH.FormatString = "0";
@@ -328,18 +324,17 @@ namespace SampleRPi.Pages
             rsldH.FontSize = 10F;
             rsldH.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             rsldH.CursorSize = 30F;
-            rsldH.BarSize = 25F;
+            rsldH.BarSize = 30F;
             rsldH.Name = "rsldH";
-            rsldH.X = 267.40002F;
-            rsldH.Y = 130F;
-            rsldH.Width = 494.79993F;
-            rsldH.Height = 60F;
+            rsldH.X = 260.40002F;
+            rsldH.Y = 123F;
+            rsldH.Width = 508.79993F;
+            rsldH.Height = 74F;
             rsldH.Visible = true;
             rsldH.Enabled = true;
             rsldH.Fill = true;
-            rsldH.Margin = new Padding(10, 10, 10, 10);
+            rsldH.Margin = new Padding(3, 3, 3, 3);
             #endregion
-
             #region step
             step.OnColor = null;
             step.OffColor = null;
@@ -357,15 +352,17 @@ namespace SampleRPi.Pages
             step.StepPadding = 3F;
             step.Name = "step";
             step.X = 260.40002F;
-            step.Y = 203F;
+            step.Y = 207F;
             step.Width = 508.79993F;
-            step.Height = 34F;
+            step.Height = 30F;
             step.Visible = true;
             step.Enabled = true;
             step.Fill = false;
-            step.Margin = new Padding(3, 3, 3, 3);
+            step.Margin = new Padding(3, 7, 3, 3);
+            #endregion
             #endregion
 
+            #region add
             this.Controls.Add(tbl);
             tbl.Controls.Add(meter, 0, 7, 3, 4);
             tbl.Controls.Add(gauge, 3, 7, 3, 4);
@@ -377,8 +374,7 @@ namespace SampleRPi.Pages
             tbl.Controls.Add(sldH, 3, 1, 6, 2);
             tbl.Controls.Add(rsldH, 3, 3, 6, 2);
             tbl.Controls.Add(step, 3, 5, 6, 1);
-
-
+            #endregion
         }
     }
 }

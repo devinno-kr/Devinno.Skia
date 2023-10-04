@@ -238,10 +238,11 @@ namespace Devinno.Skia.Controls
         public void Areas(Action<SKRect, SKRect, SKRect, SKRect> act)
         {
             var rtContent = Util.FromRect(0, 0, this.Width, this.Height);
-
+            
             if (Direction == DvDirectionHV.Horizon)
             {
-                var rtEmpty = Util.MakeRectangleAlign(rtContent, new SKSize(rtContent.Width - CursorSize, BarSize), DvContentAlignment.BottomCenter);
+                var rtc = Util.INT(MathTool.MakeRectangle(rtContent, new SKSize(rtContent.Width, CursorSize + 7 + BarSize)));
+                var rtEmpty = Util.MakeRectangleAlign(rtc, new SKSize(rtc.Width - CursorSize, BarSize), DvContentAlignment.BottomCenter);
                 var wF = Convert.ToInt32(MathTool.Map(Value, Minimum, Maximum, 0, rtEmpty.Width));
                 var rtFill = Util.FromRect(Reverse ? rtEmpty.Right - wF : rtEmpty.Left, rtEmpty.Top, wF, rtEmpty.Height);
 
@@ -249,23 +250,24 @@ namespace Devinno.Skia.Controls
                 var r = !Reverse ? rtEmpty.Right : rtEmpty.Left;
 
                 var cX = Convert.ToSingle(MathTool.Map(Value, Minimum, Maximum, l, r));
-                var cY = (rtContent.Height - BarSize - 1F) / 2F;
-                var rtCur = MathTool.MakeRectangle(new SKPoint(cX, cY), new SKSize(CursorSize, rtContent.Height - BarSize - 1));
+                var cY = rtc.Top + (rtc.Height - BarSize - 1F) / 2F;
+                var rtCur = MathTool.MakeRectangle(new SKPoint(cX, cY), new SKSize(CursorSize, rtc.Height - BarSize - 1));
 
                 act(rtContent, rtEmpty, rtFill, rtCur);
             }
             else if (Direction == DvDirectionHV.Vertical)
             {
-                var rtEmpty = Util.MakeRectangleAlign(rtContent, new SKSize(BarSize, rtContent.Height - CursorSize), DvContentAlignment.MiddleRight);
+                var rtc = Util.INT( MathTool.MakeRectangle(rtContent, new SKSize(CursorSize + 7 + BarSize, rtContent.Height)));
+                var rtEmpty = Util.MakeRectangleAlign(rtc, new SKSize(BarSize, rtc.Height - CursorSize), DvContentAlignment.MiddleRight);
                 var hF = Convert.ToInt32(MathTool.Map(Value, Minimum, Maximum, 0, rtEmpty.Height));
                 var rtFill = Util.FromRect(rtEmpty.Left, Reverse ? rtEmpty.Top : rtEmpty.Bottom - hF, rtEmpty.Width, hF);
 
                 var t = !Reverse ? rtEmpty.Bottom : rtEmpty.Top;
                 var b = !Reverse ? rtEmpty.Top : rtEmpty.Bottom;
 
-                var cX = (rtContent.Width - BarSize - 1F) / 2F;
+                var cX = rtc.Left + (rtc.Width - BarSize - 1F) / 2F;
                 var cY = Convert.ToSingle(MathTool.Map(Value, Minimum, Maximum, t, b));
-                var rtCur = MathTool.MakeRectangle(new SKPoint(cX, cY), new SKSize(rtContent.Width - BarSize - 1, CursorSize));
+                var rtCur = MathTool.MakeRectangle(new SKPoint(cX, cY), new SKSize(rtc.Width - BarSize - 1, CursorSize));
 
                 act(rtContent, rtEmpty, rtFill, rtCur);
             }

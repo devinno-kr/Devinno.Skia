@@ -8,6 +8,9 @@ namespace SampleRPi.Pages
 {
     partial class PageContainer
     {
+        #region declare
+        #endregion
+
         public void InitializeComponent()
         {
             #region base
@@ -19,7 +22,6 @@ namespace SampleRPi.Pages
             Text = "Container";
             IconString = "";
             #endregion
-
 
         }
     }

@@ -37,6 +37,9 @@ namespace Devinno.Skia.Controls
         #region BarPadding
         public float BarPadding { get; set; } = 5;
         #endregion
+        #region BarSize
+        public int? BarSize { get; set; } = null;
+        #endregion
         #endregion
 
         #region Override
@@ -77,19 +80,28 @@ namespace Devinno.Skia.Controls
         public void Areas(Action<SKRect, SKRect, SKRect> act)
         {
             var rtContent = Util.FromRect(0, 0, this.Width, this.Height);
-            var rtEmpty = Util.FromRect(rtContent); rtEmpty.Inflate(-BarPadding, -BarPadding);
-
+            var rtEmpty = Util.FromRect(rtContent);
+            if (BarSize.HasValue)
+                rtEmpty = MathTool.MakeRectangle(rtContent, Direction == DvDirectionHV.Vertical ?
+                    new SKSize(BarSize.Value, rtContent.Height) : new SKSize(rtContent.Width, BarSize.Value)); 
+         
             if (Direction == DvDirectionHV.Horizon)
             {
-                var wF = Convert.ToInt32(MathTool.Map(Value, Minimum, Maximum, 0, rtEmpty.Width));
-                var rtFill = Util.FromRect(Reverse ? rtEmpty.Right - wF : rtEmpty.Left, rtEmpty.Top, wF, rtEmpty.Height);
+                var rtv = Util.FromRect(rtEmpty);
+                rtv.Inflate(-BarPadding, -BarPadding);
+
+                var wF = Convert.ToInt32(MathTool.Map(Value, Minimum, Maximum, 0, rtv.Width));
+                var rtFill = Util.FromRect(Reverse ? rtv.Right - wF : rtv.Left, rtv.Top, wF, rtv.Height);
 
                 act(rtContent, rtEmpty, rtFill);
             }
             else if(Direction == DvDirectionHV.Vertical)
             {
-                var hF = Convert.ToInt32(MathTool.Map(Value, Minimum, Maximum, 0, rtEmpty.Height));
-                var rtFill = Util.FromRect(rtEmpty.Left, Reverse ? rtEmpty.Top : rtEmpty.Bottom - hF, rtEmpty.Width, hF);
+                var rtv = Util.FromRect(rtEmpty);
+                rtv.Inflate(-BarPadding, -BarPadding);
+
+                var hF = Convert.ToInt32(MathTool.Map(Value, Minimum, Maximum, 0, rtv.Height));
+                var rtFill = Util.FromRect(rtv.Left, Reverse ? rtv.Top : rtv.Bottom - hF, rtv.Width, hF);
 
                 act(rtContent, rtEmpty, rtFill);
             }

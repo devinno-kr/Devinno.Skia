@@ -1307,7 +1307,7 @@ namespace Devinno.Skia.Theme
 
             using (var p = new SKPaint() { IsAntialias = DvDesign.AA, FilterQuality = DvDesign.FQ, IsDither = DvDesign.DI })
             {
-                DrawBox(canvas, rtContent, boxColor, boxBorderColor, DvRoundType.All, BS_C_BACK, Corner);
+                DrawBox(canvas, rtEmpty, boxColor, boxBorderColor, DvRoundType.All, BS_C_BACK, Corner);
 
                 if ((direction == DvDirectionHV.Vertical && rtFill.Height > 0) || (direction == DvDirectionHV.Horizon && rtFill.Width > 0))
                     DrawBox(canvas, rtFill, barColor, borderColor, DvRoundType.All, direction == DvDirectionHV.Horizon ? BS_BTN_UP_GRAD : BS_BTN_UP_GRAD_H, Corner);
@@ -1384,12 +1384,14 @@ namespace Devinno.Skia.Theme
                                 //var x = Convert.ToSingle(MathTool.Map(v, min, max, rtEmpty.Left, rtEmpty.Right));
                                 var y = rtEmpty.MidY;
                                 var gp = 7;
+                                p.IsAntialias = false;
                                 p.IsStroke = true;
                                 p.StrokeWidth = 1;
                                 p.PathEffect = SKPathEffect.CreateDash(new float[] { 1, 1, }, 1);
                                 p.Color = graduationColor;
-                                canvas.DrawLine(x, rtEmpty.Top + 1, x, rtEmpty.Bottom - 1, p);
+                                canvas.DrawLine(x, rtEmpty.Top + 5, x, rtEmpty.Bottom - 6, p);
                                 p.PathEffect = null;
+                                p.IsAntialias = DvDesign.AA;
                             }
                         }
                     }
@@ -1430,12 +1432,14 @@ namespace Devinno.Skia.Theme
                                 var y = Convert.ToSingle(Math.Floor(MathTool.Map(v, min, max, rtEmpty.Top, rtEmpty.Bottom))) + 0.5F;
                                 //var y = Convert.ToSingle(MathTool.Map(v, min, max, rtEmpty.Top, rtEmpty.Bottom));
                                 var gp = 7;
+                                p.IsAntialias = false;
                                 p.IsStroke = true;
                                 p.StrokeWidth = 1;
                                 p.PathEffect = SKPathEffect.CreateDash(new float[] { 1, 1, }, 1);
                                 p.Color = graduationColor;
-                                canvas.DrawLine(rtEmpty.Left + 1, y, rtEmpty.Right - 1, y, p);
+                                canvas.DrawLine(rtEmpty.Left + 5, y, rtEmpty.Right - 6, y, p);
                                 p.PathEffect = null;
+                                p.IsAntialias = DvDesign.AA;
                             }
                         }
                     }
@@ -1493,13 +1497,14 @@ namespace Devinno.Skia.Theme
                                 var x = Convert.ToSingle(Math.Floor(MathTool.Map(v, min, max, rtEmpty.Left, rtEmpty.Right))) + 0.5F;
                                 //var x = Convert.ToSingle(MathTool.Map(v, min, max, rtEmpty.Left, rtEmpty.Right));
                                 var y = rtEmpty.MidY;
-
+                                p.IsAntialias = false;
                                 p.IsStroke = true;
                                 p.StrokeWidth = 1;
                                 p.PathEffect = SKPathEffect.CreateDash(new float[] { 1, 1, }, 1);
                                 p.Color = graduationColor;
-                                canvas.DrawLine(x, rtEmpty.Top + 1, x, rtEmpty.Bottom - 1, p);
+                                canvas.DrawLine(x, rtEmpty.Top + 5, x, rtEmpty.Bottom - 6, p);
                                 p.PathEffect = null;
+                                p.IsAntialias = DvDesign.AA;
                             }
                         }
                     }
@@ -1553,12 +1558,14 @@ namespace Devinno.Skia.Theme
                                 var x = rtEmpty.MidX;
                                 var y = Convert.ToSingle(Math.Floor(MathTool.Map(v, min, max, rtEmpty.Top, rtEmpty.Bottom))) + 0.5F;
                                 //var y = Convert.ToSingle(MathTool.Map(v, min, max, rtEmpty.Top, rtEmpty.Bottom));
+                                p.IsAntialias = false;
                                 p.IsStroke = true;
                                 p.StrokeWidth = 1;
                                 p.PathEffect = SKPathEffect.CreateDash(new float[] { 1, 1, }, 1);
                                 p.Color = graduationColor;
-                                canvas.DrawLine(rtEmpty.Left + 1, y, rtEmpty.Right - 1, y, p);
+                                canvas.DrawLine(rtEmpty.Left + 5, y, rtEmpty.Right - 6, y, p);
                                 p.PathEffect = null;
+                                p.IsAntialias = DvDesign.AA;
                             }
                         }
                     }
