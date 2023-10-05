@@ -14,19 +14,10 @@ namespace Devinno.Skia.Controls
     {
         #region Properties
         #region Text / Icon
-        public DvTextIcon TextIcon { get; } = new DvTextIcon();
-
-        public SKBitmap IconImage { get => TextIcon.IconImage; set => TextIcon.IconImage = value; }
-        public string IconString { get => TextIcon.IconString; set => TextIcon.IconString = value; }
-        public float IconSize { get => TextIcon.IconSize; set => TextIcon.IconSize = value; }
-        public float IconGap { get => TextIcon.IconGap; set => TextIcon.IconGap = value; }
-        public DvTextIconAlignment IconAlignment { get => TextIcon.IconAlignment; set => TextIcon.IconAlignment = value; }
-
-        public string Text { get => TextIcon.Text; set => TextIcon.Text = value; }
-        public Padding TextPadding { get => TextIcon.TextPadding; set => TextIcon.TextPadding = value; }
-        public string FontName { get => TextIcon.FontName; set => TextIcon.FontName = value; }
-        public float FontSize { get => TextIcon.FontSize; set => TextIcon.FontSize = value; }
-        public DvFontStyle FontStyle { get => TextIcon.FontStyle; set => TextIcon.FontStyle = value; }
+        public string Text { get; set; } = "";
+        public string FontName { get; set; } = "NanumGothic";
+        public float FontSize { get; set; } = 12;
+        public DvFontStyle FontStyle { get; set; } = DvFontStyle.Normal;
         #endregion
         #region ContentAlignment
         public DvContentAlignment ContentAlignment { get; set; } = DvContentAlignment.MiddleCenter;

@@ -8,6 +8,9 @@ namespace SampleRPi.Pages
         public PageTable()
         {
             InitializeComponent();
+
+            sldpnl.SelectedPage = spList;
+            list.ItemHeight = 100;
         }
     }
 }

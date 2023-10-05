@@ -276,7 +276,7 @@ namespace Devinno.Skia.Utils
                 {
                     using (var paint = new SKPaint { IsAntialias = DvDesign.AA, SubpixelText = true })
                     {
-                        var rt = Util.MakeRectangle(rect, new SKSize(icon.IconImage.Width, icon.IconImage.Height));
+                        var rt = Util.MakeRectangle(rect, new SKSize(icon.IconSize + 2, icon.IconSize + 2));
                         canvas.DrawBitmap(icon.IconImage, rt, paint);
                     }
                 }
@@ -351,10 +351,47 @@ namespace Devinno.Skia.Utils
             }
         }
 
+        public static void DrawTextIcon(SKCanvas canvas,
+            SKBitmap IconImage, float IconSize, DvTextIconAlignment IconAlignment, float IconGap,
+            string Text, string FontName, float FontSize, DvFontStyle FontStyle, Padding TextPadding,
+            SKColor colortext, SKColor coloricon, SKRect rt, DvContentAlignment align = DvContentAlignment.MiddleCenter)
+        {
+            var vrt = Util.FromRect(rt, TextPadding);
+
+            if (IconImage != null)
+            {
+                var vrtFA = Util.FromRect(0, 0, IconSize + 2, IconSize + 2);
+
+                TextIconBounds(Text, FontName, FontSize, FontStyle, IconGap, vrt, vrtFA, IconAlignment, align, (rtFA, rtTX) =>
+                {
+                    using (var paint = new SKPaint { IsAntialias = DvDesign.AA, SubpixelText = true })
+                    {
+                        canvas.DrawBitmap(IconImage, rtFA, paint);
+                    }
+                    DrawText(canvas, Text, FontName, FontSize, FontStyle, coloricon, rtTX, DvContentAlignment.MiddleCenter);
+                });
+            }
+            else
+            {
+                DrawText(canvas, Text, FontName, FontSize, FontStyle, colortext, vrt, align);
+            }
+        }
+
         public static void DrawTextIcon(SKCanvas canvas, DvTextIcon texticon, SKColor colortext, SKColor coloricon, SKRect rt, DvContentAlignment align = DvContentAlignment.MiddleCenter)
-            => DrawTextIcon(canvas, texticon.IconString, texticon.IconSize, texticon.IconAlignment, texticon.IconGap,
-                texticon.Text, texticon.FontName, texticon.FontSize, texticon.FontStyle, texticon.TextPadding,
-                colortext, coloricon, rt, align);
+        {
+            if (texticon.IconImage != null)
+            {
+                DrawTextIcon(canvas, texticon.IconImage, texticon.IconSize, texticon.IconAlignment, texticon.IconGap,
+                     texticon.Text, texticon.FontName, texticon.FontSize, texticon.FontStyle, texticon.TextPadding,
+                     colortext, coloricon, rt, align);
+            }
+            else
+            {
+                DrawTextIcon(canvas, texticon.IconString, texticon.IconSize, texticon.IconAlignment, texticon.IconGap,
+                      texticon.Text, texticon.FontName, texticon.FontSize, texticon.FontStyle, texticon.TextPadding,
+                      colortext, coloricon, rt, align);
+            }
+        }
         public static void DrawTextIcon(SKCanvas canvas, DvTextIcon texticon, SKColor color, SKRect rt, DvContentAlignment align = DvContentAlignment.MiddleCenter)
             => DrawTextIcon(canvas, texticon, color, color, rt, align);
         #endregion

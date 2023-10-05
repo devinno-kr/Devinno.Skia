@@ -132,9 +132,9 @@ namespace SampleRPi.Pages
             barH.GraphBackColor = null;
             barH.GridColor = null;
             barH.ForeColor = null;
-            barH.Series.Add(new GraphSeries { Alias = "C++", Name = "Cpp", SeriesColor = Util.FromArgb(255, 255, 0, 0) });
-            barH.Series.Add(new GraphSeries { Alias = "C#", Name = "CSharp", SeriesColor = Util.FromArgb(255, 0, 0, 255) });
-            barH.Series.Add(new GraphSeries { Alias = "Java", Name = "Java", SeriesColor = Util.FromArgb(255, 0, 255, 0) });
+            barH.Series.Add(new GraphSeries { Alias = "C++", Name = "Cpp", SeriesColor = Util.FromArgb(255, 180, 0, 0) });
+            barH.Series.Add(new GraphSeries { Alias = "C#", Name = "CSharp", SeriesColor = Util.FromArgb(255, 0, 0, 180) });
+            barH.Series.Add(new GraphSeries { Alias = "Java", Name = "Java", SeriesColor = Util.FromArgb(255, 0, 180, 0) });
             barH.Graduation = 10;
             barH.Minimum = 0;
             barH.Maximum = 100;
@@ -177,9 +177,9 @@ namespace SampleRPi.Pages
             barV.GraphBackColor = null;
             barV.GridColor = null;
             barV.ForeColor = null;
-            barV.Series.Add(new GraphSeries { Alias = "C++", Name = "Cpp", SeriesColor = Util.FromArgb(255, 255, 0, 0) });
-            barV.Series.Add(new GraphSeries { Alias = "C#", Name = "CSharp", SeriesColor = Util.FromArgb(255, 0, 0, 255) });
-            barV.Series.Add(new GraphSeries { Alias = "Java", Name = "Java", SeriesColor = Util.FromArgb(255, 0, 255, 0) });
+            barV.Series.Add(new GraphSeries { Alias = "C++", Name = "Cpp", SeriesColor = Util.FromArgb(255, 180, 0, 0) });
+            barV.Series.Add(new GraphSeries { Alias = "C#", Name = "CSharp", SeriesColor = Util.FromArgb(255, 0, 0, 180) });
+            barV.Series.Add(new GraphSeries { Alias = "Java", Name = "Java", SeriesColor = Util.FromArgb(255, 0, 180, 0) });
             barV.Graduation = 10;
             barV.Minimum = 0;
             barV.Maximum = 100;
@@ -220,9 +220,9 @@ namespace SampleRPi.Pages
             #endregion
             #region circle
             circle.ForeColor = null;
-            circle.Series.Add(new GraphSeries { Alias = "C++", Name = "Cpp", SeriesColor = Util.FromArgb(255, 255, 0, 0) });
-            circle.Series.Add(new GraphSeries { Alias = "C#", Name = "CSharp", SeriesColor = Util.FromArgb(255, 0, 0, 255) });
-            circle.Series.Add(new GraphSeries { Alias = "Java", Name = "Java", SeriesColor = Util.FromArgb(255, 0, 255, 0) });
+            circle.Series.Add(new GraphSeries { Alias = "C++", Name = "Cpp", SeriesColor = Util.FromArgb(255, 150, 0, 0) });
+            circle.Series.Add(new GraphSeries { Alias = "C#", Name = "CSharp", SeriesColor = Util.FromArgb(255, 0, 0, 150) });
+            circle.Series.Add(new GraphSeries { Alias = "Java", Name = "Java", SeriesColor = Util.FromArgb(255, 0, 150, 0) });
             circle.Gradient = true;
             circle.FormatString = "";
             circle.FontName = "NanumGothic";
@@ -257,9 +257,9 @@ namespace SampleRPi.Pages
             line.GraphBackColor = null;
             line.GridColor = null;
             line.ForeColor = null;
-            line.Series.Add(new GraphSeries { Alias = "C++", Name = "Cpp", SeriesColor = Util.FromArgb(255, 255, 0, 0) });
-            line.Series.Add(new GraphSeries { Alias = "C#", Name = "CSharp", SeriesColor = Util.FromArgb(255, 0, 0, 255) });
-            line.Series.Add(new GraphSeries { Alias = "Java", Name = "Java", SeriesColor = Util.FromArgb(255, 0, 255, 0) });
+            line.Series.Add(new GraphSeries { Alias = "C++", Name = "Cpp", SeriesColor = Util.FromArgb(255, 180, 0, 0) });
+            line.Series.Add(new GraphSeries { Alias = "C#", Name = "CSharp", SeriesColor = Util.FromArgb(255, 0, 0, 180) });
+            line.Series.Add(new GraphSeries { Alias = "Java", Name = "Java", SeriesColor = Util.FromArgb(255, 0, 180, 0) });
             line.Graduation = 10;
             line.Minimum = 0;
             line.Maximum = 100;
@@ -299,14 +299,14 @@ namespace SampleRPi.Pages
             time.GraphBackColor = null;
             time.GridColor = null;
             time.ForeColor = null;
-            time.Series.Add(new GraphSeries2 { Alias = "C++", Name = "Cpp", SeriesColor = Util.FromArgb(255, 255, 0, 0), Minimum = 0, Maximum = 100, Visible = true });
-            time.Series.Add(new GraphSeries2 { Alias = "C#", Name = "CSharp", SeriesColor = Util.FromArgb(255, 0, 0, 255), Minimum = 0, Maximum = 100, Visible = true });
-            time.Series.Add(new GraphSeries2 { Alias = "Java", Name = "Java", SeriesColor = Util.FromArgb(255, 0, 255, 0), Minimum = 0, Maximum = 100, Visible = true });
+            time.Series.Add(new GraphSeries2 { Alias = "C++", Name = "Cpp", SeriesColor = Util.FromArgb(255, 180, 0, 0), Minimum = 0, Maximum = 100, Visible = true });
+            time.Series.Add(new GraphSeries2 { Alias = "C#", Name = "CSharp", SeriesColor = Util.FromArgb(255, 0, 0, 180), Minimum = 0, Maximum = 100, Visible = true });
+            time.Series.Add(new GraphSeries2 { Alias = "Java", Name = "Java", SeriesColor = Util.FromArgb(255, 0, 180, 0), Minimum = 0, Maximum = 100, Visible = true });
             time.YAxisGraduationCount = 10;
             time.XAxisGridDraw = false;
             time.YAxisGridDraw = true;
             time.ValueFormatString = "";
-            time.TimeFormatString = "";
+            time.TimeFormatString = "HH:mm:ss";
             time.Scrollable = true;
             time.TouchMode = true;
             time.FontName = "NanumGothic";
@@ -339,14 +339,14 @@ namespace SampleRPi.Pages
             trend.GraphBackColor = null;
             trend.GridColor = null;
             trend.ForeColor = null;
-            trend.Series.Add(new GraphSeries2 { Alias = "C++", Name = "Cpp", SeriesColor = Util.FromArgb(255, 255, 0, 0), Minimum = 0, Maximum = 100, Visible = true });
-            trend.Series.Add(new GraphSeries2 { Alias = "C#", Name = "CSharp", SeriesColor = Util.FromArgb(255, 0, 0, 255), Minimum = 0, Maximum = 100, Visible = true });
-            trend.Series.Add(new GraphSeries2 { Alias = "Java", Name = "Java", SeriesColor = Util.FromArgb(255, 0, 255, 0), Minimum = 0, Maximum = 100, Visible = true });
+            trend.Series.Add(new GraphSeries2 { Alias = "C++", Name = "Cpp", SeriesColor = Util.FromArgb(255, 180, 0, 0), Minimum = 0, Maximum = 100, Visible = true });
+            trend.Series.Add(new GraphSeries2 { Alias = "C#", Name = "CSharp", SeriesColor = Util.FromArgb(255, 0, 0, 180), Minimum = 0, Maximum = 100, Visible = true });
+            trend.Series.Add(new GraphSeries2 { Alias = "Java", Name = "Java", SeriesColor = Util.FromArgb(255, 0, 180, 0), Minimum = 0, Maximum = 100, Visible = true });
             trend.YAxisGraduationCount = 10;
             trend.XAxisGridDraw = false;
             trend.YAxisGridDraw = true;
             trend.ValueFormatString = "";
-            trend.TimeFormatString = "";
+            trend.TimeFormatString = "HH:mm:ss";
             trend.Scrollable = true;
             trend.TouchMode = true;
             trend.FontName = "NanumGothic";
@@ -367,7 +367,7 @@ namespace SampleRPi.Pages
             #endregion
 
             #region add
-            this.Controls.Add(tbl);
+            Controls.Add(tbl);
             tbl.Controls.Add(btnsMenus, 0, 2, 1, 1);
             tbl.Controls.Add(swpnl, 0, 0, 1, 1);
             tpGraphBarH.Controls.Add(barH);

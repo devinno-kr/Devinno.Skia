@@ -34,7 +34,20 @@ namespace Devinno.Skia.Controls
         public float IconGap { get; set; } = 5;
         #endregion
         #region Item
-        public int ItemHeight { get; set; } = 30;
+        private int nItemHeight = 30;
+        public int ItemHeight
+        {
+            get => nItemHeight; 
+            set
+            {
+                if(nItemHeight != value)
+                {
+                    nItemHeight = value;
+                    calcPos();
+                }
+            }
+        } 
+
         public DvContentAlignment ItemAlignment { get; set; } = DvContentAlignment.MiddleCenter;
         #endregion
         #region Selection

@@ -339,7 +339,7 @@ namespace Devinno.Skia.Controls
                         
                         foreach (var prop in props)
                         {
-                            var val = (double)prop.GetValue(v);
+                            var val = Convert.ToDouble(prop.GetValue(v));
                             gv.Values.Add(prop.Name, val);
                         }
                      

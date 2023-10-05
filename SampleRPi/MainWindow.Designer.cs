@@ -4,6 +4,7 @@ using Devinno.Skia.Controls;
 using Devinno.Skia.Containers;
 using Devinno.Skia.Design;
 using SampleRPi.Pages;
+using SampleRPi.Windows;
 
 namespace SampleRPi
 {
@@ -19,6 +20,8 @@ namespace SampleRPi
         internal PageTable PageTable { get; set; }
         internal PageContainer PageContainer { get; set; }
         internal PageDialogs PageDialogs { get; set; }
+
+        internal CustomWindow CustomWindow { get; set; }
 
         private DvNavBar nav;
         private void InitializeComponent()
@@ -38,6 +41,8 @@ namespace SampleRPi
             Design.Pages.Add(PageTable);
             Design.Pages.Add(PageContainer);
             Design.Pages.Add(PageDialogs);
+
+            CustomWindow = new CustomWindow { Name = nameof(CustomWindow) };
 
             #region new
             nav = new DvNavBar { Name = nameof(nav) };

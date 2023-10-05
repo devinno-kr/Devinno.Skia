@@ -229,6 +229,8 @@ namespace Devinno.Skia.Controls
 
             if (arg.Drag) Design.Drag(item);
 
+            Design.Input(this);
+
             scroll.Clear();
         }
         #endregion

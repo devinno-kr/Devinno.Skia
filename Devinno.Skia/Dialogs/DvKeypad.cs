@@ -154,10 +154,14 @@ namespace Devinno.Skia.Dialogs
                     if (mode == 0 && ulong.TryParse(sval, out v3))
                     {
                         var valid = true;
-                        if (valueType == typeof(byte)) { if (minU8.HasValue && maxU8.HasValue) valid = minU8.Value <= Convert.ToByte(v3) && Convert.ToByte(v3) <= maxU8.Value; }
-                        else if (valueType == typeof(ushort)) { if (minU16.HasValue && maxU16.HasValue) valid = minU16.Value <= Convert.ToUInt16(v3) && Convert.ToUInt16(v3) <= maxU16.Value; }
-                        else if (valueType == typeof(uint)) { if (minU32.HasValue && maxU32.HasValue) valid = minU32.Value <= Convert.ToUInt32(v3) && Convert.ToUInt32(v3) <= maxU32.Value; }
-                        else if (valueType == typeof(ulong)) { if (minU64.HasValue && maxU64.HasValue) valid = minU64.Value <= Convert.ToUInt64(v3) && Convert.ToUInt64(v3) <= maxU64.Value; }
+                        try
+                        {
+                            if (valueType == typeof(byte)) { if (minU8.HasValue && maxU8.HasValue) valid = minU8.Value <= Convert.ToByte(v3) && Convert.ToByte(v3) <= maxU8.Value; }
+                            else if (valueType == typeof(ushort)) { if (minU16.HasValue && maxU16.HasValue) valid = minU16.Value <= Convert.ToUInt16(v3) && Convert.ToUInt16(v3) <= maxU16.Value; }
+                            else if (valueType == typeof(uint)) { if (minU32.HasValue && maxU32.HasValue) valid = minU32.Value <= Convert.ToUInt32(v3) && Convert.ToUInt32(v3) <= maxU32.Value; }
+                            else if (valueType == typeof(ulong)) { if (minU64.HasValue && maxU64.HasValue) valid = minU64.Value <= Convert.ToUInt64(v3) && Convert.ToUInt64(v3) <= maxU64.Value; }
+                        }
+                        catch { valid = false; }
 
                         if (valid)
                         {
@@ -177,10 +181,14 @@ namespace Devinno.Skia.Dialogs
                     else if (mode == 1 && long.TryParse(sval, out v2))
                     {
                         var valid = true;
-                        if (valueType == typeof(sbyte)) { if (minI8.HasValue && maxI8.HasValue) valid = minI8.Value <= Convert.ToSByte(v2) && Convert.ToSByte(v2) <= maxI8.Value; }
-                        else if (valueType == typeof(short)) { if (minI16.HasValue && maxI16.HasValue) valid = minI16.Value <= Convert.ToInt16(v2) && Convert.ToInt16(v2) <= maxI16.Value; }
-                        else if (valueType == typeof(int)) { if (minI32.HasValue && maxI32.HasValue) valid = minI32.Value <= Convert.ToInt32(v2) && Convert.ToInt32(v2) <= maxI32.Value; }
-                        else if (valueType == typeof(long)) { if (minI64.HasValue && maxI64.HasValue) valid = minI64.Value <= Convert.ToInt64(v2) && Convert.ToInt64(v2) <= maxI64.Value; }
+                        try
+                        {
+                            if (valueType == typeof(sbyte)) { if (minI8.HasValue && maxI8.HasValue) valid = minI8.Value <= Convert.ToSByte(v2) && Convert.ToSByte(v2) <= maxI8.Value; }
+                            else if (valueType == typeof(short)) { if (minI16.HasValue && maxI16.HasValue) valid = minI16.Value <= Convert.ToInt16(v2) && Convert.ToInt16(v2) <= maxI16.Value; }
+                            else if (valueType == typeof(int)) { if (minI32.HasValue && maxI32.HasValue) valid = minI32.Value <= Convert.ToInt32(v2) && Convert.ToInt32(v2) <= maxI32.Value; }
+                            else if (valueType == typeof(long)) { if (minI64.HasValue && maxI64.HasValue) valid = minI64.Value <= Convert.ToInt64(v2) && Convert.ToInt64(v2) <= maxI64.Value; }
+                        }
+                        catch { valid = false; }
 
                         if (valid)
                         {
@@ -200,10 +208,13 @@ namespace Devinno.Skia.Dialogs
                     else if (mode == 2 && decimal.TryParse(sval, out v1))
                     {
                         var valid = true;
-                        if (valueType == typeof(float)) { if (minF1.HasValue && maxF1.HasValue) valid = minF1.Value <= Convert.ToSingle(v1) && Convert.ToSingle(v1) <= maxF1.Value; }
-                        else if (valueType == typeof(double)) { if (minF2.HasValue && maxF2.HasValue) valid = minF2.Value <= Convert.ToDouble(v1) && Convert.ToDouble(v1) <= maxF2.Value; }
-                        else if (valueType == typeof(decimal)) { if (minF3.HasValue && maxF3.HasValue) valid = minF3.Value <= Convert.ToDecimal(v1) && Convert.ToDecimal(v1) <= maxF3.Value; }
-
+                        try
+                        {
+                            if (valueType == typeof(float)) { if (minF1.HasValue && maxF1.HasValue) valid = minF1.Value <= Convert.ToSingle(v1) && Convert.ToSingle(v1) <= maxF1.Value; }
+                            else if (valueType == typeof(double)) { if (minF2.HasValue && maxF2.HasValue) valid = minF2.Value <= Convert.ToDouble(v1) && Convert.ToDouble(v1) <= maxF2.Value; }
+                            else if (valueType == typeof(decimal)) { if (minF3.HasValue && maxF3.HasValue) valid = minF3.Value <= Convert.ToDecimal(v1) && Convert.ToDecimal(v1) <= maxF3.Value; }
+                        }
+                        catch { valid = false; }
                         if (valid)
                         {
                             Hide(); bOK = true;

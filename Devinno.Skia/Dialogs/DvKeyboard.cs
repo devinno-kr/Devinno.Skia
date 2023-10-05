@@ -398,14 +398,14 @@ namespace Devinno.Skia.Dialogs
             #endregion
 
             #region Event
-            for (int i = 0; i < 10; i++) Ns[i].MouseClick += Key_MouseClick;
-            for (int i = 0; i < 10; i++) Us[i].MouseClick += Key_MouseClick;
-            for (int i = 0; i < 9; i++) Ms[i].MouseClick += Key_MouseClick;
-            for (int i = 0; i < 7; i++) Ds[i].MouseClick += Key_MouseClick;
-            for (int i = 0; i < 3; i++) Ss[i].MouseClick += Key_MouseClick;
-            Ent.MouseClick += Ent_MouseClick;
-            Back.MouseClick += Back_MouseClick;
-            Clear.MouseClick += Clear_MouseClick;
+            for (int i = 0; i < 10; i++) Ns[i].ButtonClick += Key_ButtonClick;
+            for (int i = 0; i < 10; i++) Us[i].ButtonClick += Key_ButtonClick;
+            for (int i = 0; i < 9; i++) Ms[i].ButtonClick += Key_ButtonClick;
+            for (int i = 0; i < 7; i++) Ds[i].ButtonClick += Key_ButtonClick;
+            for (int i = 0; i < 3; i++) Ss[i].ButtonClick += Key_ButtonClick;
+            Ent.ButtonClick += Ent_ButtonClick;
+            Back.ButtonClick += Back_ButtonClick;
+            Clear.ButtonClick += Clear_ButtonClick;
             Han.CheckedChanged += Han_CheckedChanged;
             Num.CheckedChanged += Num_CheckedChanged;
             Shift.CheckedChanged += Shift_CheckedChanged;
@@ -435,8 +435,8 @@ namespace Devinno.Skia.Dialogs
             SetText();
         }
         #endregion
-        #region Back_MouseClick
-        private void Back_MouseClick(object sender, MouseEventArgs e)
+        #region Back_ButtonClick
+        private void Back_ButtonClick(object sender, EventArgs e)
         {
             if (str != null && str.Length > 0)
             {
@@ -447,8 +447,8 @@ namespace Devinno.Skia.Dialogs
             CheckShift();
         }
         #endregion
-        #region Ent_MouseClick
-        private void Ent_MouseClick(object sender, MouseEventArgs e)
+        #region Ent_ButtonClick
+        private void Ent_ButtonClick(object sender, EventArgs e)
         {
             if (str.Length != lbl.Text.Length && str.Length == 0)
             {
@@ -461,8 +461,8 @@ namespace Devinno.Skia.Dialogs
             }
         }
         #endregion
-        #region Key_MouseClick
-        private void Key_MouseClick(object sender, MouseEventArgs e)
+        #region Key_ButtonClick
+        private void Key_ButtonClick(object sender, EventArgs e)
         {
             DvButton d = (DvButton)sender;
             if (PState == HANGUL || PState == HANGUL_SHIFT)
@@ -482,8 +482,8 @@ namespace Devinno.Skia.Dialogs
             CheckShift();
         }
         #endregion
-        #region Clear_MouseClick
-        private void Clear_MouseClick(object sender, MouseEventArgs e)
+        #region Clear_ButtonClick
+        private void Clear_ButtonClick(object sender, EventArgs e)
         {
             str = "";
             parseHangul.InitState();

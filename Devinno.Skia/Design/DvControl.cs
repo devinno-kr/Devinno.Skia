@@ -88,6 +88,7 @@ namespace Devinno.Skia.Design
         internal bool _bMouseDown_ = false;
         private bool bDown = false;
         private DateTime downTime;
+        float dx, dy;
         #endregion
 
         #region Event
@@ -158,6 +159,8 @@ namespace Devinno.Skia.Design
             var rt = Util.FromRect(0, 0, Width, Height);
             if (CollisionTool.Check(rt, x, y))
             {
+                dx = x;
+                dy = y;
                 bDown = true;
                 downTime = DateTime.Now;
                 MouseDown?.Invoke(this, new MouseEventArgs(x, y));
@@ -199,7 +202,8 @@ namespace Devinno.Skia.Design
                 {
                     bDown = false;
 
-                    if (CollisionTool.Check(Util.FromRect(0, 0, Width, Height), x, y))
+                    var dist = Math.Abs(MathTool.GetDistance(new SKPoint(dx, dy), new SKPoint(x, y)));
+                    if (CollisionTool.Check(Util.FromRect(0, 0, Width, Height), x, y) && dist < 3)
                     {
                         MouseClick?.Invoke(this, new MouseEventArgs(x, y));
                         OnMouseClick(x, y);

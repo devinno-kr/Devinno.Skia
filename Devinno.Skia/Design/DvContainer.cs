@@ -169,7 +169,8 @@ namespace Devinno.Skia.Design
         #region OnUnload
         public override void OnUnload()
         {
-            foreach (var c in Controls.Values) c._Unload();
+            if (Controls != null)
+                foreach (var c in Controls.Values) c._Unload();
             base.OnUnload();
         }
         #endregion

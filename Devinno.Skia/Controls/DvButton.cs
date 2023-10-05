@@ -119,7 +119,6 @@ namespace Devinno.Skia.Controls
             {
                 ButtonDownState = false;
                 ButtonUp?.Invoke(this, null);
-
                 if (Clickable) ButtonClick?.Invoke(this, null);
             }
             base.OnMouseUp(x, y);

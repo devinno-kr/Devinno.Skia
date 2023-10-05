@@ -726,6 +726,7 @@ namespace Devinno.Skia.Controls
         #region Shape
         public int MaximumViewCount { get; set; } = 8;
         public int ItemHeight { get; set; } = 30;
+        public SKColor? SelectedColor { get; set; } = null;
         #endregion
 
         #region Animation
@@ -798,7 +799,7 @@ namespace Devinno.Skia.Controls
                             if (rte.Bottom > Design.Height) rte = Util.FromRect(sx, sy + sh - vh, sw, vh);
 
                             ddwnd.ShowDropDown(rts, rte, Items, ItemHeight, SelectedIndex,
-                                InputColor ?? thm.InputColor, rte.Bottom > Design.Height,
+                                InputColor ?? thm.InputColor, SelectedColor ?? thm.PointColor, rte.Bottom > Design.Height,
                                 (result) => SelectedIndex = result);
 
                              

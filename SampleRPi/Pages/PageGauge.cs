@@ -11,6 +11,9 @@ namespace SampleRPi.Pages
         public PageGauge()
         {
             InitializeComponent();
+            knob.FillColor = SkiaSharp.SKColors.Orange;
+            knob.ForeColor = SkiaSharp.SKColors.Aqua;
+            knob.OnLampColor = SkiaSharp.SKColors.Orange;
         }
 
         protected override void OnUpdate()

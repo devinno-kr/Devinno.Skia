@@ -109,7 +109,8 @@ namespace Devinno.Skia.Controls
                         if (rte.Bottom > Design.Height)  rte = Util.FromRect(sx, sy + sh - vh, sw, vh);
                         
                         ddwnd.ShowDropDown(rts, rte, Items, ItemHeight, SelectedIndex, 
-                                            BoxColor ?? thm.ButtonColor, rte.Bottom > Design.Height,
+                                            BoxColor ?? thm.ButtonColor, SelectedColor ?? thm.PointColor, 
+                                            rte.Bottom > Design.Height,
                                             (result) => SelectedIndex = result);
                     }
                 }
@@ -173,7 +174,7 @@ namespace Devinno.Skia.Controls
         #region Method
         #region ShowDropDown
         public void ShowDropDown(SKRect sbounds, SKRect ebounds,
-            List<ComboBoxItem> items, int itemHeight, int selectedIndex, SKColor boxColor, bool reverse,
+            List<ComboBoxItem> items, int itemHeight, int selectedIndex, SKColor boxColor, SKColor selectedColor, bool reverse,
             Action<int> result)
         {
             this.result = result;
@@ -188,6 +189,7 @@ namespace Devinno.Skia.Controls
 
             list.Round = reverse ? DvRoundType.T : DvRoundType.B;
             list.BoxColor = boxColor;
+            list.SelectedColor = selectedColor;
             list.ScrollPosition = selectedIndex * itemHeight;
 
             this.Show(sbounds, ebounds);

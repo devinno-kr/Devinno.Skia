@@ -376,7 +376,7 @@ namespace Devinno.Skia.Controls
                 {
                     var tgv = new TimeGraphValue() { Time = DateTime.Now };
 
-                    foreach (var vk in dicProps.Keys) tgv.Values.Add(vk, (double)dicProps[vk].GetValue(value));
+                    foreach (var vk in dicProps.Keys) tgv.Values.Add(vk, Convert.ToDouble(dicProps[vk].GetValue(value)));
 
                     if (Pause)
                     {

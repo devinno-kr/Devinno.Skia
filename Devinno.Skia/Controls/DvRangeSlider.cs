@@ -364,8 +364,9 @@ namespace Devinno.Skia.Controls
                 var rtc = Util.INT(MathTool.MakeRectangle(rtContent, new SKSize(rtContent.Width, CursorSize + 7 + BarSize)));
                 var rtEmpty = Util.MakeRectangleAlign(rtc, new SKSize(rtc.Width - (CursorSize * 2), BarSize), DvContentAlignment.BottomCenter);
                 var rtFill = Util.FromRect(rtEmpty);
-                var rtCurStart = Util.FromRect(0, 0, CursorSize, rtc.Height - BarSize - 1);
-                var rtCurEnd = Util.FromRect(0, 0, CursorSize, rtc.Height - BarSize - 1);
+                var cY = rtc.Top + (rtc.Height - BarSize - 1F) / 2F;
+                var rtCurStart = MathTool.MakeRectangle(new SKPoint(0, cY), new SKSize(CursorSize, rtc.Height - BarSize - 1));
+                var rtCurEnd = MathTool.MakeRectangle(new SKPoint(0, cY), new SKSize(CursorSize, rtc.Height - BarSize - 1));
 
                 if (Reverse)
                 {
@@ -397,9 +398,10 @@ namespace Devinno.Skia.Controls
                 var rtc = Util.INT(MathTool.MakeRectangle(rtContent, new SKSize(CursorSize + 7 + BarSize, rtContent.Height)));
                 var rtEmpty = Util.MakeRectangleAlign(rtc, new SKSize(BarSize, rtc.Height - (CursorSize * 2)), DvContentAlignment.MiddleRight);
                 var rtFill = Util.FromRect(rtEmpty);
-                var rtCurStart = Util.FromRect(0, 0, rtc.Width - BarSize - 1, CursorSize);
-                var rtCurEnd = Util.FromRect(0, 0, rtc.Width - BarSize - 1, CursorSize);
-              
+                var cX = rtc.Left + (rtc.Width - BarSize - 1F) / 2F;
+                var rtCurStart = MathTool.MakeRectangle(new SKPoint(cX, 0), new SKSize(rtc.Width - BarSize - 1, CursorSize));
+                var rtCurEnd = MathTool.MakeRectangle(new SKPoint(cX, 0), new SKSize(rtc.Width - BarSize - 1, CursorSize));
+
                 if (Reverse)
                 {
                     rtFill.Bottom = Convert.ToInt32(MathTool.Map(RangeEnd, Minimum, Maximum, rtEmpty.Top, rtEmpty.Bottom));

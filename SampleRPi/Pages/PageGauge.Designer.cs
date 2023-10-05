@@ -179,14 +179,14 @@ namespace SampleRPi.Pages
             prgsV.Maximum = 100;
             prgsV.Value = 0;
             prgsV.Direction = Devinno.Skia.Design.DvDirectionHV.Vertical;
-            prgsV.DrawText = true;
+            prgsV.DrawText = false;
             prgsV.Reverse = false;
             prgsV.FormatString = "0";
             prgsV.FontName = "NanumGothic";
             prgsV.FontSize = 10F;
             prgsV.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             prgsV.BarPadding = 5F;
-            prgsV.BarSize = 30;
+            prgsV.BarSize = 20;
             prgsV.Name = "prgsV";
             prgsV.X = 3F;
             prgsV.Y = 3F;
@@ -214,7 +214,7 @@ namespace SampleRPi.Pages
             sldV.FontSize = 10F;
             sldV.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             sldV.CursorSize = 30F;
-            sldV.BarSize = 30F;
+            sldV.BarSize = 20F;
             sldV.Name = "sldV";
             sldV.X = 88.8F;
             sldV.Y = 3F;
@@ -243,7 +243,7 @@ namespace SampleRPi.Pages
             rsldV.FontSize = 10F;
             rsldV.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             rsldV.CursorSize = 30F;
-            rsldV.BarSize = 30F;
+            rsldV.BarSize = 20F;
             rsldV.Name = "rsldV";
             rsldV.X = 174.6F;
             rsldV.Y = 3F;
@@ -262,14 +262,14 @@ namespace SampleRPi.Pages
             prgsH.Maximum = 100;
             prgsH.Value = 0;
             prgsH.Direction = Devinno.Skia.Design.DvDirectionHV.Horizon;
-            prgsH.DrawText = true;
+            prgsH.DrawText = false;
             prgsH.Reverse = false;
             prgsH.FormatString = "0";
             prgsH.FontName = "NanumGothic";
             prgsH.FontSize = 10F;
             prgsH.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             prgsH.BarPadding = 5F;
-            prgsH.BarSize = 30;
+            prgsH.BarSize = 20;
             prgsH.Name = "prgsH";
             prgsH.X = 260.40002F;
             prgsH.Y = 3F;
@@ -297,7 +297,7 @@ namespace SampleRPi.Pages
             sldH.FontSize = 10F;
             sldH.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             sldH.CursorSize = 30F;
-            sldH.BarSize = 30F;
+            sldH.BarSize = 20F;
             sldH.Name = "sldH";
             sldH.X = 260.40002F;
             sldH.Y = 43F;
@@ -326,7 +326,7 @@ namespace SampleRPi.Pages
             rsldH.FontSize = 10F;
             rsldH.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
             rsldH.CursorSize = 30F;
-            rsldH.BarSize = 30F;
+            rsldH.BarSize = 20F;
             rsldH.Name = "rsldH";
             rsldH.X = 260.40002F;
             rsldH.Y = 123F;
@@ -365,7 +365,7 @@ namespace SampleRPi.Pages
             #endregion
 
             #region add
-            this.Controls.Add(tbl);
+            Controls.Add(tbl);
             tbl.Controls.Add(meter, 0, 7, 3, 4);
             tbl.Controls.Add(gauge, 3, 7, 3, 4);
             tbl.Controls.Add(knob, 6, 7, 3, 4);

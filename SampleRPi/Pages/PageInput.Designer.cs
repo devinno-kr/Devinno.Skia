@@ -826,7 +826,7 @@ namespace SampleRPi.Pages
             #region dvComboBox1
             dvComboBox1.BoxColor = null;
             dvComboBox1.ForeColor = null;
-            dvComboBox1.SelectedColor = null;
+            dvComboBox1.SelectedColor = Util.FromArgb(255, 255, 165, 0);
             dvComboBox1.FontName = "NanumGothic";
             dvComboBox1.FontSize = 12F;
             dvComboBox1.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
@@ -855,7 +855,7 @@ namespace SampleRPi.Pages
             #endregion
 
             #region add
-            this.Controls.Add(tbl);
+            Controls.Add(tbl);
             tbl.Controls.Add(inText, 0, 0, 2, 1);
             tbl.Controls.Add(inInt, 0, 1, 2, 1);
             tbl.Controls.Add(inBool, 0, 2, 2, 1);

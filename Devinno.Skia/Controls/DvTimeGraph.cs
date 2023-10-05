@@ -269,7 +269,7 @@ namespace Devinno.Skia.Controls
                     {
                         var tgv = new TimeGraphValue() { Time = v.Time };
 
-                        foreach (var vk in dic.Keys) tgv.Values.Add(vk, (double)dic[vk].GetValue(v));
+                        foreach (var vk in dic.Keys) tgv.Values.Add(vk, Convert.ToDouble(dic[vk].GetValue(v)));
 
                         GraphDatas.Add(tgv);
                     }

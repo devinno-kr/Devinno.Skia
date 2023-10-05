@@ -125,7 +125,7 @@ namespace Devinno.Skia.Dialogs
                 {
                     #region var
                     var ps = typeof(T).GetProperties();
-                    var props = ps.Where(x => CheckProp(x, (infos.ContainsKey(x.Name) ? infos[x.Name] : null))).ToList();
+                    var props = ps.Where(x => CheckProp(x, (infos != null && infos.ContainsKey(x.Name) ? infos[x.Name] : null))).ToList();
                     var RowCount = Convert.ToInt32(Math.Ceiling((double)props.Count / (double)ColumnCount));
                     var csz = 100F / ColumnCount;
                     var rsz = 100F / RowCount;
@@ -149,7 +149,7 @@ namespace Devinno.Skia.Dialogs
                     foreach(var v in props)
                     {
                         #region var
-                        var p = infos.ContainsKey(v.Name) ? infos[v.Name] : null;
+                        var p = (infos != null && infos.ContainsKey(v.Name) ? infos[v.Name] : null);
 
                         var title = p?.Title ?? v.Name;
                         var count = tpnl.Controls.Count;
