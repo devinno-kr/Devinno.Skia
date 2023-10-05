@@ -229,7 +229,7 @@ namespace SampleRPi.Pages
             rsldV.BoxColor = null;
             rsldV.BarColor = null;
             rsldV.ForeColor = null;
-            rsldV.GraduationColor = null;
+            rsldV.GraduationColor = Util.FromArgb(255, 90, 90, 90);
             rsldV.CursorColor = null;
             rsldV.Minimum = 0;
             rsldV.Maximum = 100;
@@ -312,7 +312,7 @@ namespace SampleRPi.Pages
             rsldH.BoxColor = null;
             rsldH.BarColor = null;
             rsldH.ForeColor = null;
-            rsldH.GraduationColor = null;
+            rsldH.GraduationColor = Util.FromArgb(255, 90, 90, 90);
             rsldH.CursorColor = null;
             rsldH.Minimum = 0;
             rsldH.Maximum = 100;

@@ -300,7 +300,20 @@ namespace Devinno.Skia.Design
         #region Update
         public void Update()
         {
+            MasterPage?._Update();
+            CurrentPage?._Update();
 
+            #region Window
+            if (stkWindow.Count > 0)
+            {
+                var ls = stkWindow.Reverse().ToList();
+
+                foreach (var w in ls)
+                {
+                    w._Update();
+                }
+            }
+            #endregion
         }
         #endregion
 

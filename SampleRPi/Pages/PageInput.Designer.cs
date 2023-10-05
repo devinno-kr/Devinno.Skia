@@ -20,13 +20,11 @@ namespace SampleRPi.Pages
         private DvValueInputSelector vinSelector;
         private DvValueInputBool vinBool;
         private DvValueInputCombo vinCombo;
-        private DvValueInputNumber<Int32> vinTest1;
-        private DvValueInputNumber<Int32> vinTest2;
+        private DvColorPicker colorPicker;
+        private DvDateTimePicker timePicker;
         private DvOnOff oo1;
         private DvCalendar calendar;
-        private DvNumberbox nb1;
-        private DvNumberbox nb2;
-        private DvNumberbox nb3;
+        private DvNumberbox nb;
         private DvOnOff oo2;
         private DvOnOff oo3;
         private DvOnOff oo4;
@@ -34,6 +32,8 @@ namespace SampleRPi.Pages
         private DvSwitch sw2;
         private DvSwitch sw3;
         private DvSwitch sw4;
+        private DvWheelPicker wheel;
+        private DvComboBox dvComboBox1;
         #endregion
 
         public void InitializeComponent()
@@ -60,13 +60,11 @@ namespace SampleRPi.Pages
             vinSelector = new DvValueInputSelector { Name = nameof(vinSelector) };
             vinBool = new DvValueInputBool { Name = nameof(vinBool) };
             vinCombo = new DvValueInputCombo { Name = nameof(vinCombo) };
-            vinTest1 = new DvValueInputNumber<Int32> { Name = nameof(vinTest1) };
-            vinTest2 = new DvValueInputNumber<Int32> { Name = nameof(vinTest2) };
+            colorPicker = new DvColorPicker { Name = nameof(colorPicker) };
+            timePicker = new DvDateTimePicker { Name = nameof(timePicker) };
             oo1 = new DvOnOff { Name = nameof(oo1) };
             calendar = new DvCalendar { Name = nameof(calendar) };
-            nb1 = new DvNumberbox { Name = nameof(nb1) };
-            nb2 = new DvNumberbox { Name = nameof(nb2) };
-            nb3 = new DvNumberbox { Name = nameof(nb3) };
+            nb = new DvNumberbox { Name = nameof(nb) };
             oo2 = new DvOnOff { Name = nameof(oo2) };
             oo3 = new DvOnOff { Name = nameof(oo3) };
             oo4 = new DvOnOff { Name = nameof(oo4) };
@@ -74,6 +72,8 @@ namespace SampleRPi.Pages
             sw2 = new DvSwitch { Name = nameof(sw2) };
             sw3 = new DvSwitch { Name = nameof(sw3) };
             sw4 = new DvSwitch { Name = nameof(sw4) };
+            wheel = new DvWheelPicker { Name = nameof(wheel) };
+            dvComboBox1 = new DvComboBox { Name = nameof(dvComboBox1) };
             #endregion
 
             #region controls
@@ -176,6 +176,11 @@ namespace SampleRPi.Pages
             inBool.Margin = new Padding(3, 3, 3, 3);
             #endregion
             #region inSelector
+            inSelector.Items.Add(new SelectorItem { Text = "Item1",IconString = "" });
+            inSelector.Items.Add(new SelectorItem { Text = "Item2",IconString = "" });
+            inSelector.Items.Add(new SelectorItem { Text = "Item3",IconString = "" });
+            inSelector.Items.Add(new SelectorItem { Text = "Item4",IconString = "" });
+            inSelector.Items.Add(new SelectorItem { Text = "Item5",IconString = "" });
             inSelector.FontName = "NanumGothic";
             inSelector.FontSize = 12F;
             inSelector.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
@@ -201,6 +206,11 @@ namespace SampleRPi.Pages
             #region selector
             selector.SelectorColor = null;
             selector.ForeColor = null;
+            selector.Items.Add(new SelectorItem { Text = "Item1",IconString = "" });
+            selector.Items.Add(new SelectorItem { Text = "Item2",IconString = "" });
+            selector.Items.Add(new SelectorItem { Text = "Item3",IconString = "" });
+            selector.Items.Add(new SelectorItem { Text = "Item4",IconString = "" });
+            selector.Items.Add(new SelectorItem { Text = "Item5",IconString = "" });
             selector.BackgroundDraw = true;
             selector.ButtonSize = null;
             selector.Direction = Devinno.Skia.Design.DvDirectionHV.Horizon;
@@ -299,6 +309,11 @@ namespace SampleRPi.Pages
             vinInt.Margin = new Padding(3, 3, 3, 3);
             #endregion
             #region vinSelector
+            vinSelector.Items.Add(new SelectorItem { Text = "Item1",IconString = "" });
+            vinSelector.Items.Add(new SelectorItem { Text = "Item2",IconString = "" });
+            vinSelector.Items.Add(new SelectorItem { Text = "Item3",IconString = "" });
+            vinSelector.Items.Add(new SelectorItem { Text = "Item4",IconString = "" });
+            vinSelector.Items.Add(new SelectorItem { Text = "Item5",IconString = "" });
             vinSelector.FontName = "NanumGothic";
             vinSelector.FontSize = 12F;
             vinSelector.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
@@ -370,6 +385,11 @@ namespace SampleRPi.Pages
             vinBool.Margin = new Padding(3, 3, 3, 3);
             #endregion
             #region vinCombo
+            vinCombo.Items.Add(new ComboBoxItem { Text = "Item1",IconString = "" });
+            vinCombo.Items.Add(new ComboBoxItem { Text = "Item2",IconString = "" });
+            vinCombo.Items.Add(new ComboBoxItem { Text = "Item3",IconString = "" });
+            vinCombo.Items.Add(new ComboBoxItem { Text = "Item4",IconString = "" });
+            vinCombo.Items.Add(new ComboBoxItem { Text = "Item5",IconString = "" });
             vinCombo.FontName = "NanumGothic";
             vinCombo.FontSize = 12F;
             vinCombo.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
@@ -407,87 +427,74 @@ namespace SampleRPi.Pages
             vinCombo.Fill = false;
             vinCombo.Margin = new Padding(3, 3, 3, 3);
             #endregion
-            #region vinTest1
-            vinTest1.Value = 0;
-            vinTest1.Minimum = null;
-            vinTest1.Maximum = null;
-            vinTest1.ContentAlignment = Devinno.Skia.Design.DvContentAlignment.MiddleCenter;
-            vinTest1.FormatString = "";
-            vinTest1.FontName = "NanumGothic";
-            vinTest1.FontSize = 12F;
-            vinTest1.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
-            vinTest1.KeypadWidth = 300;
-            vinTest1.KeypadHeight = 400;
-            vinTest1.TitleIconString = "";
-            vinTest1.TitleIconSize = 12F;
-            vinTest1.TitleIconGap = 5F;
-            vinTest1.TitleIconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
-            vinTest1.Title = "Test";
-            vinTest1.TitleFontName = "NanumGothic";
-            vinTest1.TitleFontSize = 12F;
-            vinTest1.TitleFontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
-            vinTest1.TitleAreaSize = 80F;
-            vinTest1.Buttons.Add(new ButtonInfo("") { Size = new SizeInfo(DvSizeMode.Percent, 100F), IconString = "fa-play", IconSize = 18, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
-            vinTest1.ButtonAreaSize = 40F;
-            vinTest1.Direction = Devinno.Skia.Design.DvDirectionHV.Horizon;
-            vinTest1.BackgroundDraw = true;
-            vinTest1.TitleColor = null;
-            vinTest1.InputColor = null;
-            vinTest1.ButtonColor = null;
-            vinTest1.BorderColor = null;
-            vinTest1.ForeColor = null;
-            vinTest1.Round = null;
-            vinTest1.Name = "vinTest1";
-            vinTest1.X = 263F;
-            vinTest1.Y = 213F;
-            vinTest1.Width = 244F;
-            vinTest1.Height = 44F;
-            vinTest1.Visible = true;
-            vinTest1.Enabled = true;
-            vinTest1.Fill = false;
-            vinTest1.Margin = new Padding(3, 3, 3, 3);
+            #region colorPicker
+            colorPicker.Value = Util.FromArgb(255, 255, 255, 255);
+            colorPicker.Code = Devinno.Skia.Tools.ColorCodeType.CodeRGB;
+            colorPicker.FontName = "NanumGothic";
+            colorPicker.FontSize = 12F;
+            colorPicker.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            colorPicker.ButtonIconSize = 14;
+            colorPicker.Direction = Devinno.Skia.Design.DvDirectionHV.Horizon;
+            colorPicker.TitleIconString = "";
+            colorPicker.TitleIconSize = 12F;
+            colorPicker.TitleIconGap = 5F;
+            colorPicker.TitleIconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
+            colorPicker.Title = "Color";
+            colorPicker.TitleFontName = "NanumGothic";
+            colorPicker.TitleFontSize = 12F;
+            colorPicker.TitleFontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            colorPicker.TitleAreaSize = 70F;
+            colorPicker.ButtonAreaSize = 44F;
+            colorPicker.BackgroundDraw = true;
+            colorPicker.TitleColor = null;
+            colorPicker.ValueColor = null;
+            colorPicker.ButtonColor = null;
+            colorPicker.BorderColor = null;
+            colorPicker.ForeColor = null;
+            colorPicker.Round = null;
+            colorPicker.Name = "colorPicker";
+            colorPicker.X = 523F;
+            colorPicker.Y = 363F;
+            colorPicker.Width = 254F;
+            colorPicker.Height = 44F;
+            colorPicker.Visible = true;
+            colorPicker.Enabled = true;
+            colorPicker.Fill = false;
+            colorPicker.Margin = new Padding(3, 3, 3, 3);
             #endregion
-            #region vinTest2
-            vinTest2.Value = 0;
-            vinTest2.Minimum = null;
-            vinTest2.Maximum = null;
-            vinTest2.ContentAlignment = Devinno.Skia.Design.DvContentAlignment.MiddleCenter;
-            vinTest2.FormatString = "";
-            vinTest2.FontName = "NanumGothic";
-            vinTest2.FontSize = 12F;
-            vinTest2.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
-            vinTest2.KeypadWidth = 300;
-            vinTest2.KeypadHeight = 400;
-            vinTest2.TitleIconString = "";
-            vinTest2.TitleIconSize = 12F;
-            vinTest2.TitleIconGap = 5F;
-            vinTest2.TitleIconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
-            vinTest2.Title = "Test 2";
-            vinTest2.TitleFontName = "NanumGothic";
-            vinTest2.TitleFontSize = 12F;
-            vinTest2.TitleFontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
-            vinTest2.TitleAreaSize = 30F;
-            vinTest2.Buttons.Add(new ButtonInfo("") { Size = new SizeInfo(DvSizeMode.Percent, 33F), IconString = "fa-chevron-left", IconSize = 18, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
-            vinTest2.Buttons.Add(new ButtonInfo("") { Size = new SizeInfo(DvSizeMode.Percent, 34F), IconString = "fa-stop", IconSize = 18, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
-            vinTest2.Buttons.Add(new ButtonInfo("") { Size = new SizeInfo(DvSizeMode.Percent, 33F), IconString = "fa-chevron-right", IconSize = 18, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
-            vinTest2.ButtonAreaSize = 40F;
-            vinTest2.Direction = Devinno.Skia.Design.DvDirectionHV.Vertical;
-            vinTest2.BackgroundDraw = true;
-            vinTest2.TitleColor = null;
-            vinTest2.InputColor = null;
-            vinTest2.ButtonColor = null;
-            vinTest2.BorderColor = null;
-            vinTest2.ForeColor = null;
-            vinTest2.Round = null;
-            vinTest2.Name = "vinTest2";
-            vinTest2.X = 263F;
-            vinTest2.Y = 263F;
-            vinTest2.Width = 244F;
-            vinTest2.Height = 144F;
-            vinTest2.Visible = true;
-            vinTest2.Enabled = true;
-            vinTest2.Fill = false;
-            vinTest2.Margin = new Padding(3, 3, 3, 3);
+            #region timePicker
+            timePicker.Type = Devinno.Skia.Design.DateTimePickerMode.DateTime;
+            timePicker.FontName = "NanumGothic";
+            timePicker.FontSize = 12F;
+            timePicker.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            timePicker.ButtonIconSize = 14;
+            timePicker.Direction = Devinno.Skia.Design.DvDirectionHV.Horizon;
+            timePicker.TitleIconString = "";
+            timePicker.TitleIconSize = 12F;
+            timePicker.TitleIconGap = 5F;
+            timePicker.TitleIconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
+            timePicker.Title = "DateTime";
+            timePicker.TitleFontName = "NanumGothic";
+            timePicker.TitleFontSize = 12F;
+            timePicker.TitleFontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            timePicker.TitleAreaSize = 70F;
+            timePicker.ButtonAreaSize = 44F;
+            timePicker.BackgroundDraw = true;
+            timePicker.TitleColor = null;
+            timePicker.ValueColor = null;
+            timePicker.ButtonColor = null;
+            timePicker.BorderColor = null;
+            timePicker.ForeColor = null;
+            timePicker.Round = null;
+            timePicker.Name = "timePicker";
+            timePicker.X = 523F;
+            timePicker.Y = 313F;
+            timePicker.Width = 254F;
+            timePicker.Height = 44F;
+            timePicker.Visible = true;
+            timePicker.Enabled = true;
+            timePicker.Fill = false;
+            timePicker.Margin = new Padding(3, 3, 3, 3);
             #endregion
             #region oo1
             oo1.CursorColor = null;
@@ -532,119 +539,43 @@ namespace SampleRPi.Pages
             calendar.Fill = false;
             calendar.Margin = new Padding(3, 3, 3, 3);
             #endregion
-            #region nb1
-            nb1.Value = 0;
-            nb1.Minimum = 0;
-            nb1.Maximum = 100;
-            nb1.Tick = 1;
-            nb1.FormatString = "";
-            nb1.FontName = "NanumGothic";
-            nb1.FontSize = 12F;
-            nb1.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
-            nb1.ButtonIconSize = 14;
-            nb1.Direction = Devinno.Skia.Design.DvDirectionHV.Horizon;
-            nb1.TitleIconString = "";
-            nb1.TitleIconSize = 12F;
-            nb1.TitleIconGap = 5F;
-            nb1.TitleIconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
-            nb1.Title = "";
-            nb1.TitleFontName = "NanumGothic";
-            nb1.TitleFontSize = 12F;
-            nb1.TitleFontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
-            nb1.TitleAreaSize = null;
-            nb1.ButtonAreaSize = 88F;
-            nb1.BackgroundDraw = true;
-            nb1.TitleColor = null;
-            nb1.ValueColor = null;
-            nb1.ButtonColor = null;
-            nb1.BorderColor = null;
-            nb1.ForeColor = null;
-            nb1.Round = null;
-            nb1.Name = "nb1";
-            nb1.X = 523F;
-            nb1.Y = 213F;
-            nb1.Width = 254F;
-            nb1.Height = 44F;
-            nb1.Visible = true;
-            nb1.Enabled = true;
-            nb1.Fill = false;
-            nb1.Margin = new Padding(3, 3, 3, 3);
-            #endregion
-            #region nb2
-            nb2.Value = 0;
-            nb2.Minimum = 0;
-            nb2.Maximum = 100;
-            nb2.Tick = 1;
-            nb2.FormatString = "";
-            nb2.FontName = "NanumGothic";
-            nb2.FontSize = 12F;
-            nb2.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
-            nb2.ButtonIconSize = 14;
-            nb2.Direction = Devinno.Skia.Design.DvDirectionHV.Horizon;
-            nb2.TitleIconString = "";
-            nb2.TitleIconSize = 12F;
-            nb2.TitleIconGap = 5F;
-            nb2.TitleIconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
-            nb2.Title = "Num 2";
-            nb2.TitleFontName = "NanumGothic";
-            nb2.TitleFontSize = 12F;
-            nb2.TitleFontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
-            nb2.TitleAreaSize = 70F;
-            nb2.ButtonAreaSize = 88F;
-            nb2.BackgroundDraw = true;
-            nb2.TitleColor = null;
-            nb2.ValueColor = null;
-            nb2.ButtonColor = null;
-            nb2.BorderColor = null;
-            nb2.ForeColor = null;
-            nb2.Round = null;
-            nb2.Name = "nb2";
-            nb2.X = 523F;
-            nb2.Y = 263F;
-            nb2.Width = 254F;
-            nb2.Height = 44F;
-            nb2.Visible = true;
-            nb2.Enabled = true;
-            nb2.Fill = false;
-            nb2.Margin = new Padding(3, 3, 3, 3);
-            #endregion
-            #region nb3
-            nb3.Value = 0;
-            nb3.Minimum = 0;
-            nb3.Maximum = 100;
-            nb3.Tick = 1;
-            nb3.FormatString = "";
-            nb3.FontName = "NanumGothic";
-            nb3.FontSize = 12F;
-            nb3.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
-            nb3.ButtonIconSize = 14;
-            nb3.Direction = Devinno.Skia.Design.DvDirectionHV.Vertical;
-            nb3.TitleIconString = "";
-            nb3.TitleIconSize = 12F;
-            nb3.TitleIconGap = 5F;
-            nb3.TitleIconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
-            nb3.Title = "Num 3";
-            nb3.TitleFontName = "NanumGothic";
-            nb3.TitleFontSize = 12F;
-            nb3.TitleFontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
-            nb3.TitleAreaSize = 30F;
-            nb3.ButtonAreaSize = 31.333334F;
-            nb3.BackgroundDraw = true;
-            nb3.TitleColor = null;
-            nb3.ValueColor = null;
-            nb3.ButtonColor = null;
-            nb3.BorderColor = null;
-            nb3.ForeColor = null;
-            nb3.Round = null;
-            nb3.Name = "nb3";
-            nb3.X = 523F;
-            nb3.Y = 313F;
-            nb3.Width = 254F;
-            nb3.Height = 94F;
-            nb3.Visible = true;
-            nb3.Enabled = true;
-            nb3.Fill = false;
-            nb3.Margin = new Padding(3, 3, 3, 3);
+            #region nb
+            nb.Value = 0;
+            nb.Minimum = 0;
+            nb.Maximum = 100;
+            nb.Tick = 1;
+            nb.FormatString = "";
+            nb.FontName = "NanumGothic";
+            nb.FontSize = 12F;
+            nb.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            nb.ButtonIconSize = 14;
+            nb.Direction = Devinno.Skia.Design.DvDirectionHV.Horizon;
+            nb.TitleIconString = "";
+            nb.TitleIconSize = 12F;
+            nb.TitleIconGap = 5F;
+            nb.TitleIconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
+            nb.Title = "Number";
+            nb.TitleFontName = "NanumGothic";
+            nb.TitleFontSize = 12F;
+            nb.TitleFontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            nb.TitleAreaSize = 70F;
+            nb.ButtonAreaSize = 88F;
+            nb.BackgroundDraw = true;
+            nb.TitleColor = null;
+            nb.ValueColor = null;
+            nb.ButtonColor = null;
+            nb.BorderColor = null;
+            nb.ForeColor = null;
+            nb.Round = null;
+            nb.Name = "nb";
+            nb.X = 523F;
+            nb.Y = 263F;
+            nb.Width = 254F;
+            nb.Height = 44F;
+            nb.Visible = true;
+            nb.Enabled = true;
+            nb.Fill = false;
+            nb.Margin = new Padding(3, 3, 3, 3);
             #endregion
             #region oo2
             oo2.CursorColor = null;
@@ -859,6 +790,68 @@ namespace SampleRPi.Pages
             sw4.Fill = false;
             sw4.Margin = new Padding(3, 3, 3, 3);
             #endregion
+            #region wheel
+            wheel.ForeColor = null;
+            wheel.BorderColor = null;
+            wheel.BorderWidth = 1;
+            wheel.Items.Add(new DvTextIcon { IconString = "", IconSize = 12, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "Item1", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
+            wheel.Items.Add(new DvTextIcon { IconString = "", IconSize = 12, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "Item2", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
+            wheel.Items.Add(new DvTextIcon { IconString = "", IconSize = 12, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "Item3", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
+            wheel.Items.Add(new DvTextIcon { IconString = "", IconSize = 12, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "Item4", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
+            wheel.Items.Add(new DvTextIcon { IconString = "", IconSize = 12, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "Item5", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
+            wheel.Items.Add(new DvTextIcon { IconString = "", IconSize = 12, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "Item6", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
+            wheel.Items.Add(new DvTextIcon { IconString = "", IconSize = 12, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "Item7", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
+            wheel.Items.Add(new DvTextIcon { IconString = "", IconSize = 12, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "Item8", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
+            wheel.Items.Add(new DvTextIcon { IconString = "", IconSize = 12, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "Item9", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
+            wheel.Items.Add(new DvTextIcon { IconString = "", IconSize = 12, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "Item10", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
+            wheel.ItemHeight = 30;
+            wheel.SelectedIndex = 0;
+            wheel.FontName = "NanumGothic";
+            wheel.FontSize = 12F;
+            wheel.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            wheel.IconSize = 12F;
+            wheel.IconGap = 5F;
+            wheel.IconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
+            wheel.TouchMode = true;
+            wheel.Name = "wheel";
+            wheel.X = 263F;
+            wheel.Y = 213F;
+            wheel.Width = 244F;
+            wheel.Height = 194F;
+            wheel.Visible = true;
+            wheel.Enabled = true;
+            wheel.Fill = false;
+            wheel.Margin = new Padding(3, 3, 3, 3);
+            #endregion
+            #region dvComboBox1
+            dvComboBox1.BoxColor = null;
+            dvComboBox1.ForeColor = null;
+            dvComboBox1.SelectedColor = null;
+            dvComboBox1.FontName = "NanumGothic";
+            dvComboBox1.FontSize = 12F;
+            dvComboBox1.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            dvComboBox1.IconSize = 12F;
+            dvComboBox1.IconGap = 5F;
+            dvComboBox1.IconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
+            dvComboBox1.Items.Add(new ComboBoxItem { Text = "Item1",IconString = "" });
+            dvComboBox1.Items.Add(new ComboBoxItem { Text = "Item2",IconString = "" });
+            dvComboBox1.Items.Add(new ComboBoxItem { Text = "Item3",IconString = "" });
+            dvComboBox1.Items.Add(new ComboBoxItem { Text = "Item4",IconString = "" });
+            dvComboBox1.Items.Add(new ComboBoxItem { Text = "Item5",IconString = "" });
+            dvComboBox1.SelectedIndex = -1;
+            dvComboBox1.ButtonWidth = 40;
+            dvComboBox1.MaximumViewCount = 8;
+            dvComboBox1.ItemHeight = 30;
+            dvComboBox1.Name = "dvComboBox1";
+            dvComboBox1.X = 523F;
+            dvComboBox1.Y = 213F;
+            dvComboBox1.Width = 254F;
+            dvComboBox1.Height = 44F;
+            dvComboBox1.Visible = true;
+            dvComboBox1.Enabled = true;
+            dvComboBox1.Fill = false;
+            dvComboBox1.Margin = new Padding(3, 3, 3, 3);
+            #endregion
             #endregion
 
             #region add
@@ -873,13 +866,11 @@ namespace SampleRPi.Pages
             tbl.Controls.Add(vinSelector, 3, 3, 1, 1);
             tbl.Controls.Add(vinBool, 3, 2, 1, 1);
             tbl.Controls.Add(vinCombo, 3, 4, 1, 1);
-            tbl.Controls.Add(vinTest1, 3, 6, 1, 1);
-            tbl.Controls.Add(vinTest2, 3, 7, 1, 3);
+            tbl.Controls.Add(colorPicker, 5, 9, 1, 1);
+            tbl.Controls.Add(timePicker, 5, 8, 1, 1);
             tbl.Controls.Add(oo1, 0, 6, 1, 1);
             tbl.Controls.Add(calendar, 5, 0, 1, 5);
-            tbl.Controls.Add(nb1, 5, 6, 1, 1);
-            tbl.Controls.Add(nb2, 5, 7, 1, 1);
-            tbl.Controls.Add(nb3, 5, 8, 1, 2);
+            tbl.Controls.Add(nb, 5, 7, 1, 1);
             tbl.Controls.Add(oo2, 0, 7, 1, 1);
             tbl.Controls.Add(oo3, 0, 8, 1, 1);
             tbl.Controls.Add(oo4, 0, 9, 1, 1);
@@ -887,6 +878,8 @@ namespace SampleRPi.Pages
             tbl.Controls.Add(sw2, 1, 7, 1, 1);
             tbl.Controls.Add(sw3, 1, 8, 1, 1);
             tbl.Controls.Add(sw4, 1, 9, 1, 1);
+            tbl.Controls.Add(wheel, 3, 6, 1, 4);
+            tbl.Controls.Add(dvComboBox1, 5, 6, 1, 1);
             #endregion
         }
     }

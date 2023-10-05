@@ -65,6 +65,7 @@ namespace Devinno.Skia.Design
 
         #region Event
         public event EventHandler<ClosingEventArgs> Closing;
+        public event EventHandler Update;
         #endregion
 
         #region Constructor
@@ -82,6 +83,8 @@ namespace Devinno.Skia.Design
         #region Virtual
         protected virtual void OnDraw(SKCanvas Canvas) { }
 
+        protected virtual void OnUpdate() { }
+
         protected virtual void OnMouseDown(int x, int y) { }
         protected virtual void OnMouseUp(int x, int y) { }
         protected virtual void OnMouseMove(int x, int y) { }
@@ -98,7 +101,8 @@ namespace Devinno.Skia.Design
                         v.X = v.Margin.Left;
                         v.Y = v.Margin.Top;
                         v.Width = Width - (v.Margin.Left + v.Margin.Right);
-                        v.Height = Height - (UseTitleBar ? TitleHeight : 0) - (v.Margin.Top + v.Margin.Bottom);
+                        v.Height = Height - (v.Margin.Top + v.Margin.Bottom);
+                        //v.Height = Height - (UseTitleBar ? TitleHeight : 0) - (v.Margin.Top + v.Margin.Bottom);
                     }
                 }
             }
@@ -326,6 +330,12 @@ namespace Devinno.Skia.Design
                 }
             }
         }
+        
+        internal void _Update()
+        {
+            OnUpdate();
+            Update?.Invoke(this, null);
+        }
 
         internal void _MouseDown(int x, int y)
         {
@@ -342,11 +352,13 @@ namespace Devinno.Skia.Design
                 bool bcl = false;
                 foreach (var v in Controls.Values)
                 {
-                    var bCheck = CollisionTool.Check(Util.FromRect(v.X, v.Y, v.Width, v.Height), x, y - (BackgroundDraw ? TitleHeight : 0));
+                    //var bCheck = CollisionTool.Check(Util.FromRect(v.X, v.Y, v.Width, v.Height), x, y - (UseTitleBar ? TitleHeight : 0));
+                    var bCheck = CollisionTool.Check(Util.FromRect(v.X, v.Y, v.Width, v.Height), x, y);
                     if (bCheck)
                     {
                         v._bMouseDown_ = true;
-                        if (v.Visible && v.Enabled) v._MouseDown(x - v.X, y - (BackgroundDraw ? TitleHeight : 0) - v.Y);
+                        //if (v.Visible && v.Enabled) v._MouseDown(x - v.X, y - (UseTitleBar ? TitleHeight : 0) - v.Y);
+                        if (v.Visible && v.Enabled) v._MouseDown(x - v.X, y - v.Y);
                         bcl = bCheck;
                     }
                 }
@@ -378,10 +390,12 @@ namespace Devinno.Skia.Design
                 bool bcl = false;
                 foreach (var v in Controls.Values)
                 {
-                    var bCheck = CollisionTool.Check(Util.FromRect(v.X, v.Y, v.Width, v.Height), x, y - (BackgroundDraw ? TitleHeight : 0));
+                    //var bCheck = CollisionTool.Check(Util.FromRect(v.X, v.Y, v.Width, v.Height), x, y - (UseTitleBar ? TitleHeight : 0));
+                    var bCheck = CollisionTool.Check(Util.FromRect(v.X, v.Y, v.Width, v.Height), x, y);
                     if (bCheck || v._bMouseDown_)
                     {
-                        if (v.Visible && v.Enabled) v._MouseUp(x - v.X, y - (BackgroundDraw ? TitleHeight : 0) - v.Y);
+                        //if (v.Visible && v.Enabled) v._MouseUp(x - v.X, y - (BackgroundDraw ? TitleHeight : 0) - v.Y);
+                        if (v.Visible && v.Enabled) v._MouseUp(x - v.X, y - v.Y);
                         bcl = bCheck;
                     }
                     v._bMouseDown_ = false;
@@ -400,10 +414,12 @@ namespace Devinno.Skia.Design
                 bool bcl = false;
                 foreach (var v in Controls.Values)
                 {
-                    var bCheck = CollisionTool.Check(Util.FromRect(v.X, v.Y, v.Width, v.Height), x, y - (BackgroundDraw ? TitleHeight : 0));
+                    //var bCheck = CollisionTool.Check(Util.FromRect(v.X, v.Y, v.Width, v.Height), x, y - (UseTitleBar ? TitleHeight : 0));
+                    var bCheck = CollisionTool.Check(Util.FromRect(v.X, v.Y, v.Width, v.Height), x, y);
                     if (bCheck || v._bMouseDown_)
                     {
-                        if (v.Visible && v.Enabled) v._MouseMove(x - v.X, y - (BackgroundDraw ? TitleHeight : 0) - v.Y);
+                        //if (v.Visible && v.Enabled) v._MouseMove(x - v.X, y - (UseTitleBar ? TitleHeight : 0) - v.Y);
+                        if (v.Visible && v.Enabled) v._MouseMove(x - v.X, y - v.Y);
                         bcl = bCheck;
                     }
                 }
@@ -421,10 +437,12 @@ namespace Devinno.Skia.Design
                 bool bcl = false;
                 foreach (var v in Controls.Values)
                 {
-                    var bCheck = CollisionTool.Check(Util.FromRect(v.X, v.Y, v.Width, v.Height), x, y - (BackgroundDraw ? TitleHeight : 0));
+                    //var bCheck = CollisionTool.Check(Util.FromRect(v.X, v.Y, v.Width, v.Height), x, y - (UseTitleBar ? TitleHeight : 0));
+                    var bCheck = CollisionTool.Check(Util.FromRect(v.X, v.Y, v.Width, v.Height), x, y);
                     if (bCheck)
                     {
-                        if (v.Visible && v.Enabled) v._MouseDoubleClick(x - v.X, y - (BackgroundDraw ? TitleHeight : 0) - v.Y);
+                        //if (v.Visible && v.Enabled) v._MouseDoubleClick(x - v.X, y - (UseTitleBar ? TitleHeight : 0) - v.Y);
+                        if (v.Visible && v.Enabled) v._MouseDoubleClick(x - v.X, y - v.Y);
                         bcl = bCheck;
                     }
                 }
@@ -445,6 +463,8 @@ namespace Devinno.Skia.Design
 
                 this.X = Convert.ToInt32(rt.Left);
                 this.Y = Convert.ToInt32(rt.Top);
+
+                _Update();
 
                 Design.ShowWindow(this);
 

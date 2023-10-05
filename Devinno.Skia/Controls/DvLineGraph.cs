@@ -119,7 +119,7 @@ namespace Devinno.Skia.Controls
                     if (scroll.TouchMode && CollisionTool.Check(rtGraph, x, y))
                     {
                         scroll.TouchDown(x, y);
-                        Design?.Input(this);
+                        if (scroll.ScrollTotal > scroll.ScrollView) Design?.Input(this);
                     }
                 }
             });

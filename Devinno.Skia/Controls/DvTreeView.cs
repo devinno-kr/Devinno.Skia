@@ -113,7 +113,7 @@ namespace Devinno.Skia.Controls
         {
             Areas((rtContent, rtBox, rtScroll) =>
             {
-                Design?.Input(this);
+                if (scroll.ScrollTotal > scroll.ScrollView) Design?.Input(this);
 
                 scroll.MouseDown(x, y, rtScroll);
                 if (scroll.TouchMode && CollisionTool.Check(rtBox, x, y)) scroll.TouchDown(x, y);

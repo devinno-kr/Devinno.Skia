@@ -87,7 +87,7 @@ namespace Devinno.Skia.Dialogs
             Height = 600;
 
             #region tpnl
-            tpnl = new DvTableLayoutPanel() { Name = nameof(tpnl), Margin = new Padding(10), Fill = true };
+            tpnl = new DvTableLayoutPanel() { Name = nameof(tpnl), Margin = new Padding(10, TitleHeight + 10, 10, 10), Fill = true };
 
             tpnl.Rows.Add(new SizeInfo(DvSizeMode.Percent, 20));
             tpnl.Rows.Add(new SizeInfo(DvSizeMode.Percent, 20));

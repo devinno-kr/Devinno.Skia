@@ -41,7 +41,7 @@ namespace Devinno.Skia.Dialogs
         {
             IconString = "fa-comment-dots";
             #region tpnl
-            tpnl = new DvTableLayoutPanel() { Name = nameof(tpnl), Margin = new Padding(10), Fill = true };
+            tpnl = new DvTableLayoutPanel() { Name = nameof(tpnl), Margin = new Padding(10, TitleHeight + 10, 10, 10), Fill = true };
 
             tpnl.Rows.Add(new SizeInfo(DvSizeMode.Percent, 100));
             tpnl.Rows.Add(new SizeInfo(DvSizeMode.Pixel, 40));

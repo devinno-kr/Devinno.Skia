@@ -168,7 +168,10 @@ namespace Devinno.Skia.Controls
                         }
                     }
 
-                    if (Buttons.Where(x => x.ButtonDownState).Count() > 0) Design?.Input(this);
+                    if (Buttons.Where(x => x.ButtonDownState).Count() > 0)
+                    {
+                        Design?.Input(this);
+                    }
                 }
             });
             base.OnMouseDown(x, y);

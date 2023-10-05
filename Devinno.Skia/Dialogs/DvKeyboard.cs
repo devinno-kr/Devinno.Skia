@@ -69,7 +69,7 @@ namespace Devinno.Skia.Dialogs
             Height = 400;
 
             #region gpnl
-            gpnl = new DvGridLayoutPanel() { Name = nameof(gpnl), Margin = new Padding(10), Fill = true };
+            gpnl = new DvGridLayoutPanel() { Name = nameof(gpnl), Margin = new Padding(10, TitleHeight + 10, 10, 10), Fill = true };
 
             gpnl.Rows.Add(new DvGridRow(DvSizeMode.Percent, 15 ));
             gpnl.Rows.Add(new DvGridRow(DvSizeMode.Percent, 17 ));

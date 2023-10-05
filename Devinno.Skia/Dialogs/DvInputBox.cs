@@ -46,7 +46,7 @@ namespace Devinno.Skia.Dialogs
             tpnl = new DvTableLayoutPanel() { Name = nameof(tpnl), Margin = new Padding(0), Fill = true };
             #endregion
             #region gpnl
-            gpnl = new DvGridLayoutPanel() { Name = nameof(gpnl), Margin = new Padding(10), Fill = true };
+            gpnl = new DvGridLayoutPanel() { Name = nameof(gpnl), Margin = new Padding(10, TitleHeight + 10, 10, 10), Fill = true };
             gpnl.Rows.Add(new DvGridRow(DvSizeMode.Percent, 100)); 
             gpnl.Rows.Add(new DvGridRow(DvSizeMode.Pixel, 46));
             gpnl.Rows[0].Columns.Add(new SizeInfo(DvSizeMode.Percent, 100));

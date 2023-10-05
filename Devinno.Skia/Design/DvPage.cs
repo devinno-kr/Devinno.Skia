@@ -36,6 +36,10 @@ namespace Devinno.Skia.Design
         #region Member Variable
         #endregion
 
+        #region Event
+        public event EventHandler Update;
+        #endregion
+
         #region Constructor
         public DvPage()
         {
@@ -47,6 +51,7 @@ namespace Devinno.Skia.Design
         #region Method
         #region Virtual
         protected virtual void OnDraw(SKCanvas Canvas) {  }
+        protected virtual void OnUpdate() { }
 
         protected virtual void OnMouseDown(int x, int y) { }
         protected virtual void OnMouseUp(int x, int y) { }
@@ -117,6 +122,12 @@ namespace Devinno.Skia.Design
 
                 OnDraw(Canvas);
             }
+        }
+
+        internal void _Update()
+        {
+            OnUpdate();
+            Update?.Invoke(this, null);
         }
 
         internal void _MouseDown(int x, int y)
@@ -209,6 +220,7 @@ namespace Devinno.Skia.Design
         {
             if (Design != null)
             {
+                _Update();
                 OnShow();
             }
         }

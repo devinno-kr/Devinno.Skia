@@ -68,8 +68,8 @@ namespace Devinno.Skia.Containers
                     #endregion
 
                     #region Scroll
-                    thm.DrawScroll(Canvas, rtScrollV, BackColor, vscroll);
-                    thm.DrawScroll(Canvas, rtScrollH, BackColor, hscroll);
+                    if (vscroll.ScrollTotal > vscroll.ScrollView) thm.DrawScroll(Canvas, rtScrollV, BackColor, vscroll);
+                    if (hscroll.ScrollTotal > hscroll.ScrollView) thm.DrawScroll(Canvas, rtScrollH, BackColor, hscroll);
                     #endregion
 
                     #region Controls
@@ -86,10 +86,10 @@ namespace Devinno.Skia.Containers
                             if (v.Visible)
                             {
                                 var sp = Canvas.Save();
-                                
+
                                 Canvas.Translate(v.X + hc, v.Y + vc);
                                 v._Draw(Canvas);
-                        
+
                                 Canvas.RestoreToCount(sp);
                             }
                         }
@@ -139,9 +139,8 @@ namespace Devinno.Skia.Containers
                 {
                     vscroll.MouseDown(x, y, rtScrollV);
                     hscroll.MouseDown(x, y, rtScrollH);
-
-                    if (vscroll.TouchMode && CollisionTool.Check(rtPanel, x, y)) { vscroll.TouchDown(x, y); }
                     if (hscroll.TouchMode && CollisionTool.Check(rtPanel, x, y)) { hscroll.TouchDown(x, y); }
+                    if (vscroll.TouchMode && CollisionTool.Check(rtPanel, x, y)) { vscroll.TouchDown(x, y); }
                 }
                 #endregion
             });

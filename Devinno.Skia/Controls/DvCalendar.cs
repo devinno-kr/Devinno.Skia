@@ -142,7 +142,10 @@ namespace Devinno.Skia.Controls
                 }
                 #endregion
 
-                if (bMonthNext || bMonthPrev || !NoneSelect) Design?.Input(this);
+                if (bMonthNext || bMonthPrev || !NoneSelect)
+                {
+                    Design?.Input(this);
+                }
             
             });
 

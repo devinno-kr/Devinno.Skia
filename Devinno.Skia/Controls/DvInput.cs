@@ -71,7 +71,10 @@ namespace Devinno.Skia.Controls
         {
             Areas((rtContent) =>
             {
-                if (CollisionTool.Check(rtContent, x, y)) Design?.Input(this);
+                if (CollisionTool.Check(rtContent, x, y))
+                {
+                    Design?.Input(this);
+                }
             });
          
             base.OnMouseDown(x, y);

@@ -21,7 +21,9 @@ namespace SampleRPi.Pages
         private DvSubPage tpGraphLine;
         private DvLineGraph line;
         private DvSubPage tpGraphTime;
+        private DvTimeGraph time;
         private DvSubPage tpGraphTrend;
+        private DvTrendGraph trend;
         #endregion
 
         public void InitializeComponent()
@@ -49,7 +51,9 @@ namespace SampleRPi.Pages
             tpGraphLine = new DvSubPage { Name = nameof(tpGraphLine) };
             line = new DvLineGraph { Name = nameof(line) };
             tpGraphTime = new DvSubPage { Name = nameof(tpGraphTime) };
+            time = new DvTimeGraph { Name = nameof(time) };
             tpGraphTrend = new DvSubPage { Name = nameof(tpGraphTrend) };
+            trend = new DvTrendGraph { Name = nameof(trend) };
             #endregion
 
             #region controls
@@ -291,6 +295,33 @@ namespace SampleRPi.Pages
             tpGraphTime.Fill = false;
             tpGraphTime.Margin = new Padding(3, 3, 3, 3);
             #endregion
+            #region time
+            time.GraphBackColor = null;
+            time.GridColor = null;
+            time.ForeColor = null;
+            time.Series.Add(new GraphSeries2 { Alias = "C++", Name = "Cpp", SeriesColor = Util.FromArgb(255, 255, 0, 0), Minimum = 0, Maximum = 100, Visible = true });
+            time.Series.Add(new GraphSeries2 { Alias = "C#", Name = "CSharp", SeriesColor = Util.FromArgb(255, 0, 0, 255), Minimum = 0, Maximum = 100, Visible = true });
+            time.Series.Add(new GraphSeries2 { Alias = "Java", Name = "Java", SeriesColor = Util.FromArgb(255, 0, 255, 0), Minimum = 0, Maximum = 100, Visible = true });
+            time.YAxisGraduationCount = 10;
+            time.XAxisGridDraw = false;
+            time.YAxisGridDraw = true;
+            time.ValueFormatString = "";
+            time.TimeFormatString = "";
+            time.Scrollable = true;
+            time.TouchMode = true;
+            time.FontName = "NanumGothic";
+            time.FontSize = 10F;
+            time.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            time.Name = "time";
+            time.X = 3F;
+            time.Y = 3F;
+            time.Width = 768F;
+            time.Height = 348F;
+            time.Visible = true;
+            time.Enabled = true;
+            time.Fill = true;
+            time.Margin = new Padding(3, 3, 3, 3);
+            #endregion
             #region tpGraphTrend
             tpGraphTrend.Text = "Trend";
             tpGraphTrend.IconString = "";
@@ -304,6 +335,35 @@ namespace SampleRPi.Pages
             tpGraphTrend.Fill = false;
             tpGraphTrend.Margin = new Padding(3, 3, 3, 3);
             #endregion
+            #region trend
+            trend.GraphBackColor = null;
+            trend.GridColor = null;
+            trend.ForeColor = null;
+            trend.Series.Add(new GraphSeries2 { Alias = "C++", Name = "Cpp", SeriesColor = Util.FromArgb(255, 255, 0, 0), Minimum = 0, Maximum = 100, Visible = true });
+            trend.Series.Add(new GraphSeries2 { Alias = "C#", Name = "CSharp", SeriesColor = Util.FromArgb(255, 0, 0, 255), Minimum = 0, Maximum = 100, Visible = true });
+            trend.Series.Add(new GraphSeries2 { Alias = "Java", Name = "Java", SeriesColor = Util.FromArgb(255, 0, 255, 0), Minimum = 0, Maximum = 100, Visible = true });
+            trend.YAxisGraduationCount = 10;
+            trend.XAxisGridDraw = false;
+            trend.YAxisGridDraw = true;
+            trend.ValueFormatString = "";
+            trend.TimeFormatString = "";
+            trend.Scrollable = true;
+            trend.TouchMode = true;
+            trend.FontName = "NanumGothic";
+            trend.FontSize = 10F;
+            trend.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            trend.Interval = 1000;
+            trend.Pause = false;
+            trend.Name = "trend";
+            trend.X = 3F;
+            trend.Y = 3F;
+            trend.Width = 768F;
+            trend.Height = 348F;
+            trend.Visible = true;
+            trend.Enabled = true;
+            trend.Fill = true;
+            trend.Margin = new Padding(3, 3, 3, 3);
+            #endregion
             #endregion
 
             #region add
@@ -314,6 +374,8 @@ namespace SampleRPi.Pages
             tpGraphBarV.Controls.Add(barV);
             tpGraphCircle.Controls.Add(circle);
             tpGraphLine.Controls.Add(line);
+            tpGraphTime.Controls.Add(time);
+            tpGraphTrend.Controls.Add(trend);
             #endregion
         }
     }

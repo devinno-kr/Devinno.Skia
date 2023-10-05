@@ -9,8 +9,11 @@ namespace SampleRPi.Pages
     partial class PageTable
     {
         #region declare
-        private DvToolBox dvToolBox1;
-        private DvTreeView dvTreeView1;
+        private DvScrollablePanel scrpnl;
+        private DvTreeView tree;
+        private DvToolBox tool;
+        private DvListBox list;
+        private DvDataGrid grid;
         #endregion
 
         public void InitializeComponent()
@@ -26,60 +29,31 @@ namespace SampleRPi.Pages
             #endregion
 
             #region new
-            dvToolBox1 = new DvToolBox { Name = nameof(dvToolBox1) };
-            dvTreeView1 = new DvTreeView { Name = nameof(dvTreeView1) };
+            scrpnl = new DvScrollablePanel { Name = nameof(scrpnl) };
+            tree = new DvTreeView { Name = nameof(tree) };
+            tool = new DvToolBox { Name = nameof(tool) };
+            list = new DvListBox { Name = nameof(list) };
+            grid = new DvDataGrid { Name = nameof(grid) };
             #endregion
 
             #region controls
-            #region dvToolBox1
-            dvToolBox1.BoxColor = null;
-            dvToolBox1.CategoryColor = null;
-            dvToolBox1.ForeColor = null;
-            {
-                var tci = new ToolCategoryItem { Text = "Control", IconString = "" };
-                tci.Items.Add(new ToolItem { Text = "Button", IconString = "" });
-                tci.Items.Add(new ToolItem { Text = "Label", IconString = "" });
-                tci.Items.Add(new ToolItem { Text = "Input", IconString = "" });
-                dvToolBox1.Categories.Add(tci);
-            }
-            {
-                var tci = new ToolCategoryItem { Text = "Container", IconString = "" };
-                tci.Items.Add(new ToolItem { Text = "Panel", IconString = "" });
-                tci.Items.Add(new ToolItem { Text = "GroupBox", IconString = "" });
-                tci.Items.Add(new ToolItem { Text = "BorderPanel", IconString = "" });
-                dvToolBox1.Categories.Add(tci);
-            }
-            {
-                var tci = new ToolCategoryItem { Text = "Dialogs", IconString = "" };
-                tci.Items.Add(new ToolItem { Text = "MessageBox", IconString = "" });
-                tci.Items.Add(new ToolItem { Text = "InputBox", IconString = "" });
-                tci.Items.Add(new ToolItem { Text = "SelectorBox", IconString = "" });
-                dvToolBox1.Categories.Add(tci);
-            }
-            dvToolBox1.FontName = "NanumGothic";
-            dvToolBox1.FontSize = 12F;
-            dvToolBox1.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
-            dvToolBox1.IconSize = 12F;
-            dvToolBox1.IconGap = 5F;
-            dvToolBox1.ItemHeight = 30;
-            dvToolBox1.Round = Devinno.Skia.Design.DvRoundType.All;
-            dvToolBox1.BackgroundDraw = true;
-            dvToolBox1.TouchMode = true;
-            dvToolBox1.Name = "dvToolBox1";
-            dvToolBox1.X = 10F;
-            dvToolBox1.Y = 60F;
-            dvToolBox1.Width = 221F;
-            dvToolBox1.Height = 410F;
-            dvToolBox1.Visible = true;
-            dvToolBox1.Enabled = true;
-            dvToolBox1.Fill = false;
-            dvToolBox1.Margin = new Padding(3, 3, 3, 3);
+            #region scrpnl
+            scrpnl.TouchMode = true;
+            scrpnl.Name = "scrpnl";
+            scrpnl.X = 10F;
+            scrpnl.Y = 60F;
+            scrpnl.Width = 780F;
+            scrpnl.Height = 410F;
+            scrpnl.Visible = true;
+            scrpnl.Enabled = true;
+            scrpnl.Fill = false;
+            scrpnl.Margin = new Padding(10, 60, 10, 10);
             #endregion
-            #region dvTreeView1
-            dvTreeView1.BoxColor = null;
-            dvTreeView1.RadioColor = null;
-            dvTreeView1.SelectedColor = null;
-            dvTreeView1.ForeColor = null;
+            #region tree
+            tree.BoxColor = null;
+            tree.RadioColor = null;
+            tree.SelectedColor = null;
+            tree.ForeColor = null;
             {
                 var tvn0 = new TreeViewNode { Text = "T1", IconString = "" };
                 var tvn0_0 = new TreeViewNode { Text = "T1.1", IconString = "" };
@@ -105,7 +79,7 @@ namespace SampleRPi.Pages
                 var tvn2_0 = new TreeViewNode { Text = "T3.1", IconString = "" };
                 var tvn2_0_0 = new TreeViewNode { Text = "T3.1.1", IconString = "" };
 
-                dvTreeView1.Nodes.Add(tvn0);
+                tree.Nodes.Add(tvn0);
                 tvn0.Nodes.Add(tvn0_0);
                 tvn0_0.Nodes.Add(tvn0_0_0);
                 tvn0_0.Nodes.Add(tvn0_0_1);
@@ -118,42 +92,143 @@ namespace SampleRPi.Pages
                 tvn0_2.Nodes.Add(tvn0_2_0);
                 tvn0_2.Nodes.Add(tvn0_2_1);
                 tvn0_2.Nodes.Add(tvn0_2_2);
-                dvTreeView1.Nodes.Add(tvn1);
+                tree.Nodes.Add(tvn1);
                 tvn1.Nodes.Add(tvn1_0);
                 tvn1_0.Nodes.Add(tvn1_0_0);
                 tvn1_0.Nodes.Add(tvn1_0_1);
                 tvn1.Nodes.Add(tvn1_1);
                 tvn1_1.Nodes.Add(tvn1_1_0);
                 tvn1_1.Nodes.Add(tvn1_1_1);
-                dvTreeView1.Nodes.Add(tvn2);
+                tree.Nodes.Add(tvn2);
                 tvn2.Nodes.Add(tvn2_0);
                 tvn2_0.Nodes.Add(tvn2_0_0);
             }
-            dvTreeView1.SelectionMode = Devinno.Skia.Design.ItemSelectionMode.SINGLE;
-            dvTreeView1.FontName = "NanumGothic";
-            dvTreeView1.FontSize = 12F;
-            dvTreeView1.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
-            dvTreeView1.IconSize = 12F;
-            dvTreeView1.IconGap = 5F;
-            dvTreeView1.ItemHeight = 30;
-            dvTreeView1.Round = Devinno.Skia.Design.DvRoundType.All;
-            dvTreeView1.BackgroundDraw = true;
-            dvTreeView1.TouchMode = true;
-            dvTreeView1.Name = "dvTreeView1";
-            dvTreeView1.X = 241F;
-            dvTreeView1.Y = 60F;
-            dvTreeView1.Width = 245F;
-            dvTreeView1.Height = 410F;
-            dvTreeView1.Visible = true;
-            dvTreeView1.Enabled = true;
-            dvTreeView1.Fill = false;
-            dvTreeView1.Margin = new Padding(3, 3, 3, 3);
+            tree.SelectionMode = Devinno.Skia.Design.ItemSelectionMode.SINGLE;
+            tree.FontName = "NanumGothic";
+            tree.FontSize = 12F;
+            tree.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            tree.IconSize = 12F;
+            tree.IconGap = 5F;
+            tree.ItemHeight = 30;
+            tree.Round = Devinno.Skia.Design.DvRoundType.All;
+            tree.BackgroundDraw = true;
+            tree.TouchMode = true;
+            tree.Name = "tree";
+            tree.X = 252.79999F;
+            tree.Y = 10F;
+            tree.Width = 244.79999F;
+            tree.Height = 300F;
+            tree.Visible = true;
+            tree.Enabled = true;
+            tree.Fill = false;
+            tree.Margin = new Padding(3, 3, 3, 3);
+            #endregion
+            #region tool
+            tool.BoxColor = null;
+            tool.CategoryColor = null;
+            tool.ForeColor = null;
+            {
+                var tci = new ToolCategoryItem { Text = "Control", IconString = "" };
+                tci.Items.Add(new ToolItem { Text = "Button", IconString = "" });
+                tci.Items.Add(new ToolItem { Text = "Label", IconString = "" });
+                tci.Items.Add(new ToolItem { Text = "Input", IconString = "" });
+                tool.Categories.Add(tci);
+            }
+            {
+                var tci = new ToolCategoryItem { Text = "Container", IconString = "" };
+                tci.Items.Add(new ToolItem { Text = "Panel", IconString = "" });
+                tci.Items.Add(new ToolItem { Text = "GroupBox", IconString = "" });
+                tci.Items.Add(new ToolItem { Text = "BorderPanel", IconString = "" });
+                tool.Categories.Add(tci);
+            }
+            {
+                var tci = new ToolCategoryItem { Text = "Dialogs", IconString = "" };
+                tci.Items.Add(new ToolItem { Text = "MessageBox", IconString = "" });
+                tci.Items.Add(new ToolItem { Text = "InputBox", IconString = "" });
+                tci.Items.Add(new ToolItem { Text = "SelectorBox", IconString = "" });
+                tool.Categories.Add(tci);
+            }
+            tool.FontName = "NanumGothic";
+            tool.FontSize = 12F;
+            tool.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            tool.IconSize = 12F;
+            tool.IconGap = 5F;
+            tool.ItemHeight = 30;
+            tool.Round = Devinno.Skia.Design.DvRoundType.All;
+            tool.BackgroundDraw = true;
+            tool.TouchMode = true;
+            tool.Name = "tool";
+            tool.X = 507.59998F;
+            tool.Y = 10F;
+            tool.Width = 252.40002F;
+            tool.Height = 300F;
+            tool.Visible = true;
+            tool.Enabled = true;
+            tool.Fill = false;
+            tool.Margin = new Padding(3, 3, 3, 3);
+            #endregion
+            #region list
+            list.ForeColor = null;
+            list.BoxColor = null;
+            list.SelectedColor = null;
+            list.FontName = "NanumGothic";
+            list.FontSize = 12F;
+            list.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            list.IconSize = 12F;
+            list.IconGap = 5F;
+            list.ItemHeight = 30;
+            list.ItemAlignment = Devinno.Skia.Design.DvContentAlignment.MiddleCenter;
+            list.SelectionMode = Devinno.Skia.Design.ItemSelectionMode.SINGLE;
+            list.Round = Devinno.Skia.Design.DvRoundType.All;
+            list.BackgroundDraw = true;
+            list.TouchMode = true;
+            list.DrawScroll = true;
+            list.Name = "list";
+            list.X = 10F;
+            list.Y = 10F;
+            list.Width = 232.79999F;
+            list.Height = 300F;
+            list.Visible = true;
+            list.Enabled = true;
+            list.Fill = false;
+            list.Margin = new Padding(3, 3, 3, 3);
+            #endregion
+            #region grid
+            grid.ForeColor = null;
+            grid.BoxColor = null;
+            grid.ColumnColor = null;
+            grid.SelectedColor = null;
+            grid.SummaryColor = null;
+            grid.SelectorCellBackColor = null;
+            grid.RowHeight = 30F;
+            grid.ColumnHeight = 40F;
+            grid.FontName = "NanumGothic";
+            grid.FontSize = 12;
+            grid.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            grid.SelectionMode = Devinno.Skia.Controls.DvDataGridSelectionMode.SINGLE;
+            grid.Round = Devinno.Skia.Design.DvRoundType.All;
+            grid.ScrollMode = Devinno.Skia.Utils.ScrollMode.Vertical;
+            grid.VScrollPosition = 0;
+            grid.HScrollPosition = 0;
+            grid.TouchMode = true;
+            grid.Name = "grid";
+            grid.X = 10F;
+            grid.Y = 320F;
+            grid.Width = 750F;
+            grid.Height = 426F;
+            grid.Visible = true;
+            grid.Enabled = true;
+            grid.Fill = false;
+            grid.Margin = new Padding(3, 3, 3, 3);
             #endregion
             #endregion
 
             #region add
-            this.Controls.Add(dvToolBox1);
-            this.Controls.Add(dvTreeView1);
+            this.Controls.Add(scrpnl);
+            scrpnl.Controls.Add(tree);
+            scrpnl.Controls.Add(tool);
+            scrpnl.Controls.Add(list);
+            scrpnl.Controls.Add(grid);
             #endregion
         }
     }
