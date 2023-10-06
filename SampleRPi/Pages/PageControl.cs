@@ -1,4 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Devinno.Skia.Design;
 using Devinno.Skia.Utils;
 
@@ -11,6 +15,7 @@ namespace SampleRPi.Pages
         int n = 0;
         #endregion
 
+        #region Constructor
         public PageControl()
         {
             InitializeComponent();
@@ -24,10 +29,10 @@ namespace SampleRPi.Pages
             vlblInt.ButtonClick += (o, s) => n = 0;
             ani.MouseClick += (o, s) => ani.OnOff = !ani.OnOff;
             #endregion
-
-         
         }
+        #endregion
 
+        #region Override
         #region OnUpdate
         protected override void OnUpdate()
         {
@@ -46,6 +51,6 @@ namespace SampleRPi.Pages
             base.OnUpdate();
         }
         #endregion
-
+        #endregion
     }
 }

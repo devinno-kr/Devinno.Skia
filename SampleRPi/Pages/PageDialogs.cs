@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Devinno.Skia.Controls;
 using Devinno.Skia.Design;
 using Devinno.Skia.Dialogs;
@@ -9,10 +11,12 @@ namespace SampleRPi.Pages
 {
     public partial class PageDialogs : DvPage
     {
+        #region Constructor
         public PageDialogs()
         {
             InitializeComponent();
 
+            #region Event
             #region ls
             var ls = new List<DvTextIcon>();
             for (int i = 1; i <= 5; i++) ls.Add(new DvTextIcon { Text = $"Item{i}" });
@@ -174,14 +178,16 @@ namespace SampleRPi.Pages
                 });
             };
             #endregion
-        }
-
-        #region class : People
-        class People
-        {
-            public byte Age { get; set; }
-            public string Name { get; set; }
+            #endregion
         }
         #endregion
     }
+
+    #region class : People
+    class People
+    {
+        public byte Age { get; set; }
+        public string Name { get; set; }
+    }
+    #endregion
 }

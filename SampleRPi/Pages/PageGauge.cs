@@ -1,4 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Devinno.Skia.Design;
 using Devinno.Skia.Tools;
 
@@ -6,8 +10,11 @@ namespace SampleRPi.Pages
 {
     public partial class PageGauge : DvPage
     {
+        #region Member Variable
         DateTime prev = DateTime.Now;
+        #endregion
 
+        #region Constructor
         public PageGauge()
         {
             InitializeComponent();
@@ -15,7 +22,10 @@ namespace SampleRPi.Pages
             knob.ForeColor = SkiaSharp.SKColors.Aqua;
             knob.OnLampColor = SkiaSharp.SKColors.Orange;
         }
+        #endregion
 
+        #region Override
+        #region OnUpdate
         protected override void OnUpdate()
         {
             meter.Value = gauge.Value = knob.Value;
@@ -23,5 +33,7 @@ namespace SampleRPi.Pages
             
             base.OnUpdate();
         }
+        #endregion
+        #endregion
     }
 }

@@ -331,6 +331,8 @@ namespace Devinno.Skia.Controls
 
             Areas((rtContent, rtColumn, rtScrollContent, rtSummary, rtScrollV, rtScrollH, rtScrollR) =>
             {
+                if (vscroll.ScrollTotal > vscroll.ScrollView || hscroll.ScrollTotal > hscroll.ScrollView) Design?.Input(this);
+
                 #region Scroll / Touch
                 if (ScrollMode == ScrollMode.Vertical && rtScrollV.HasValue)
                 {

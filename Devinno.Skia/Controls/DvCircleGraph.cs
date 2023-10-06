@@ -33,6 +33,9 @@ namespace Devinno.Skia.Controls
         public float ValueFontSize { get; set; } = 15;
         public DvFontStyle FontStyle { get; set; } = DvFontStyle.Normal;
         #endregion
+        #region SelectedIndex
+        public int SelectedIndex { get => nSelectedIndex; set => nSelectedIndex = value; }
+        #endregion
         #endregion
 
         #region Member Variable

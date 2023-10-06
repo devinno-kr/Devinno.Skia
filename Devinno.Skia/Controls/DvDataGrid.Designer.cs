@@ -879,11 +879,7 @@ namespace Devinno.Skia.Controls
             if (CollisionTool.Check(Bounds, x, y))
             {
                 bDown = true;
-                if (Row.Grid != null)
-                {
-                    Row.Grid.Design?.Input(Row.Grid);
-                    Row.Grid.ScrollClear();
-                }
+                if (Row.Grid != null) Row.Grid.ScrollClear();
             }
             base.CellMouseDown(Bounds, x, y);
         }

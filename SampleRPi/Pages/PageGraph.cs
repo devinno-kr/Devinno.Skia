@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Devinno.Skia.Design;
 using Devinno.Skia.Tools;
 using SkiaSharp;
@@ -14,6 +16,7 @@ namespace SampleRPi.Pages
         Data2 v = new Data2();
         #endregion
 
+        #region Contructor
         public PageGraph()
         {
             InitializeComponent();
@@ -43,7 +46,9 @@ namespace SampleRPi.Pages
             };
             #endregion
         }
+        #endregion
 
+        #region Override
         #region OnShow
         protected override void OnShow()
         {
@@ -72,7 +77,9 @@ namespace SampleRPi.Pages
             base.OnUpdate();
         }
         #endregion
+        #endregion
 
+        #region Method
         #region GraphSet
         void GraphSet()
         {
@@ -96,6 +103,7 @@ namespace SampleRPi.Pages
             barV.SetDataSource<Data1>(ls1);
             barH.SetDataSource<Data1>(ls1);
             circle.SetDataSource<Data1>(ls1.GetRange(ls1.Count - 12, 12));
+            circle.SelectedIndex = 0;
         }
         #endregion
         #region TimeGraphSet
@@ -132,6 +140,7 @@ namespace SampleRPi.Pages
                 trend.SetData<Data2>(v);
             }
         }
+        #endregion
         #endregion
     }
 

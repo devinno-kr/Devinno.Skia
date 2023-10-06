@@ -1,4 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Devinno.Skia.Utils;
 using Devinno.Skia.Controls;
 using Devinno.Skia.Containers;
@@ -399,6 +403,7 @@ namespace SampleRPi.Pages
             vinCombo.SelectedIndex = -1;
             vinCombo.MaximumViewCount = 8;
             vinCombo.ItemHeight = 30;
+            vinCombo.SelectedColor = null;
             vinCombo.TitleIconString = "";
             vinCombo.TitleIconSize = 12F;
             vinCombo.TitleIconGap = 5F;

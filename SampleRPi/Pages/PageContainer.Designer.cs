@@ -1,4 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using Devinno.Skia.Utils;
 using Devinno.Skia.Controls;
 using Devinno.Skia.Containers;
@@ -325,7 +329,7 @@ namespace SampleRPi.Pages
             btnItem2.Clickable = true;
             btnItem2.Name = "btnItem2";
             btnItem2.X = 10F;
-            btnItem2.Y = 9.999985F;
+            btnItem2.Y = 10F;
             btnItem2.Width = 150F;
             btnItem2.Height = 30F;
             btnItem2.Visible = true;
@@ -353,7 +357,7 @@ namespace SampleRPi.Pages
             btnItem3.Clickable = true;
             btnItem3.Name = "btnItem3";
             btnItem3.X = 10F;
-            btnItem3.Y = 49.999985F;
+            btnItem3.Y = 50F;
             btnItem3.Width = 150F;
             btnItem3.Height = 30F;
             btnItem3.Visible = true;

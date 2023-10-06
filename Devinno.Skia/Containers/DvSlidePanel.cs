@@ -51,6 +51,7 @@ namespace Devinno.Skia.Containers
         private DvSubPage nowSelPage = null;
         private Animation ani = new Animation();
 
+        private SKPoint? vdownPoint = null;
         private SKPoint? downPoint = null;
         private SKPoint? movePoint = null;
         private DateTime downTime;
@@ -176,9 +177,10 @@ namespace Devinno.Skia.Containers
                     {
                         ani.Stop();
 
-                        if (Design?.InputControl == null)
+                        //if (Design?.InputControl == null)
+                        if (!(Design?.IsDrag ?? false))
                         {
-                            movePoint = downPoint = new SKPoint(x, y);
+                            vdownPoint = new SKPoint(x, y);
                             downTime = DateTime.Now;
 
                             Design?.Input(this);
@@ -279,8 +281,6 @@ namespace Devinno.Skia.Containers
                         }
                     }
                 }
-
-                movePoint = downPoint = null;
                 #endregion
                 #region Button
                 if (bPrevDown)
@@ -310,6 +310,7 @@ namespace Devinno.Skia.Containers
                     }
                 }
                 #endregion
+                movePoint = downPoint = vdownPoint = null;
             });
         }
         #endregion
@@ -319,6 +320,11 @@ namespace Devinno.Skia.Containers
             Areas((rtContent, rtPage, rtNavis, rtPrev, rtNext) =>
             {
                 base.OnMouseMove(x - rtPage.Left, y - rtPage.Top);
+
+                if(vdownPoint.HasValue && Math.Abs(vdownPoint.Value.X -x) > 50)
+                {
+                    downPoint = vdownPoint;
+                }
 
                 #region Slide
                 if (Animation)
