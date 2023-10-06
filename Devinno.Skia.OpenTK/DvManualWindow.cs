@@ -21,15 +21,13 @@ using Devinno.Skia.Tools;
 
 namespace Devinno.Skia.OpenTK
 {
-    public class DvViewWindow : GameWindow
+    public class DvManualWindow : ManualWindow
     {
         #region Properties
         public int Width => Size.X;
         public int Height => Size.Y;
 
         public DvDesign Design { get; private set; }
-
-        public bool Debug { get; set; } = false;
         #endregion
 
         #region Member Variable
@@ -40,7 +38,7 @@ namespace Devinno.Skia.OpenTK
         #endregion
 
         #region Constructor
-        public DvViewWindow(int width, int height)
+        public DvManualWindow(int width, int height)
             : base(GameWindowSettings.Default, new NativeWindowSettings()
             {
                 WindowBorder = WindowBorder.Hidden,
@@ -54,7 +52,7 @@ namespace Devinno.Skia.OpenTK
             Design = new DvDesign() { Width = width, Height = height };
         }
 
-        public DvViewWindow(WindowState state)
+        public DvManualWindow(WindowState state)
             : base(GameWindowSettings.Default, new NativeWindowSettings()
             {
                 WindowState = state,
@@ -67,7 +65,7 @@ namespace Devinno.Skia.OpenTK
             Design = new DvDesign() { Width = Bounds.Size.X, Height = Bounds.Size.Y };
         }
 
-        public DvViewWindow(int width, int height, double UpdateFreq)
+        public DvManualWindow(int width, int height, double UpdateFreq)
             : base(new GameWindowSettings()
             {
                 UpdateFrequency = UpdateFreq,
@@ -137,20 +135,6 @@ namespace Devinno.Skia.OpenTK
 
                         Design?.Draw(canvas);
 
-                        #region Debug
-                        if (Debug && Design != null)
-                        {
-                            using (var p = new SKPaint())
-                            {
-                                var sb = new StringBuilder();
-                                sb.Append("        ");
-                                sb.Append("UPDATE : ");
-                                sb.Append(UpdateTime.ToString("0.000"));
-                                sb.AppendLine("");
-                                Util.DrawText(canvas, sb.ToString(), "Gulim", 10, DvFontStyle.Normal, Util.FromArgb(90, Design.Theme.ForeColor), Util.FromRect(Width - 410, Height - 10, 400, 10), DvContentAlignment.MiddleRight);
-                            }
-                        }
-                        #endregion
                     }
                 }
 
@@ -175,6 +159,7 @@ namespace Devinno.Skia.OpenTK
         protected override void OnMouseDown(MouseButtonEventArgs e)
         {
             Design?.MouseDown(Convert.ToInt32(MousePosition.X), Convert.ToInt32(MousePosition.Y));
+             
             base.OnMouseDown(e);
         }
         #endregion
@@ -189,7 +174,7 @@ namespace Devinno.Skia.OpenTK
             }
 
             dcTime = DateTime.Now;
-
+           
             base.OnMouseUp(e);
         }
         #endregion
@@ -197,6 +182,7 @@ namespace Devinno.Skia.OpenTK
         protected override void OnMouseMove(MouseMoveEventArgs e)
         {
             Design?.MouseMove(Convert.ToInt32(MousePosition.X), Convert.ToInt32(MousePosition.Y));
+           
             base.OnMouseMove(e);
         }
         #endregion

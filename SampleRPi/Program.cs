@@ -13,7 +13,7 @@ namespace SampleRPi
 
         static void Main(string[] args)
         {
-            using (var view = new MainWindow())
+            using (var view = new MainWindow { })
             {
                 MainWindow = view;
                 view.VSync = VSyncMode.On;
