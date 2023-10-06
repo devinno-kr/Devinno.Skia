@@ -21,7 +21,7 @@ using Devinno.Skia.Tools;
 
 namespace Devinno.Skia.OpenTK
 {
-    public class DvManualWindow : ManualWindow
+    public class DvManualWindow : Base.ManualWindow
     {
         #region Properties
         public int Width => Size.X;

@@ -11,7 +11,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using Utils2 = OpenTK.Core.Utils;
 
-namespace Devinno.Skia.OpenTK
+namespace Devinno.Skia.OpenTK.Base
 {
     public class ManualWindow : NativeWindow
     {
@@ -52,8 +52,6 @@ namespace Devinno.Skia.OpenTK
 
             OnResize(new ResizeEventArgs(ClientSize));
 
-            Debug.Print("Entering main loop.");
-
             while (GLFW.WindowShouldClose(WindowPtr) == false)
             {
                 NewInputFrame();
@@ -86,30 +84,12 @@ namespace Devinno.Skia.OpenTK
             Context.SwapBuffers();
         }
 
-        public override void Close()
-        {
-            base.Close();
-        }
+        public override void Close() => base.Close();
+        protected virtual void OnLoad() => Load?.Invoke();
+        protected virtual void OnUnload() => Unload?.Invoke();
 
-        protected virtual void OnLoad()
-        {
-            Load?.Invoke();
-        }
-
-        protected virtual void OnUnload()
-        {
-            Unload?.Invoke();
-        }
-
-        protected virtual void OnUpdateFrame(FrameEventArgs args)
-        {
-            UpdateFrame?.Invoke(args);
-        }
-
-        protected virtual void OnRenderFrame(FrameEventArgs args)
-        {
-            RenderFrame?.Invoke(args);
-        }
+        protected virtual void OnUpdateFrame(FrameEventArgs args) => UpdateFrame?.Invoke(args);
+        protected virtual void OnRenderFrame(FrameEventArgs args) => RenderFrame?.Invoke(args);
     }
 }
 
