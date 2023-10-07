@@ -761,10 +761,22 @@ namespace Devinno.Skia.Controls
                 var ForeColor = this.ForeColor ?? thm.ForeColor;
                 var BackColor = ParentContainer.GetBackColor();
 
+                #region round
+                var Round = this.Round ?? DvRoundType.All;
+
+                var useT = TitleAreaSize.HasValue && TitleAreaSize.Value > 0;
+                var useB = ButtonAreaSize.HasValue && ButtonAreaSize.Value > 0 && Buttons.Count > 0;
+
+                var rnds = Util.Rounds(Direction, Round, (TitleAreaSize.HasValue ? 1 : 0) + 1 + (ButtonAreaSize.HasValue ? 1 : 0));
+
+                var rndValue = TitleAreaSize.HasValue ? rnds[1] : rnds[0];
+                #endregion
+
                 thm.DrawComboBox(canvas,
                      rtValue, rtIco, rtText,
                      InputColor, ForeColor, BackColor, SelectedColor, ListBackColor,
-                     FontName, FontSize, FontStyle, IconSize, IconAlignment, IconGap,
+                     FontName, FontSize, FontStyle, rndValue,
+                     IconSize, IconAlignment, IconGap,
                      Items, SelectedIndex,
                      bOpen, ddwnd.Reverse, true);
             });

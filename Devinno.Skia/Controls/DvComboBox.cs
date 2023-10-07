@@ -42,6 +42,9 @@ namespace Devinno.Skia.Controls
 
         //public DvContentAlignment ContentAlignment { get; set; } = DvContentAlignment.MiddleCenter;
         #endregion
+        #region Round
+        public DvRoundType? Round { get; set; } = null;
+        #endregion
         #endregion
 
         #region Member Variable
@@ -69,12 +72,15 @@ namespace Devinno.Skia.Controls
                     var BackColor = ParentContainer.GetBackColor();
                     var SelectedColor = this.SelectedColor ?? thm.PointColor;
                     var ListBackColor = thm.ListBackColor;
+
+                    var round = Round ?? DvRoundType.All;
                     #endregion
 
                     thm.DrawComboBox(Canvas, 
                         rtContent, rtIco, rtText,
                         BoxColor, ForeColor,BackColor, SelectedColor, ListBackColor,
-                        FontName, FontSize, FontStyle, IconSize, IconAlignment, IconGap,
+                        FontName, FontSize, FontStyle, round,
+                        IconSize, IconAlignment, IconGap,
                         Items, SelectedIndex,
                         bOpen, ddwnd.Reverse, true);
                 }

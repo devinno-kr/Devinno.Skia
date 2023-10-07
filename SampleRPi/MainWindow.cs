@@ -9,6 +9,7 @@ using Devinno.Skia.Containers;
 using Devinno.Skia.Design;
 using Devinno.Skia.OpenTK;
 using Devinno.Skia.Dialogs;
+using Devinno.Skia.Theme;
 
 namespace SampleRPi
 {
@@ -18,6 +19,7 @@ namespace SampleRPi
         {
             InitializeComponent();
 
+            //Design.SetTheme(new WhiteTheme());
             Design.SetPage(PageControl);
 
             nav.FoldingMenuClicked += (o, s) =>
