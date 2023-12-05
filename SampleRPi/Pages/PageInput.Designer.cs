@@ -847,6 +847,7 @@ namespace SampleRPi.Pages
             dvComboBox1.ButtonWidth = 40;
             dvComboBox1.MaximumViewCount = 8;
             dvComboBox1.ItemHeight = 30;
+            dvComboBox1.Round = null;
             dvComboBox1.Name = "dvComboBox1";
             dvComboBox1.X = 523F;
             dvComboBox1.Y = 213F;

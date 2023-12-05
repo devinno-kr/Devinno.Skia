@@ -80,6 +80,8 @@ namespace SampleRPi.Pages
                 }
             };
             #endregion
+
+            dg.SelectionMode = DvDataGridSelectionMode.MULTI;
         }
         #endregion
 

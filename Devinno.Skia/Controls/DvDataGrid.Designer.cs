@@ -292,7 +292,22 @@ namespace Devinno.Skia.Controls
             var rtSelector = new SKRect(0, Top, 0 + SPECIAL_CELL_WIDTH, Bottom);
             var rtSelectorBox = MathTool.MakeRectangle(Util.INT(rtSelector), new SKSize(SELECTOR_BOX_WIDTH, SELECTOR_BOX_WIDTH));
 
-            if (CollisionTool.Check(rtSelector, x, y)) Selected = !Selected;
+            if (Grid.SelectionMode == DvDataGridSelectionMode.SELECTOR)
+            {
+                if (CollisionTool.Check(rtSelector, x, y)) Selected = !Selected;
+            }
+            else if (Grid.SelectionMode == DvDataGridSelectionMode.SINGLE)
+            {
+                if (CollisionTool.Check(Bounds, x, y))
+                {
+                    foreach (var v in rows) v.Selected = false;
+                    Selected = true;
+                }
+            }
+            else if (Grid.SelectionMode == DvDataGridSelectionMode.MULTI)
+            {
+                if (CollisionTool.Check(Bounds, x, y)) Selected = !Selected;
+            }
 
             loop(lscol, rows, cols, hspos, (cell, col, rtv) =>
             {

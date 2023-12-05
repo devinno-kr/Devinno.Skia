@@ -234,6 +234,7 @@ namespace SampleRPi.Pages
             circle.NameFontSize = 18F;
             circle.ValueFontSize = 15F;
             circle.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            circle.SelectedIndex = -1;
             circle.Name = "circle";
             circle.X = 3F;
             circle.Y = 3F;

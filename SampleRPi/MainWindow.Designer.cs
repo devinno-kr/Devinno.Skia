@@ -24,6 +24,7 @@ namespace SampleRPi
         internal PageTable PageTable { get; set; }
         internal PageContainer PageContainer { get; set; }
         internal PageDialogs PageDialogs { get; set; }
+        internal PageTest PageTest { get; set; }
 
         internal CustomWindow CustomWindow { get; set; }
 
@@ -37,6 +38,7 @@ namespace SampleRPi
             PageTable = new PageTable { Name = nameof(PageTable) };
             PageContainer = new PageContainer { Name = nameof(PageContainer) };
             PageDialogs = new PageDialogs { Name = nameof(PageDialogs) };
+            PageTest = new PageTest { Name = nameof(PageTest) };
 
             Design.Pages.Add(PageControl);
             Design.Pages.Add(PageGauge);
@@ -45,6 +47,7 @@ namespace SampleRPi
             Design.Pages.Add(PageTable);
             Design.Pages.Add(PageContainer);
             Design.Pages.Add(PageDialogs);
+            Design.Pages.Add(PageTest);
 
             CustomWindow = new CustomWindow { Name = nameof(CustomWindow) };
 
@@ -74,6 +77,7 @@ namespace SampleRPi
             nav.PageNames.Add("PageTable");
             nav.PageNames.Add("PageContainer");
             nav.PageNames.Add("PageDialogs");
+            nav.PageNames.Add("PageTest");
             nav.FoldingMenus.Add(new DvTextIcon { IconString = "", IconSize = 12, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "Test1", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
             nav.FoldingMenus.Add(new DvTextIcon { IconString = "", IconSize = 12, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "Test2", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
             nav.FoldingMenus.Add(new DvTextIcon { IconString = "", IconSize = 12, IconAlignment = DvTextIconAlignment.LeftRight, IconGap = 5, Text = "Test3", FontName = "NanumGothic", FontSize = 12, FontStyle = DvFontStyle.Normal, TextPadding = new Padding(0, 0, 0, 0) });
