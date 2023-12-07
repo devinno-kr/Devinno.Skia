@@ -33,7 +33,19 @@ namespace Devinno.Skia.Controls
         #region Items
         public List<ComboBoxItem> Items { get; } = new List<ComboBoxItem>();
 
-        public int SelectedIndex { get; set; } = -1;
+        private int nSelIndex = -1;
+        public int SelectedIndex
+        {
+            get => nSelIndex; 
+            set
+            {
+                if(nSelIndex != value)
+                {
+                    nSelIndex = value;
+                    SelectedIndexChanged?.Invoke(this, null);
+                }
+            }
+        } 
         #endregion
         #region Shape
         public int ButtonWidth { get; set; } = 40;

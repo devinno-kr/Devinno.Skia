@@ -13,6 +13,11 @@ namespace SampleRPi.Pages
         public PageInput()
         {
             InitializeComponent();
+
+            dvComboBox1.SelectedIndexChanged += (o, s) =>
+            {
+
+            };
         }
         #endregion
     }
