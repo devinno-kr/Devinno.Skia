@@ -24,6 +24,7 @@ namespace SampleRPi.Pages
         private DvSlider sldH;
         private DvRangeSlider rsldH;
         private DvStepGauge step;
+        private DvLabel dvLabel1;
         #endregion
 
         public void InitializeComponent()
@@ -50,6 +51,7 @@ namespace SampleRPi.Pages
             sldH = new DvSlider { Name = nameof(sldH) };
             rsldH = new DvRangeSlider { Name = nameof(rsldH) };
             step = new DvStepGauge { Name = nameof(step) };
+            dvLabel1 = new DvLabel { Name = nameof(dvLabel1) };
             #endregion
 
             #region controls
@@ -366,6 +368,32 @@ namespace SampleRPi.Pages
             step.Fill = false;
             step.Margin = new Padding(3, 7, 3, 3);
             #endregion
+            #region dvLabel1
+            dvLabel1.IconString = "";
+            dvLabel1.IconSize = 12F;
+            dvLabel1.IconGap = 5F;
+            dvLabel1.IconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
+            dvLabel1.Text = "Flat Label";
+            dvLabel1.TextPadding = new Padding(0, 0, 0, 0);
+            dvLabel1.FontName = "NanumGothic";
+            dvLabel1.FontSize = 12F;
+            dvLabel1.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            dvLabel1.ContentAlignment = Devinno.Skia.Design.DvContentAlignment.MiddleCenter;
+            dvLabel1.BackgroundDraw = true;
+            dvLabel1.LabelColor = null;
+            dvLabel1.ForeColor = null;
+            dvLabel1.BorderColor = null;
+            dvLabel1.Round = null;
+            dvLabel1.Name = "dvLabel1";
+            dvLabel1.X = 130F;
+            dvLabel1.Y = 13F;
+            dvLabel1.Width = 111.000015F;
+            dvLabel1.Height = 34F;
+            dvLabel1.Visible = true;
+            dvLabel1.Enabled = true;
+            dvLabel1.Fill = false;
+            dvLabel1.Margin = new Padding(3, 3, 3, 3);
+            #endregion
             #endregion
 
             #region add
@@ -380,6 +408,7 @@ namespace SampleRPi.Pages
             tbl.Controls.Add(sldH, 3, 1, 6, 2);
             tbl.Controls.Add(rsldH, 3, 3, 6, 2);
             tbl.Controls.Add(step, 3, 5, 6, 1);
+            Controls.Add(dvLabel1);
             #endregion
         }
     }

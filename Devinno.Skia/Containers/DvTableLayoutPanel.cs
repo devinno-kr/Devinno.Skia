@@ -16,6 +16,7 @@ namespace Devinno.Skia.Containers
         public List<SizeInfo> Columns { get; private set; } = new List<SizeInfo>();
         public List<SizeInfo> Rows { get; private set; } = new List<SizeInfo>();
         public override DvTableLayoutControlCollection Controls => _lsControl;
+        public Dictionary<DvControl, DvTableIndex> Indexes => dicLayout; 
         #endregion
 
         #region Member Variable

@@ -38,6 +38,7 @@ namespace SampleForm.Pages
         private DvSwitch sw4;
         private DvWheelPicker wheel;
         private DvComboBox dvComboBox1;
+        private DvLabel dvLabel1;
         #endregion
 
         public void InitializeComponent()
@@ -78,6 +79,7 @@ namespace SampleForm.Pages
             sw4 = new DvSwitch { Name = nameof(sw4) };
             wheel = new DvWheelPicker { Name = nameof(wheel) };
             dvComboBox1 = new DvComboBox { Name = nameof(dvComboBox1) };
+            dvLabel1 = new DvLabel { Name = nameof(dvLabel1) };
             #endregion
 
             #region controls
@@ -847,6 +849,7 @@ namespace SampleForm.Pages
             dvComboBox1.ButtonWidth = 40;
             dvComboBox1.MaximumViewCount = 8;
             dvComboBox1.ItemHeight = 30;
+            dvComboBox1.Round = null;
             dvComboBox1.Name = "dvComboBox1";
             dvComboBox1.X = 523F;
             dvComboBox1.Y = 213F;
@@ -856,6 +859,32 @@ namespace SampleForm.Pages
             dvComboBox1.Enabled = true;
             dvComboBox1.Fill = false;
             dvComboBox1.Margin = new Padding(3, 3, 3, 3);
+            #endregion
+            #region dvLabel1
+            dvLabel1.IconString = "";
+            dvLabel1.IconSize = 12F;
+            dvLabel1.IconGap = 5F;
+            dvLabel1.IconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
+            dvLabel1.Text = "Flat Label";
+            dvLabel1.TextPadding = new Padding(0, 0, 0, 0);
+            dvLabel1.FontName = "NanumGothic";
+            dvLabel1.FontSize = 12F;
+            dvLabel1.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            dvLabel1.ContentAlignment = Devinno.Skia.Design.DvContentAlignment.MiddleCenter;
+            dvLabel1.BackgroundDraw = true;
+            dvLabel1.LabelColor = null;
+            dvLabel1.ForeColor = null;
+            dvLabel1.BorderColor = null;
+            dvLabel1.Round = null;
+            dvLabel1.Name = "dvLabel1";
+            dvLabel1.X = 130F;
+            dvLabel1.Y = 13F;
+            dvLabel1.Width = 111.000015F;
+            dvLabel1.Height = 34F;
+            dvLabel1.Visible = true;
+            dvLabel1.Enabled = true;
+            dvLabel1.Fill = false;
+            dvLabel1.Margin = new Padding(3, 3, 3, 3);
             #endregion
             #endregion
 
@@ -885,6 +914,7 @@ namespace SampleForm.Pages
             tbl.Controls.Add(sw4, 1, 9, 1, 1);
             tbl.Controls.Add(wheel, 3, 6, 1, 4);
             tbl.Controls.Add(dvComboBox1, 5, 6, 1, 1);
+            Controls.Add(dvLabel1);
             #endregion
         }
     }

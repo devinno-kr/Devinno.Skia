@@ -15,6 +15,7 @@ namespace Devinno.Skia.Containers
         #region Properties
         public List<DvGridRow> Rows { get; private set; } = new List<DvGridRow>();
         public override DvGridLayoutControlCollection Controls => _lsControl;
+        public Dictionary<DvControl, DvGridIndex> Indexes => dicLayout;
         #endregion
 
         #region Member Variable

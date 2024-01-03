@@ -15,10 +15,6 @@ namespace Devinno.Skia.Design
 {
     public class DvControl
     {
-        #region Const
-        const int LONG_CLICK_TIME = 200;
-        #endregion
-
         #region Properties
         #region Name
         public string Name { get; set; }
@@ -81,6 +77,9 @@ namespace Devinno.Skia.Design
         #region Design
         [JsonIgnore]
         public DvDesign Design => ParentContainer != null ? ParentContainer.Design : null;
+        #endregion
+        #region LongClickTime
+        public int LongClickTime { get; set; } = 200;
         #endregion
         #endregion
 
@@ -168,9 +167,9 @@ namespace Devinno.Skia.Design
 
                 ThreadPool.QueueUserWorkItem((o) =>
                 {
-                    while (bDown && (DateTime.Now - downTime).TotalMilliseconds < LONG_CLICK_TIME) Thread.Sleep(50);
+                    while (bDown && (DateTime.Now - downTime).TotalMilliseconds < LongClickTime) Thread.Sleep(50);
 
-                    if((DateTime.Now - downTime).TotalMilliseconds >= LONG_CLICK_TIME)
+                    if((DateTime.Now - downTime).TotalMilliseconds >= LongClickTime)
                     {
                         if (CollisionTool.Check(rt, x, y))
                         {
