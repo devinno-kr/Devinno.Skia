@@ -1,6 +1,7 @@
 ﻿using Devinno.Skia.Collections;
 using Devinno.Skia.Design;
 using Devinno.Skia.Utils;
+using Newtonsoft.Json;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
@@ -15,6 +16,8 @@ namespace Devinno.Skia.Containers
         #region Properties
         public List<DvGridRow> Rows { get; private set; } = new List<DvGridRow>();
         public override DvGridLayoutControlCollection Controls => _lsControl;
+
+        [JsonIgnore]
         public Dictionary<DvControl, DvGridIndex> Indexes => dicLayout;
         #endregion
 

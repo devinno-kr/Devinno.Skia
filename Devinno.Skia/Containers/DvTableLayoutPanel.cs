@@ -1,6 +1,7 @@
 ﻿using Devinno.Skia.Collections;
 using Devinno.Skia.Design;
 using Devinno.Skia.Utils;
+using Newtonsoft.Json;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,8 @@ namespace Devinno.Skia.Containers
         public List<SizeInfo> Columns { get; private set; } = new List<SizeInfo>();
         public List<SizeInfo> Rows { get; private set; } = new List<SizeInfo>();
         public override DvTableLayoutControlCollection Controls => _lsControl;
+
+        [JsonIgnore]
         public Dictionary<DvControl, DvTableIndex> Indexes => dicLayout; 
         #endregion
 

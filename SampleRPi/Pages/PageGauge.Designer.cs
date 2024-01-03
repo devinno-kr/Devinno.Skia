@@ -385,10 +385,10 @@ namespace SampleRPi.Pages
             dvLabel1.BorderColor = null;
             dvLabel1.Round = null;
             dvLabel1.Name = "dvLabel1";
-            dvLabel1.X = 130F;
-            dvLabel1.Y = 13F;
-            dvLabel1.Width = 111.000015F;
-            dvLabel1.Height = 34F;
+            dvLabel1.X = 3F;
+            dvLabel1.Y = 243F;
+            dvLabel1.Width = 79.8F;
+            dvLabel1.Height = 4F;
             dvLabel1.Visible = true;
             dvLabel1.Enabled = true;
             dvLabel1.Fill = false;
@@ -408,7 +408,7 @@ namespace SampleRPi.Pages
             tbl.Controls.Add(sldH, 3, 1, 6, 2);
             tbl.Controls.Add(rsldH, 3, 3, 6, 2);
             tbl.Controls.Add(step, 3, 5, 6, 1);
-            Controls.Add(dvLabel1);
+            tbl.Controls.Add(dvLabel1, 0, 6, 1, 1);
             #endregion
         }
     }

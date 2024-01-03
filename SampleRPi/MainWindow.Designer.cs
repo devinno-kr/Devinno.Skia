@@ -50,7 +50,7 @@ namespace SampleRPi
             Design.Pages.Add(PageTest);
 
             CustomWindow = new CustomWindow { Name = nameof(CustomWindow) };
-
+            
             #region new
             nav = new DvNavBar { Name = nameof(nav) };
             #endregion
