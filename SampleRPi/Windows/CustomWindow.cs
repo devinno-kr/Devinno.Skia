@@ -72,11 +72,11 @@ namespace SampleRPi.Windows
 
             show(() =>
             {
-                sw.OnOff = vc;
+                //sw.OnOff = vc;
 
             }, () =>
             {
-                if (bOK) result(sw.OnOff);
+                if (bOK) result(true);
                 else result(null);
             });
         }

@@ -16,7 +16,7 @@ namespace SampleRPi.Windows
         private DvGridLayoutPanel grid;
         private DvButton btnOK;
         private DvButton btnCancel;
-        private DvSwitch sw;
+        private DvComboBox dvComboBox1;
         #endregion
 
         public void InitializeComponent()
@@ -48,7 +48,7 @@ namespace SampleRPi.Windows
             grid = new DvGridLayoutPanel { Name = nameof(grid) };
             btnOK = new DvButton { Name = nameof(btnOK) };
             btnCancel = new DvButton { Name = nameof(btnCancel) };
-            sw = new DvSwitch { Name = nameof(sw) };
+            dvComboBox1 = new DvComboBox { Name = nameof(dvComboBox1) };
             #endregion
 
             #region controls
@@ -136,41 +136,34 @@ namespace SampleRPi.Windows
             btnCancel.Fill = false;
             btnCancel.Margin = new Padding(3, 3, 3, 3);
             #endregion
-            #region sw
-            sw.OnBoxColor = null;
-            sw.OffBoxColor = null;
-            sw.SwitchColor = null;
-            sw.ForeColor = null;
-            sw.OnIconString = "";
-            sw.OnIconSize = 12F;
-            sw.OnIconGap = 5F;
-            sw.OnIconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
-            sw.OnText = "ON";
-            sw.OnTextPadding = new Padding(0, 0, 0, 0);
-            sw.OnFontName = "NanumGothic";
-            sw.OnFontSize = 12F;
-            sw.OnFontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
-            sw.OffIconString = "";
-            sw.OffIconSize = 12F;
-            sw.OffIconGap = 5F;
-            sw.OffIconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
-            sw.OffText = "OFF";
-            sw.OffTextPadding = new Padding(0, 0, 0, 0);
-            sw.OffFontName = "NanumGothic";
-            sw.OffFontSize = 12F;
-            sw.OffFontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
-            sw.Corner = null;
-            sw.SwitchPadding = 5F;
-            sw.OnOff = false;
-            sw.Name = "sw";
-            sw.X = 3F;
-            sw.Y = 3F;
-            sw.Width = 224F;
-            sw.Height = 64F;
-            sw.Visible = true;
-            sw.Enabled = true;
-            sw.Fill = false;
-            sw.Margin = new Padding(3, 3, 3, 3);
+            #region dvComboBox1
+            dvComboBox1.BoxColor = null;
+            dvComboBox1.ForeColor = null;
+            dvComboBox1.SelectedColor = null;
+            dvComboBox1.FontName = "NanumGothic";
+            dvComboBox1.FontSize = 12F;
+            dvComboBox1.FontStyle = Devinno.Skia.Design.DvFontStyle.Normal;
+            dvComboBox1.IconSize = 12F;
+            dvComboBox1.IconGap = 5F;
+            dvComboBox1.IconAlignment = Devinno.Skia.Design.DvTextIconAlignment.LeftRight;
+            dvComboBox1.Items.Add(new ComboBoxItem { Text = "Test1",IconString = "" });
+            dvComboBox1.Items.Add(new ComboBoxItem { Text = "Test2",IconString = "" });
+            dvComboBox1.Items.Add(new ComboBoxItem { Text = "Test3",IconString = "" });
+            dvComboBox1.Items.Add(new ComboBoxItem { Text = "Test4",IconString = "" });
+            dvComboBox1.SelectedIndex = -1;
+            dvComboBox1.ButtonWidth = 40;
+            dvComboBox1.MaximumViewCount = 8;
+            dvComboBox1.ItemHeight = 30;
+            dvComboBox1.Round = null;
+            dvComboBox1.Name = "dvComboBox1";
+            dvComboBox1.X = 3F;
+            dvComboBox1.Y = 3F;
+            dvComboBox1.Width = 224F;
+            dvComboBox1.Height = 64F;
+            dvComboBox1.Visible = true;
+            dvComboBox1.Enabled = true;
+            dvComboBox1.Fill = false;
+            dvComboBox1.Margin = new Padding(3, 3, 3, 3);
             #endregion
             #endregion
 
@@ -178,7 +171,7 @@ namespace SampleRPi.Windows
             Controls.Add(grid);
             grid.Controls.Add(btnOK, 1, 2);
             grid.Controls.Add(btnCancel, 2, 2);
-            grid.Controls.Add(sw, 0, 0);
+            grid.Controls.Add(dvComboBox1, 0, 0);
             #endregion
         }
     }

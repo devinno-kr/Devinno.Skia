@@ -110,12 +110,25 @@ namespace Devinno.Skia.Controls
                 var thm = Design?.Theme;
                 if (ds != null && thm != null)
                 {
+                    float wx = 0F, wy = 0F;
+                    #region wx / wy
+                    var cp = this.ParentContainer;
+                    while (cp is DvControl) cp = ((DvControl)cp).ParentContainer;
+
+                    if(cp is DvWindow)
+                    {
+                        var w = cp as DvWindow;
+                        wx = w.X;
+                        wy = w.Y;
+                    }
+                    #endregion
+
                     if (Items.Count > 0)
                     {
                         var rt = rtContent;
 
-                        var sx = ScreenX;
-                        var sy = ScreenY - 1;
+                        var sx = ScreenX + wx;
+                        var sy = ScreenY - 1 + wy;
                         var sw = rt.Width;
                         var sh = rt.Height;
 

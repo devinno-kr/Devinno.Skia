@@ -31,6 +31,8 @@ namespace SampleRPi
         private DvNavBar nav;
         private void InitializeComponent()
         {
+            #region pages
+            #region page new
             PageControl = new PageControl { Name = nameof(PageControl) };
             PageGauge = new PageGauge { Name = nameof(PageGauge) };
             PageInput = new PageInput { Name = nameof(PageInput) };
@@ -39,7 +41,9 @@ namespace SampleRPi
             PageContainer = new PageContainer { Name = nameof(PageContainer) };
             PageDialogs = new PageDialogs { Name = nameof(PageDialogs) };
             PageTest = new PageTest { Name = nameof(PageTest) };
+            #endregion
 
+            #region page add
             Design.Pages.Add(PageControl);
             Design.Pages.Add(PageGauge);
             Design.Pages.Add(PageInput);
@@ -48,9 +52,90 @@ namespace SampleRPi
             Design.Pages.Add(PageContainer);
             Design.Pages.Add(PageDialogs);
             Design.Pages.Add(PageTest);
+            #endregion
 
+            #region page props
+            #region PageControl
+            PageControl.UseMasterPage = true;
+            PageControl.BackgroundDraw = false;
+            PageControl.BackColor = null;
+            PageControl.AnimationType = null;
+            PageControl.Text = "Control";
+            PageControl.IconString = "";
+            #endregion
+            #region PageGauge
+            PageGauge.UseMasterPage = true;
+            PageGauge.BackgroundDraw = false;
+            PageGauge.BackColor = null;
+            PageGauge.AnimationType = null;
+            PageGauge.Text = "Gauge";
+            PageGauge.IconString = "";
+            #endregion
+            #region PageInput
+            PageInput.UseMasterPage = true;
+            PageInput.BackgroundDraw = false;
+            PageInput.BackColor = null;
+            PageInput.AnimationType = null;
+            PageInput.Text = "Input";
+            PageInput.IconString = "";
+            #endregion
+            #region PageGraph
+            PageGraph.UseMasterPage = true;
+            PageGraph.BackgroundDraw = false;
+            PageGraph.BackColor = null;
+            PageGraph.AnimationType = null;
+            PageGraph.Text = "Graph";
+            PageGraph.IconString = "";
+            #endregion
+            #region PageTable
+            PageTable.UseMasterPage = true;
+            PageTable.BackgroundDraw = false;
+            PageTable.BackColor = null;
+            PageTable.AnimationType = null;
+            PageTable.Text = "Table";
+            PageTable.IconString = "";
+            #endregion
+            #region PageContainer
+            PageContainer.UseMasterPage = true;
+            PageContainer.BackgroundDraw = false;
+            PageContainer.BackColor = null;
+            PageContainer.AnimationType = null;
+            PageContainer.Text = "Container";
+            PageContainer.IconString = "";
+            #endregion
+            #region PageDialogs
+            PageDialogs.UseMasterPage = true;
+            PageDialogs.BackgroundDraw = false;
+            PageDialogs.BackColor = null;
+            PageDialogs.AnimationType = null;
+            PageDialogs.Text = "Dialogs";
+            PageDialogs.IconString = "";
+            #endregion
+            #region PageTest
+            PageTest.UseMasterPage = true;
+            PageTest.BackgroundDraw = false;
+            PageTest.BackColor = null;
+            PageTest.AnimationType = null;
+            PageTest.Text = "Test";
+            PageTest.IconString = "";
+            #endregion
+            #endregion
+            #endregion
+
+            #region windows
             CustomWindow = new CustomWindow { Name = nameof(CustomWindow) };
-            
+            #endregion
+
+            #region master
+            #region page
+            Design.MasterPage.UseMasterPage = false;
+            Design.MasterPage.BackgroundDraw = true;
+            Design.MasterPage.BackColor = null;
+            Design.MasterPage.AnimationType = null;
+            Design.MasterPage.Text = "";
+            Design.MasterPage.IconString = "";
+            #endregion
+
             #region new
             nav = new DvNavBar { Name = nameof(nav) };
             #endregion
@@ -100,6 +185,7 @@ namespace SampleRPi
 
             #region add
             Design.MasterPage.Controls.Add(nav);
+            #endregion
             #endregion
         }
     }
