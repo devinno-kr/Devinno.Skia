@@ -8,6 +8,7 @@ using Devinno.Skia.Controls;
 using Devinno.Skia.Design;
 using Devinno.Skia.Tools;
 using Devinno.Skia.Utils;
+using SkiaSharp;
 
 namespace SampleRPi.Pages
 {
@@ -33,7 +34,7 @@ namespace SampleRPi.Pages
             dg.Columns.Add(new DvDataGridLabelColumn(dg) { Name = "DeviceName", HeaderText = "장치명", Size = new SizeInfo(DvSizeMode.Percent, 15) });
             dg.Columns.Add(new DvDataGridLabelColumn(dg) { Name = "Time", HeaderText = "설치일", Size = new SizeInfo(DvSizeMode.Percent, 15), FormatString = "yyyy.MM.dd", UseSort = true });
             dg.Columns.Add(new DvDataGridLabelColumn(dg) { Name = "DOW", HeaderText = "요일", Size = new SizeInfo(DvSizeMode.Percent, 10), TextConverter = GetDOW });
-            dg.Columns.Add(new DvDataGridLabelColumn(dg) { Name = "Temperature", HeaderText = "온도", Size = new SizeInfo(DvSizeMode.Percent, 10), FormatString = "0.0 ℃" });
+            dg.Columns.Add(new DvDataGridEditNumberColumn<double>(dg) { Name = "Temperature", HeaderText = "온도", Size = new SizeInfo(DvSizeMode.Percent, 10), FormatString = "0.0 ℃" });
             dg.Columns.Add(new DvDataGridLampColumn(dg) { Name = "AlarmT", HeaderText = "온도 알람", Size = new SizeInfo(DvSizeMode.Percent, 10), OnLampColor = Util.FromArgb(180, 0, 0) });
             dg.Columns.Add(new DvDataGridLabelColumn(dg) { Name = "Humidity", HeaderText = "습도", Size = new SizeInfo(DvSizeMode.Percent, 10), FormatString = "0 '%'" });
             dg.Columns.Add(new DvDataGridLampColumn(dg) { Name = "AlarmH", HeaderText = "습도 알람", Size = new SizeInfo(DvSizeMode.Percent, 10), OnLampColor = Util.FromArgb(180, 0, 0) });
@@ -66,6 +67,8 @@ namespace SampleRPi.Pages
                 }
             })
             { IsBackground = true }.Start();
+
+            dg.BoxColor = SKColors.White;
             #endregion
             #endregion
 

@@ -19,7 +19,7 @@ namespace SampleRPi
         {
             InitializeComponent();
 
-            //Design.SetTheme(new WhiteTheme());
+            Design.SetTheme(new WhiteTheme());
             Design.SetPage(PageControl);
 
             nav.FoldingMenuClicked += (o, s) =>

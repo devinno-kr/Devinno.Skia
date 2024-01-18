@@ -3650,12 +3650,12 @@ namespace Devinno.Skia.Theme
             using (var p = new SKPaint() { IsAntialias = false, FilterQuality = DvDesign.FQ, IsDither = DvDesign.DI })
             {
                 p.IsStroke = false;
-                p.Color = Util.FromArgb(90, SKColors.Black);
+                p.Color = Util.FromArgb(25, SKColors.Black);
                 canvas.DrawRect(rt, p);
 
                 p.IsStroke = true;
                 p.StrokeWidth = 1F;
-                p.Color = Util.FromArgb(180, SKColors.Black);
+                p.Color = Util.FromArgb(50, SKColors.Black);
                 canvas.DrawRect(rt, p);
             }
         }
