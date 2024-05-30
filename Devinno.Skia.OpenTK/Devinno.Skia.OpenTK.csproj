@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageIcon>ico.png</PackageIcon>
     <PackageIconUrl />
     <Description>SKIA OpenTK Control</Description>
@@ -17,26 +17,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="..\ico.png" Link="ico.png" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="OpenTK" Version="4.8.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Devinno.Skia\Devinno.Skia.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="..\ico.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="..\LICENSE.md">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
   </ItemGroup>
 
 </Project>

@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <Description>SKIA Graphics Library</Description>
     <PackageProjectUrl></PackageProjectUrl>
     <PackageIcon>ico.png</PackageIcon>
@@ -15,33 +15,17 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\gb.png" />
-    <None Remove="Images\Saturation.png" />
-    <None Remove="Images\tmi.png" />
-    <None Remove="Images\tmi2.png" />
-    <Content Include="..\ico.png" Link="ico.png" />
-    <None Include="..\ico.png">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
-    <None Include="..\LICENSE.md">
-      <Pack>True</Pack>
-      <PackagePath></PackagePath>
-    </None>
+    <Content Remove="C:\Users\hy752\.nuget\packages\devinno\1.1.0.13\contentFiles\any\net5.0\ico.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="..\README.md" Link="README.md" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\gb.png" />
-    <Resource Include="Images\Saturation.png" />
-    <Resource Include="Images\tmi.png" />
-    <Resource Include="Images\tmi2.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Devinno" Version="1.1.0.13" />
-    <PackageReference Include="SkiaSharp" Version="2.88.6" />
-    <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.6" />
+    <PackageReference Include="Devinno" Version="1.1.0.16" />
+    <PackageReference Include="SkiaSharp" Version="2.88.8" />
+    <PackageReference Include="SkiaSharp.NativeAssets.Linux" Version="2.88.8" />
   </ItemGroup>
 
   <ItemGroup>
