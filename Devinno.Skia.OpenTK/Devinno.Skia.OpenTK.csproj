@@ -1,11 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <PackageIconUrl>https://raw.githubusercontent.com/devinno-kr/devinno-kr/master/ico.png</PackageIconUrl>
     <Description>SKIA OpenTK Control</Description>
-    <PackageLicenseFile></PackageLicenseFile>
+    <PackageIconUrl>https://raw.githubusercontent.com/devinno-kr/devinno-kr/master/ico.png</PackageIconUrl>
     <Authors>Devinno</Authors>
+    <PackageLicenseFile></PackageLicenseFile>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
     <Product>Devinno.Skia.OpenTK</Product>
     <Version>1.0.0.2</Version>
     <RepositoryUrl>https://github.com/devinno-kr/Devinno.Skia</RepositoryUrl>
@@ -13,7 +14,6 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <ItemGroup>
