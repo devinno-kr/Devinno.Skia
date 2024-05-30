@@ -2,14 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <PackageIcon>ico.png</PackageIcon>
-    <PackageIconUrl />
+    <PackageIconUrl>https://raw.githubusercontent.com/devinno-kr/devinno-kr/master/ico.png</PackageIconUrl>
     <Description>SKIA OpenTK Control</Description>
-    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageLicenseFile></PackageLicenseFile>
     <Authors>Devinno</Authors>
     <Product>Devinno.Skia.OpenTK</Product>
-    <Version>1.0.0.1</Version>
+    <Version>1.0.0.2</Version>
     <RepositoryUrl>https://github.com/devinno-kr/Devinno.Skia</RepositoryUrl>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="OpenTK" Version="4.8.1" />
+    <PackageReference Include="OpenTK" Version="4.8.2" />
   </ItemGroup>
 
   <ItemGroup>

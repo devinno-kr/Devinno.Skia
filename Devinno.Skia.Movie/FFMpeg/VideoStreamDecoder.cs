@@ -46,7 +46,7 @@ namespace Devinno.Skia.Movie
 
             for (var i = 0; i < this.formatContext->nb_streams; i++)
             {
-                if (this.formatContext->streams[i]->codec->codec_type == AVMediaType.AVMEDIA_TYPE_VIDEO)
+                if (this.formatContext->streams[i]->codecpar->codec_type == AVMediaType.AVMEDIA_TYPE_VIDEO)
                 {
                     stream = this.formatContext->streams[i];
                 }
@@ -55,7 +55,8 @@ namespace Devinno.Skia.Movie
             if (stream == null) throw new InvalidOperationException("Could not found video stream.");
 
             this.streamIndex = stream->index;
-            this.codecContext = stream->codec;
+            this.codecContext = ffmpeg.avcodec_alloc_context3(null);
+            int r = ffmpeg.avcodec_parameters_to_context(this.codecContext, stream->codecpar).ThrowExceptionIfError();
 
             AVCodecID codecID = this.codecContext->codec_id;
             AVCodec* codec = ffmpeg.avcodec_find_decoder(codecID);

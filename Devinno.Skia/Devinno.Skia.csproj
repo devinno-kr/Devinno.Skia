@@ -4,14 +4,12 @@
     <TargetFramework>net6.0</TargetFramework>
     <Description>SKIA Graphics Library</Description>
     <PackageProjectUrl></PackageProjectUrl>
-    <PackageIcon>ico.png</PackageIcon>
-    <PackageIconUrl />
+    <PackageIconUrl>https://raw.githubusercontent.com/devinno-kr/devinno-kr/master/ico.png</PackageIconUrl>
     <Authors>Devinno</Authors>
-    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
-    <Version>1.0.1.27</Version>
+    <PackageLicenseFile></PackageLicenseFile>
+    <Version>1.0.1.28</Version>
     <RepositoryUrl>https://github.com/devinno-kr/Devinno.Skia</RepositoryUrl>
-    <AssemblyVersion>1.0.1.27</AssemblyVersion>
-    <FileVersion>1.0.1.27</FileVersion>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
   </PropertyGroup>
 
   <ItemGroup>
