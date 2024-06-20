@@ -336,18 +336,18 @@ namespace Devinno.Skia.Controls
                 #region Scroll / Touch
                 if (ScrollMode == ScrollMode.Vertical && rtScrollV.HasValue)
                 {
-                    vscroll.MouseDown(x, y, rtScrollV.Value);
+                    vscroll.MouseDown(x, y, rtScrollV.Value, !TouchMode);
                     if (vscroll.TouchMode && CollisionTool.Check(rtScrollContent, x, y)) vscroll.TouchDown(x, y);
                 }
                 else if (ScrollMode == ScrollMode.Horizon && rtScrollH.HasValue)
                 {
-                    hscroll.MouseDown(x, y, rtScrollH.Value);
+                    hscroll.MouseDown(x, y, rtScrollH.Value, !TouchMode);
                     if (hscroll.TouchMode && CollisionTool.Check(rtScrollContent, x, y)) hscroll.TouchDown(x, y);
                 }
                 else if (ScrollMode == ScrollMode.Both && rtScrollV.HasValue && rtScrollH.HasValue)
                 {
-                    vscroll.MouseDown(x, y, rtScrollV.Value);
-                    hscroll.MouseDown(x, y, rtScrollH.Value);
+                    vscroll.MouseDown(x, y, rtScrollV.Value, !TouchMode);
+                    hscroll.MouseDown(x, y, rtScrollH.Value, !TouchMode);
                     if (hscroll.TouchMode && CollisionTool.Check(rtScrollContent, x, y)) hscroll.TouchDown(x, y);
                     if (vscroll.TouchMode && CollisionTool.Check(rtScrollContent, x, y)) vscroll.TouchDown(x, y);
                 }
@@ -423,18 +423,18 @@ namespace Devinno.Skia.Controls
                 #region Scroll / Touch
                 if (ScrollMode == ScrollMode.Vertical && rtScrollV.HasValue)
                 {
-                    vscroll.MouseUp(x, y);
+                    vscroll.MouseUp(x, y, !TouchMode);
                     if (vscroll.TouchMode) vscroll.TouchUp(x, y);
                 }
                 else if (ScrollMode == ScrollMode.Horizon && rtScrollH.HasValue)
                 {
-                    hscroll.MouseUp(x, y);
+                    hscroll.MouseUp(x, y, !TouchMode);
                     if (hscroll.TouchMode) hscroll.TouchUp(x, y);
                 }
                 else if (ScrollMode == ScrollMode.Both && rtScrollV.HasValue && rtScrollH.HasValue)
                 {
-                    vscroll.MouseUp(x, y);
-                    hscroll.MouseUp(x, y);
+                    vscroll.MouseUp(x, y, !TouchMode);
+                    hscroll.MouseUp(x, y, !TouchMode);
                     if (hscroll.TouchMode) hscroll.TouchUp(x, y);
                     if (vscroll.TouchMode) vscroll.TouchUp(x, y);
                 }

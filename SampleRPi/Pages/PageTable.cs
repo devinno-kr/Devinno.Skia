@@ -67,8 +67,6 @@ namespace SampleRPi.Pages
                 }
             })
             { IsBackground = true }.Start();
-
-            dg.BoxColor = SKColors.White;
             #endregion
             #endregion
 
@@ -85,6 +83,8 @@ namespace SampleRPi.Pages
             #endregion
 
             dg.SelectionMode = DvDataGridSelectionMode.MULTI;
+            dg.TouchMode = true;
+            Scroll.SC_WH = 30;
         }
         #endregion
 

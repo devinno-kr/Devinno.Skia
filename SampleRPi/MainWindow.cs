@@ -36,6 +36,8 @@ namespace SampleRPi
             };
 
             Design.Animation = true;
+
+            
         }
     }
 }

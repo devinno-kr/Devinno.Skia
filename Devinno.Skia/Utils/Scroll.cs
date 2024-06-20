@@ -1,5 +1,6 @@
 ﻿using Devinno.Skia.Design;
 using Devinno.Skia.Tools;
+using Devinno.Tools;
 using SkiaSharp;
 using System;
 using System.Collections.Generic;
@@ -8,6 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml;
+using CollisionTool = Devinno.Skia.Tools.CollisionTool;
+using MathTool = Devinno.Skia.Tools.MathTool;
 
 namespace Devinno.Skia.Utils
 {
@@ -144,6 +148,8 @@ namespace Devinno.Skia.Utils
 
         bool IsTouchStart;
         Animation ani = new Animation();
+
+        bool barDown = false;
         #endregion
 
         #region Event
@@ -210,15 +216,43 @@ namespace Devinno.Skia.Utils
         }
         #endregion
         #region MouseDown
-        public void MouseDown(float x, float y, SKRect rtScroll)
+        public void MouseDown(float x, float y, SKRect rtScroll, bool barClickMode = false)
         {
             var rtcur = GetScrollCursorRect(rtScroll);
             if (!IsTouchStart && rtcur.HasValue && CollisionTool.Check(rtcur.Value, x, y)) scDown = new SCDI() { DownPoint = new SKPoint(x, y), CursorBounds = rtcur.Value };
+
+            if (barClickMode && rtcur.HasValue && !CollisionTool.Check(rtcur.Value, new SKPoint(x, y)) )
+            {
+                barDown = true;
+
+                var nsc = (SC_WH / 4F);
+
+                if (Direction == ScrollDirection.Vertical && x >= rtScroll.Left && x <= rtScroll.Right)
+                {
+                    var h = (MathTool.Map(ScrollView, 0, ScrollTotal, 0, rtScroll.Height));
+                    h = Math.Max(h, 30);
+                    var v = y - (h / 2);
+                    ScrollPosition = (MathTool.Map(MathTool.Constrain(v, rtScroll.Top, rtScroll.Bottom - h), rtScroll.Top + nsc, rtScroll.Bottom - h - nsc, 0, ScrollTotal - ScrollView));
+                }
+                else if (Direction == ScrollDirection.Horizon && y >= rtScroll.Top && x <= rtScroll.Bottom)
+                {
+                    var w = (MathTool.Map(ScrollView, 0, ScrollTotal, 0, rtScroll.Width));
+                    w = Math.Max(w, 30);
+                    var v = x;
+                    ScrollPosition = (MathTool.Map(MathTool.Constrain(v, rtScroll.Left, rtScroll.Right - w), rtScroll.Left + nsc, rtScroll.Right - w - nsc, 0, ScrollTotal - ScrollView));
+                }
+            }
+
         }
         #endregion
         #region MouseUp
-        public void MouseUp(float x, float y)
+        public void MouseUp(float x, float y, bool barClickMode = false)
         {
+            if (barClickMode)
+            {
+                barDown = false;
+            }
+
             if (scDown != null) scDown = null;
         }
         #endregion
