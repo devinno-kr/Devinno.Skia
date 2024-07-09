@@ -1533,34 +1533,39 @@ namespace Devinno.Skia.Theme
             var rt = new SKRoundRect(rtContent, Corner);
 
             var sp = canvas.Save();
-            canvas.ClipRoundRect(rt);
-            DrawBox(canvas, rtContent, boxColor, borderColor, DvRoundType.All, BS_C_BACK, Corner);
+            //canvas.ClipRoundRect(rt);
+            //DrawBox(canvas, rtContent, boxColor, borderColor, DvRoundType.All, BS_C_BACK, Corner);
             if (image != null)
             {
                 #region Image
-                var cx = rtContent.MidX;
-                var cy = rtContent.MidY;
-                switch (scaleMode)
+                using (var p = new SKPaint { IsAntialias = true, FilterQuality = SKFilterQuality.High })
                 {
-                    case PictureScaleMode.Real:
-                        canvas.DrawBitmap(image, Util.FromRect(rtContent.Left, rtContent.Top, image.Width, image.Height));
-                        break;
-                    case PictureScaleMode.CenterImage:
-                        canvas.DrawBitmap(image, Util.FromRect(cx - (image.Width / 2), cy - (image.Height / 2), image.Width, image.Height));
-                        break;
-                    case PictureScaleMode.Strech:
-                        canvas.DrawBitmap(image, rtContent);
-                        break;
-                    case PictureScaleMode.Zoom:
-                        double imgratio = 1D;
-                        if ((image.Width - rtContent.Width) > (image.Height - rtContent.Height)) imgratio = (double)rtContent.Width / (double)image.Width;
-                        else imgratio = (double)rtContent.Height / (double)image.Height;
+                    var cx = rtContent.MidX;
+                    var cy = rtContent.MidY;
+                    switch (scaleMode)
+                    {
+                        case PictureScaleMode.Real:
+                            canvas.DrawBitmap(image, Util.FromRect(rtContent.Left, rtContent.Top, image.Width, image.Height), p);
+                            break;
+                        case PictureScaleMode.CenterImage:
+                            canvas.DrawBitmap(image, Util.FromRect(cx - (image.Width / 2), cy - (image.Height / 2), image.Width, image.Height), p);
+                            break;
+                        case PictureScaleMode.Strech:
+                            canvas.DrawBitmap(image, rtContent, p);
+                            break;
+                        case PictureScaleMode.Zoom:
+                            double imgratio = 1D;
+                            if ((image.Width - rtContent.Width) > (image.Height - rtContent.Height)) imgratio = (double)rtContent.Width / (double)image.Width;
+                            else imgratio = (double)rtContent.Height / (double)image.Height;
 
-                        int szw = Convert.ToInt32((double)image.Width * imgratio);
-                        int szh = Convert.ToInt32((double)image.Height * imgratio);
+                            int szw = Convert.ToInt32((double)image.Width * imgratio);
+                            int szh = Convert.ToInt32((double)image.Height * imgratio);
 
-                        canvas.DrawBitmap(image, Util.FromRect(rtContent.Left + (rtContent.Width / 2) - (szw / 2), rtContent.Top + (rtContent.Height / 2) - (szh / 2), szw, szh));
-                        break;
+                            //image center
+                            canvas.DrawBitmap(image, Util.FromRect(rtContent.Left + (rtContent.Width / 2) - (szw / 2), rtContent.Top + (rtContent.Height / 2) - (szh / 2), szw, szh), p);
+                            //canvas.DrawBitmap(image, Util.FromRect(rtContent.Left , rtContent.Top, szw, szh));
+                            break;
+                    }
                 }
                 #endregion
             }
@@ -1571,7 +1576,7 @@ namespace Devinno.Skia.Theme
             }
             canvas.RestoreToCount(sp);
 
-            DrawBox(canvas, rtContent, boxColor, borderColor, DvRoundType.All, BoxStyle.Border, Corner);
+            //DrawBox(canvas, rtContent, boxColor, borderColor, DvRoundType.All, BoxStyle.Border, Corner);
         }
         #endregion
         #region DrawSelector
