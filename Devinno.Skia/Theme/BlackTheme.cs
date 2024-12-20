@@ -1571,11 +1571,11 @@ namespace Devinno.Skia.Theme
             else
             {
                 var c = boxColor.BrightnessTransmit(1F);
-                //Util.DrawText(canvas, "No Image", "NanumGothic", 12, DvFontStyle.Normal, c, rtContent);
+                Util.DrawText(canvas, "No Image", "NanumGothic", 12, DvFontStyle.Normal, c, rtContent);
             }
             canvas.RestoreToCount(sp);
 
-            DrawBox(canvas, rtContent, boxColor, borderColor, DvRoundType.All, BoxStyle.Border, Corner);
+            //DrawBox(canvas, rtContent, boxColor, borderColor, DvRoundType.All, BoxStyle.Border, Corner);
         }
         #endregion
         #region DrawSelector

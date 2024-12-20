@@ -29,6 +29,8 @@ namespace SampleRPi.Pages
             vlblInt.ButtonClick += (o, s) => n = 0;
             ani.MouseClick += (o, s) => ani.OnOff = !ani.OnOff;
             #endregion
+
+            pic.ScaleMode = PictureScaleMode.Strech;
         }
         #endregion
 
