@@ -1526,15 +1526,19 @@ namespace Devinno.Skia.Theme
         #endregion
         #region DrawPictureBox
         public override void DrawPictureBox(SKCanvas canvas,
-            SKRect rtContent, SKColor boxColor, SKColor backColor, PictureScaleMode scaleMode, SKBitmap image)
+            SKRect rtContent, SKColor boxColor, SKColor backColor, PictureScaleMode scaleMode, SKBitmap image, bool RoundCorner)
         {
             var borderColor = GetBorderColor(boxColor, backColor);
 
             var rt = new SKRoundRect(rtContent, Corner);
 
             var sp = canvas.Save();
-            canvas.ClipRoundRect(rt);
-            DrawBox(canvas, rtContent, boxColor, borderColor, DvRoundType.All, BS_C_BACK, Corner);
+            if(RoundCorner)
+                canvas.ClipRoundRect(rt);
+            else
+                canvas.ClipRect(rtContent);
+
+            //DrawBox(canvas, rtContent, boxColor, borderColor, DvRoundType.All, BS_C_BACK, Corner);
             if (image != null)
             {
                 #region Image
@@ -1567,7 +1571,7 @@ namespace Devinno.Skia.Theme
             else
             {
                 var c = boxColor.BrightnessTransmit(1F);
-                Util.DrawText(canvas, "No Image", "NanumGothic", 12, DvFontStyle.Normal, c, rtContent);
+                //Util.DrawText(canvas, "No Image", "NanumGothic", 12, DvFontStyle.Normal, c, rtContent);
             }
             canvas.RestoreToCount(sp);
 

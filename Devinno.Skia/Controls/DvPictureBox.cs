@@ -13,8 +13,9 @@ namespace Devinno.Skia.Controls
     {
         #region Properties
         public SKBitmap Image { get; set; }
-        public PictureScaleMode ScaleMode { get; set; } = PictureScaleMode.Strech;
+        public PictureScaleMode ScaleMode { get; set; } = PictureScaleMode.Real;
         public SKColor? BoxColor { get; set; } = null;
+        public bool RoundCorner { get; set; } = false;
         #endregion
 
         #region Override
@@ -30,7 +31,7 @@ namespace Devinno.Skia.Controls
                     var BoxColor = this.BoxColor ?? thm.ControlBackColor;
                     var BackColor = ParentContainer.GetBackColor();
 
-                    thm.DrawPictureBox(Canvas, rtContent, BoxColor, BackColor, ScaleMode, Image);
+                    thm.DrawPictureBox(Canvas, rtContent, BoxColor, BackColor, ScaleMode, Image, RoundCorner);
                 }
             });
             base.OnDraw(Canvas);

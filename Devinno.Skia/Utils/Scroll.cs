@@ -26,10 +26,12 @@ namespace Devinno.Skia.Utils
         #endregion
 
         #region Static
+        /*
         private static DvControl own = null;
         internal static void Set(DvControl c) { if (own == null) own = c; }
         internal static void Free(DvControl c) { if (own == c) own = null; }
         internal static bool Check(DvControl c) => own == c || own == null;
+        */
         #endregion
 
         #region Properties

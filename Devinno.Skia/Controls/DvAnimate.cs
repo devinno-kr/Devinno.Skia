@@ -1,4 +1,5 @@
 ﻿using Devinno.Skia.Design;
+using Devinno.Skia.Tools;
 using Devinno.Skia.Utils;
 using SkiaSharp;
 using System;
@@ -95,40 +96,23 @@ namespace Devinno.Skia.Controls
         #region LoadGIF
         public void LoadGIF(string ImagePath)
         {
-            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+            if (ImagePath != null && File.Exists(ImagePath) && !IsStart)
             {
-                if (ImagePath != null && File.Exists(ImagePath) && !IsStart)
+                IsLoaded = false;
+
+                try
                 {
-                    //ThreadPool.QueueUserWorkItem((o) =>
-                    //{
-                    IsLoaded = false;
-                    using (var bmp = new Bitmap(ImagePath))
-                    {
-                        FrameCount = bmp.GetFrameCount(System.Drawing.Imaging.FrameDimension.Time);
-                        CurrentIndex = 0;
-
-                        bmps.Clear();
-                        for (int i = 0; i < FrameCount; i++)
-                        {
-                            bmp.SelectActiveFrame(FrameDimension.Time, i);
-
-                            using (var ms = new MemoryStream())
-                            {
-                                bmp.Save(ms, System.Drawing.Imaging.ImageFormat.Png);
-                                ms.Seek(0, SeekOrigin.Begin);
-
-                                bmps.Add(SKBitmap.Decode(ms));
-                            }
-                        }
-
-                        CurrentIndex = 0;
-                        IsStart = false;
-                    }
-                    IsLoaded = true;
-                    //});
+                    var ls = ImageExtractor.ProcessImageFromMemory(File.ReadAllBytes(ImagePath));
+                    FrameCount = ls.Count;
+                    bmps.Clear();
+                    bmps.AddRange(ls);
+                    CurrentIndex = 0;
+                    IsStart = false;
                 }
+                catch { }
+
+                IsLoaded = true;
             }
-            else throw new Exception("Not Support");
         }
         #endregion
         #region Load

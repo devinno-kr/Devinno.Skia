@@ -208,7 +208,7 @@ namespace Devinno.Skia.Theme
         #endregion
         #region DrawPictureBox
         public abstract void DrawPictureBox(SKCanvas canvas,
-            SKRect rtContent, SKColor boxColor, SKColor backColor, PictureScaleMode scaleMode, SKBitmap image);
+            SKRect rtContent, SKColor boxColor, SKColor backColor, PictureScaleMode scaleMode, SKBitmap image, bool RoundCorner);
         #endregion
         #region DrawSelector
         public abstract void DrawSelector(SKCanvas canvas,
