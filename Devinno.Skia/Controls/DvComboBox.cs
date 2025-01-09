@@ -22,6 +22,8 @@ namespace Devinno.Skia.Controls
         public SKColor? SelectedColor { get; set; } = null;
         #endregion
         #region Font
+        public int ItemFontSize { get; set; } = 12;
+
         public string FontName { get; set; } = "NanumGothic";
         public float FontSize { get; set; } = 12;
         public DvFontStyle FontStyle { get; set; } = DvFontStyle.Normal;
@@ -139,7 +141,7 @@ namespace Devinno.Skia.Controls
 
                         if (rte.Bottom > Design.Height)  rte = Util.FromRect(sx, sy + sh - vh, sw, vh);
                         
-                        ddwnd.ShowDropDown(rts, rte, Items, ItemHeight, SelectedIndex, 
+                        ddwnd.ShowDropDown(rts, rte, Items, ItemHeight, ItemFontSize, SelectedIndex, 
                                             BoxColor ?? thm.ButtonColor, SelectedColor ?? thm.PointColor, 
                                             rte.Bottom > Design.Height,
                                             (result) => SelectedIndex = result);
@@ -177,6 +179,7 @@ namespace Devinno.Skia.Controls
         DvListBox list;
         Action<int> result;
         int itemHeight;
+        float itemFontSize;
         #endregion
 
         #region Constructor
@@ -205,11 +208,12 @@ namespace Devinno.Skia.Controls
         #region Method
         #region ShowDropDown
         public void ShowDropDown(SKRect sbounds, SKRect ebounds,
-            List<ComboBoxItem> items, int itemHeight, int selectedIndex, SKColor boxColor, SKColor selectedColor, bool reverse,
+            List<ComboBoxItem> items, int itemHeight, float itemFontSize, int selectedIndex, SKColor boxColor, SKColor selectedColor, bool reverse,
             Action<int> result)
         {
             this.result = result;
             this.itemHeight = itemHeight;
+            this.itemFontSize = itemFontSize;
             this.Reverse = reverse;
 
             list.Items.Clear();
@@ -221,6 +225,7 @@ namespace Devinno.Skia.Controls
             list.Round = reverse ? DvRoundType.T : DvRoundType.B;
             list.BoxColor = boxColor;
             list.SelectedColor = selectedColor;
+            list.FontSize = itemFontSize;
             list.ScrollPosition = selectedIndex * itemHeight;
 
             this.Show(sbounds, ebounds);

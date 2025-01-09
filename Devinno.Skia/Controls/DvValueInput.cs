@@ -810,7 +810,7 @@ namespace Devinno.Skia.Controls
 
                             if (rte.Bottom > Design.Height) rte = Util.FromRect(sx, sy + sh - vh, sw, vh);
 
-                            ddwnd.ShowDropDown(rts, rte, Items, ItemHeight, SelectedIndex,
+                            ddwnd.ShowDropDown(rts, rte, Items, ItemHeight, FontSize, SelectedIndex,
                                 InputColor ?? thm.InputColor, SelectedColor ?? thm.PointColor, rte.Bottom > Design.Height,
                                 (result) => SelectedIndex = result);
 

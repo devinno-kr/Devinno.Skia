@@ -18,6 +18,10 @@ namespace SampleRPi.Pages
             {
 
             };
+
+            dvComboBox1.ItemFontSize = 10;
+            dvComboBox1.FontSize = 10;
+
         }
         #endregion
     }

@@ -84,7 +84,7 @@ namespace SampleRPi.Pages
 
             dg.SelectionMode = DvDataGridSelectionMode.MULTI;
             dg.TouchMode = true;
-            Scroll.SC_WH = 30;
+            //Scroll.SC_WH = 30;
         }
         #endregion
 
